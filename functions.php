@@ -8,7 +8,7 @@ function create_menu_widget() {
         'id' => 'widget',
         'before_title' => '<h3 class="widget-title">',
         'after_title' => '</h3>',
-        'before_widget' => '<li id="%1$s" class="widget-container %2$s">',
+        'before_widget' => '<li id="%1$s" class="widget-container %2$s">', 
         'after_widget' => "</li>"
     ]);
 }
@@ -16,7 +16,7 @@ function create_menu_widget() {
 function create_post_type() {
     $labels = array(
         'name' => ('Custom Post'),        
-        'rewrite' => array('slug' => 'custom-posts') 
+        'rewrite' => array('slug' => 'custom-posts')
     );
     $args = array(
         'labels' => $labels,
@@ -27,7 +27,6 @@ function create_post_type() {
 
 function add_featured_image_support() {
     add_theme_support('post-thumbnails');
-    add_image_size('small-thumb', 95, 150, false);
 }
 
 add_action('after_setup_theme', 'add_featured_image_support');
