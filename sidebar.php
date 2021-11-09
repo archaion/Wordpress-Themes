@@ -1,5 +1,7 @@
 <aside id="sidebar">
     <ul>
+        <?php //dynamic_sidebar('Custom Menu'); 
+        ?>
         <h3 class="widget-title">Featured</h3>
         <li class="widget-container"> Art Stuff </li>
         <li class="widget-container"> Random Book </li>
