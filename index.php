@@ -18,28 +18,16 @@
                 $string = $file->guid;
             }
             $output = sprintf($string); //PATH TO UPLOADED ATTACHMENT
-            if (get_the_ID() % 2 == 0) :
         ?>
-                <article <?php post_class() ?> style="transform: rotate(-0.7deg);" id="post-<?php the_ID(); ?>">
-                    <div class="image-link" style="transform: rotate(0.7deg);">
-                        <a href="<?php echo $output; ?>" target="_blank"><?php the_post_thumbnail(); ?></a>
-                    </div>
-                    <div class="post-text" style="transform: rotate(0.7deg);">
-                        <h1><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></h1>
-                        <?php the_content('Read More..'); ?>
-                    </div>
-                </article>
-            <?php else : ?> <!-- ROTATE EVEN- AND ODD-NUMBERED POSTS -->
-                <article <?php post_class() ?> style="transform: rotate(0.7deg);" id="post-<?php the_ID(); ?>">
-                    <div class="image-link" style="transform: rotate(-0.7deg);">
-                        <a href="<?php echo $output; ?>" target="_blank"><?php the_post_thumbnail(); ?></a>
-                    </div>
-                    <div class="post-text" style="transform: rotate(-0.7deg);">
-                        <h1><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></h1>
-                        <?php the_content('Read More..'); ?>
-                    </div>
-                </article>
-            <?php endif; ?>
+            <article <?php post_class() ?> id="post-<?php the_ID(); ?>">
+                <div class="image-link">
+                    <a href="<?php echo $output; ?>" target="_blank"><?php the_post_thumbnail(); ?></a>
+                </div>
+                <div class="post-text">
+                    <h1><a href="<?php the_permalink() ?>"><?php the_title(); ?></a></h1>
+                    <?php the_content('Read More..'); ?>
+                </div>
+            </article>
         <?php endwhile; ?>
         <?php next_posts_link('&laquo; Previous Entries'); ?>
         <?php previous_posts_link('Next Entries &raquo;'); ?>

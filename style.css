@@ -4,7 +4,6 @@ Description: A Basic Theme for WordPress
 Author: sunvvheel
 Author URI: http://github.com/sunvvheel
 */
-
 @font-face {
   font-family: "title";
   src: url("./Showboat.ttf") format("truetype");
@@ -145,8 +144,6 @@ body {
   position: relative;
   top: -2.5vw;
   border-bottom: 2px solid black;
-  /*border-radius: 99px;
-  box-shadow: 0 0 4vw 1.6vw rgb(255, 250, 224);*/
 }
 .subtitle {
   position: relative;
@@ -303,6 +300,12 @@ body {
   border-right: 0.5px solid rgb(226, 211, 155);
   border-radius: 3px;
 }
+#main .hentry:nth-child(even) {
+  transform: rotate(0.7deg);
+}
+#main .hentry:nth-child(odd) {
+  transform: rotate(-0.7deg);
+}
 .post a {
   color: rgb(37, 37, 32);
   text-shadow: 0 0 0.13vw rgb(210, 152, 0);
@@ -332,6 +335,12 @@ body {
   padding: 20px 20px 0 0;
   vertical-align: top;
 }
+#main .hentry:nth-child(even) .image-link {
+  transform: rotate(-0.7deg);
+}
+#main .hentry:nth-child(odd) .image-link {
+  transform: rotate(0.7deg);
+}
 .post .wp-post-image {
   height: 100%;
   width: 100%;
@@ -342,6 +351,14 @@ body {
   width: 72%;
   vertical-align: top;
   font-size: 12pt;
+}
+#main .hentry:nth-child(even) .post-text {
+  transform: rotate(-0.7deg);
+  margin: -0.5vw 0 0 -0.2vw;
+}
+#main .hentry:nth-child(odd) .post-text {
+  transform: rotate(0.7deg);
+  margin: 0.3vw 0 0 0vw;
 }
 #corner {
   position: relative;
@@ -373,8 +390,6 @@ footer p {
   padding-top: 3px;
   position: absolute;
   bottom: 20px;
-  border-top: 5px dotted black;
-  border-radius: 8px;
 }
 footer a {
   text-decoration: none;
@@ -391,6 +406,17 @@ footer #line2 {
   height: 20px;
   width: 185px;
   top: 60px;
+}
+footer #angle {
+  font-size: 0px;
+  line-height: 0%;
+  width: 0px;
+  border-top: 11px solid rgba(0, 0, 0, 0);
+  border-right: none;
+  border-bottom: none;
+  border-left: 128px solid black;
+  position: relative;
+  top: 34.3px;
 }
 
 /*************************************** TABLET VIEWS *******************************************/
@@ -531,6 +557,14 @@ footer #line2 {
     width: 97%;
     font-size: 11pt;
   }
+  #main .hentry:nth-child(even) .post-text {
+    transform: rotate(-0.7deg);
+    margin: 0.3vw 0 0 0.4vw;
+  }
+  #main .hentry:nth-child(odd) .post-text {
+    transform: rotate(0.7deg);
+    margin: 0.3vw 0 0 -0.45vw;
+  }
   .post a {
     font-size: 12pt;
   }
@@ -548,6 +582,11 @@ footer #line2 {
   footer #line2 {
     top: 63px;
     width: 175px;
+  }
+  footer #angle {
+    border-top: 9px solid rgba(0, 0, 0, 0);
+    border-left: 120.5px solid black;
+    top: 39px;
   }
 }
 @media screen and (max-width: 840px) {
@@ -588,9 +627,14 @@ footer #line2 {
       0.5px 0 0 black, 0.5px 0.5px 0 black, 0px 0px 1px black;
     color: rgb(255, 185, 40);
   }
-  footer #line2{   
-    top: 66px; 
+  footer #line2 {
+    top: 66px;
     width: 160px;
+  }
+  footer #angle {
+    border-top: 9px solid rgba(0, 0, 0, 0);
+    border-left: 113px solid black;
+    top: 42.5px;
   }
 }
 
@@ -622,6 +666,11 @@ footer #line2 {
   footer #line2 {
     top: 71px;
     width: 138px;
+  }
+  footer #angle {
+    border-top: 8px solid rgba(0, 0, 0, 0);
+    border-left: 99.5px solid black;
+    top: 50.5px;
   }
 }
 
@@ -669,9 +718,10 @@ footer #line2 {
     left: 7vw;
   }
   footer p {
-    padding-top: 0.5vw;
+    padding-top: 0.7vw;
     font-size: 4vw;
     top: -8vw;
+    border-top: none;
   }
   footer a {
     font-weight: 400;
@@ -683,13 +733,22 @@ footer #line2 {
     font-size: 3vw;
   }
   footer #line2 {
-    top: -1vw;
+    top: -2vw;
     width: 81%;
     height: 3.5vw;
+  }
+  footer #angle {
+    border-top: 5px solid rgba(0, 0, 0, 0);
+    border-left: 92px solid black;
+    top: -26.5px;
   }
 }
 @media screen and (max-width: 350px) {
   footer #line2 {
     top: -2vw;
+  }
+  footer #angle {
+    top: -24.5px;
+    border-left: 77px solid black;
   }
 }
