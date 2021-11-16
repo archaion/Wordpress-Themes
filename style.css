@@ -285,7 +285,7 @@ body {
   width: 75%;
 }
 #main .hentry {
-  margin: 10px 0 23px 0;
+  margin: 10px 0 35px 0;
   padding: 7px 30px 25px 27px;
   background: linear-gradient(
     18deg,
@@ -323,14 +323,18 @@ body {
     0 0 0.09vw black, 0 0 0.09vw black, 0 0 0.09vw black, 0 0 0.09vw black;
 }
 .post-line {
-  width: 30vw;
+  width: 28vw;
   position: relative;
+  margin: 0;
   top: -10px;
-  border-bottom: 2px solid black;
+  border-bottom: 3px dotted rgb(140,140,140);
+}
+.post p{
+  margin-top: 0.5vw;
 }
 .post .image-link {
   height: 20vw;
-  width: 15vw;
+  width: 18vw;
   display: inline-block;
   padding: 20px 20px 0 0;
   vertical-align: top;
@@ -348,7 +352,7 @@ body {
 }
 .post .post-text {
   display: inline-block;
-  width: 72%;
+  width: 68%;
   vertical-align: top;
   font-size: 12pt;
 }
@@ -544,25 +548,24 @@ footer #angle {
     padding: 1.4vw 0;
   }
   #main section {
-    flex-direction: column;
     margin-top: -13.5vw;
     margin-bottom: 0vw;
     width: 72%;
   }
+  #main .hentry {
+    margin: 10px 0 25px 0;
+  }
   .post .image-link {
-    width: 100%;
-    height: auto;
+    width: 32%;
   }
   .post .post-text {
-    width: 97%;
     font-size: 11pt;
+    width: 61%;
   }
   #main .hentry:nth-child(even) .post-text {
-    transform: rotate(-0.7deg);
     margin: 0.3vw 0 0 0.4vw;
   }
   #main .hentry:nth-child(odd) .post-text {
-    transform: rotate(0.7deg);
     margin: 0.3vw 0 0 -0.45vw;
   }
   .post a {
@@ -618,6 +621,9 @@ footer #angle {
   #main section {
     margin-bottom: -4vw;
   }
+  .post .post-text{  
+    width: 58%;
+  }
   footer {
     font-size: 12pt;
   }
@@ -655,9 +661,15 @@ footer #angle {
   }
   #main section {
     margin-bottom: -5vw;
+    flex-direction: column;
   }
-  .post .post-text {
-    font-size: 9pt;
+  .post .image-link {
+    width: 100%;
+    height: auto;
+  }
+  .post .post-text{  
+    font-size: 9pt;  
+    width: 97%;
   }
   footer {
     font-size: 10pt;
@@ -702,12 +714,13 @@ footer #angle {
     top: 101.5%;
     right: -0.7vw;
   }
+  #main section {
+    margin-bottom: 6vw;
+  }
   #main .hentry {
     font-size: 3.5vw;
     padding: 0vw 6vw 2.5vw 5.5vw;
-  }
-  #main section {
-    margin-bottom: 3vw;
+    margin: 10px 0 20px 0;
   }
   .post a {
     font-size: 4vw;
