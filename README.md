@@ -10,4 +10,4 @@ Screenshots:
 
 <img width="364" alt="Untitled3" src="https://user-images.githubusercontent.com/80986857/148700271-96965c79-8087-483a-a782-4c8831874ea7.png">
 
-<img width="364" alt="Untitled3" src="https://user-images.githubusercontent.com/80986857/148700275-1bf72e69-0ab2-4b62-ae88-480624363622.png">
+<img width="691" alt="Untitled2" src="https://user-images.githubusercontent.com/80986857/148700501-54324b66-4eb1-4610-94c0-9fc48e331ec1.png">
