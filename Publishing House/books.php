@@ -12,7 +12,7 @@ get_header() ?>
         <a href='#Other'>Other</a>
     </div>
 </div>
-<section id='main' style='padding-top: 98px;'>
+<section id='main' style='padding-top: 90px;'>
     <?php $filtered = array(6, 8); // REPLACE WITH "NEW" AND "FEATURED" CATEGORY IDs
     $cats = get_categories(array('exclude' => $filtered));
     foreach ($cats as $cat) : ?>

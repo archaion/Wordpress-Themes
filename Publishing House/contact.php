@@ -1,22 +1,21 @@
 <?php 
 /*
 Template Name: Contact
-MUST BE ADDED FROM DASHBOARD AS PAGE TITLED "CONTACT"
 */
 get_header() ?>
 <section id='main'>
-    <article id='order' class='item large'>
-    <p>Please contact us with any inquiries regarding this website,
+    <article id='order' class='item large' style='margin: 25px auto 105px auto;'>
+    <p>Please contact us with any inquiries regarding the Tradition website,
     including help with orders and requests for publication, at the following accounts:</p>
         <div class='text' style='text-align: center;'>
             <br>
-        Email - name[at]email.com
+        Email - tradition@tuta.io
             <br><br>
-        Twitter - example
+        Twitter - Tradition
             <br><br>
-        VK - example
+        VK - Tradition
             <br><br>
-        Gab - example
+        Gab - Tradition
         </div>
     </article>
 </section>

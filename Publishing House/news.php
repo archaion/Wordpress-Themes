@@ -1,7 +1,6 @@
 <?php
 /*
 Template Name: News
-MUST BE ADDED FROM DASHBOARD AS PAGE TITLED "NEWS"
 */
 get_header() ?>
 <section id='main'>

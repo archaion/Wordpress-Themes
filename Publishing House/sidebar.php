@@ -2,7 +2,7 @@
 ?>
 <div id='menuBar' class='rollUp'>
     <div id='arrow'>&#x2f0;</div>
-    <a id='home' href='<?= site_url() ?>'>Tr</a>
+    <a id='home' href='<?= site_url() ?>'></a>
     <div id='burger'>&equiv;</div>
 </div>
 <div id='ex' class='hidden'>X</div>
