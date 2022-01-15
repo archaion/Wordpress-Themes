@@ -3,6 +3,23 @@
 Template Name: News
 */
 get_header() ?>
+<body <?php body_class() ?>>
+    <?php get_sidebar(); ?>
+    <div id='fadeIn'></div>
+    <header>
+        <div id='leftLogo' class='small'></div>
+        <div id='rightLogo' class='small'></div>
+        <h1 id='title' class='adjust'>
+            <p id='name' class='adjust'>N E W S</p>
+        </h1>
+        <div id='line'></div>
+    </header>
+    <div id='menu'>
+        <a href="<?= site_url() ?>">HOME</a>
+        <a href="<?= site_url() . '/books' ?>">BROWSE</a>
+        <a href="<?= site_url() . '/search' ?>">SEARCH</a>
+        <a href="<?= site_url() . '/about' ?>">ABOUT</a>
+    </div>
 <section id='main'>
     <?php $posts = get_posts('category_name=news');
     if (have_posts()) : ?>

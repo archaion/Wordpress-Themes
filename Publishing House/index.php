@@ -1,4 +1,22 @@
 <?php get_header() ?>
+<body <?php body_class() ?>>
+    <?php get_sidebar(); ?>
+    <div id='fadeIn'></div>
+    <header>
+        <div id='leftLogo'></div>
+        <div id='rightLogo'></div>
+        <h1 id='title' class='adjust'>
+            <p id='name'>T R A D I T I O N</p>
+        </h1>
+        <div id='pub'>P u b l i s h i n g &nbsp; C o .</div>
+        <div id='line'></div>
+    </header>
+    <div id='menu'>
+        <a href="<?= site_url() . '/books' ?>">BROWSE</a>
+        <a href="<?= site_url() . '/search' ?>">SEARCH</a>
+        <a href="<?= site_url() . '/news' ?>">NEWS</a>
+        <a href="<?= site_url() . '/about' ?>">ABOUT</a>
+    </div>
 <div id='main'>
     <div class='subtitle'>Featured</div>
     <div id='shadow'></div>
