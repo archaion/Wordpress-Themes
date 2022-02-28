@@ -21,6 +21,18 @@ get_header() ?>
         <a href="<?= site_url() . '/news' ?>">NEWS</a>
         <a href="<?= site_url() . '/about' ?>">ABOUT</a>
     </div>
+    <form class='user' action="<?= site_url() . '/books' ?>" name='slct' method='post'>
+        <label for='ctgry'>Category </label>
+        <select id='ctgry' name='ctgry'>
+            <option value='' disabled selected hidden>Select</option>
+            <option value='A'>All</option>
+            <option value='4'>Esoteric</option><!--3-->
+            <option value='2'>History</option><!--4-->
+            <option value='3'>Philosophy</option><!--2-->
+            <option value='24'>Other</option><!--5-->
+        </select>
+    </form>
+    <!--
     <div id='categories'><span id='label'>Categories</span></div>
     <div id='container'>
         <div id='links' class='shrink'>
@@ -30,13 +42,13 @@ get_header() ?>
             <a href='#Other'>Other</a>
         </div>
     </div>
-    <section id='main' style='padding-top: 94px;'>
+    -->
+    <section id='main'>
         <?php
-        $filtered = array(6, 8); // REPLACE WITH "NEW" AND "FEATURED" CATEGORY IDs
-        $cats = get_categories(array('exclude' => $filtered));
-        foreach ($cats as $cat) : ?>
-            <div class='subtitle page' id='<?= $cat->cat_name ?>' name='<?= $cat->cat_name ?>'><?= $cat->cat_name ?></div>
-            <?php $posts = get_posts(array('category__in' => $cat->term_id));
+        if (isset($_POST['ctgry']) && $_POST['ctgry'] != 'A') :
+            $the_cat = get_cat_name($_POST['ctgry']); ?>
+            <div class='subtitle page' id='<?= $the_cat ?>' name='<?= $the_cat ?>'><?= $the_cat ?></div>
+            <?php $posts = get_posts(array('category' => $_POST['ctgry'], 'posts_per_page' => 999)); // ALSO SET MAX P/P TO 999 IN WP
             if (have_posts()) : ?>
                 <?php foreach ($posts as $post) : ?>
                     <article class='item' id='post-<?php the_ID() ?>'>
@@ -47,16 +59,40 @@ get_header() ?>
                 <?php endforeach;
             else : ?>
                 <p>Not Found</p>
+            <?php endif;
+            wp_reset_postdata();
+        else :
+            $filtered = array(5, 6); // REPLACE WITH "FEATURED" AND "NEWS" CATEGORY IDs
+            $cats = get_categories(array('exclude' => $filtered));
+            foreach ($cats as $cat) : ?>
+                <div class='subtitle page' id='<?= $cat->cat_name ?>' name='<?= $cat->cat_name ?>'><?= $cat->cat_name ?></div>
+                <?php $posts = get_posts(array('category__in' => $cat->term_id, 'posts_per_page' => 999));
+                if (have_posts()) : ?>
+                    <?php foreach ($posts as $post) : ?>
+                        <article class='item' id='post-<?php the_ID() ?>'>
+                            <a class='thumb' href='<?php the_permalink() ?>'><?php the_post_thumbnail() ?></a>
+                            <a class='caption' href='<?php the_permalink() ?>'><?php the_title() ?></a>
+                            <div class='text page'><?php the_content() ?></div>
+                        </article>
+                    <?php endforeach;
+                else : ?>
+                    <p>Not Found</p>
         <?php endif;
-        endforeach;
+            endforeach;
+        endif;
         wp_reset_postdata()
         ?>
     </section>
     <script>
+        ctgry.onchange = () => {
+            ctgry.form.submit();
+        }
+        /*
         label.onclick = () => {
             label.classList.toggle('minus');
             links.classList.toggle('shrink');
         }
+        */
     </script>
     <?php get_footer()
     /*

@@ -23,12 +23,16 @@ get_header() ?>
     <section id='main'>
         <div class='subtitle only'>Mission Statement</div>
         <article id='order' class='item large state'>
-            <p class='text'>
-                Tradition Publishing Company is a reprinting service for rare and censored books in the genres of traditionalist,
-                philosophical and reactionary literature. We employ a third party service to publish this
-                material using print-on-demand technology at a significantly reduced cost to you, the reader.
+            <p class='text' style='text-align: left;'>
+                Tradition Publishing Company is a reprinting service for rare and out-of-print books in the genres of traditionalist,
+                philosophical and reactionary literature. In addition to public domain and orphan works, our collection includes
+                original publications of material by several well-known authors. We employ a third-party service (The Book Patch)
+                to publish this material using print-on-demand technology, which provides the assurance of legitimacy and reduces the 
+                overall cost to you, the reader. Our company is not profit-motivated, but rather focused on the distribution of
+                traditionalist literature for educational purposes.
                 <br><br>
-                We thank you for visiting our website. Please contact us with any inquiries or recommended books to publish.
+                We thank you for visiting our website. Please contact us with any inquiries or to recommend books for publication at
+                <em>tradtion(at)tuta.io</em>.
             </p>
         </article>
     </section>

@@ -21,13 +21,13 @@ get_header() ?>
         <a href="<?= site_url() . '/about' ?>">ABOUT</a>
     </div>
 <section id='main'>
-    <?php $posts = get_posts('category_name=news');
+    <?php $posts = get_posts(array('category_name' => 'news', 'posts_per_page' => 999));
     if (have_posts()) : ?>
         <div class='subtitle'>Coming Soon</div>
         <?php foreach ($posts as $post) : ?>
             <article class='item' id='post-<?php the_ID() ?>'>
-                <a class='thumb' href='<?php the_permalink() ?>'><?php the_post_thumbnail() ?></a>
-                <a class='caption' href='<?php the_permalink() ?>'><?php the_title() ?></a>
+                <a class='thumb' href='' style='pointer-events: none;'><?php the_post_thumbnail() ?></a>
+                <a class='caption' href='' style='pointer-events: none;'><?php the_title() ?></a>
                 <div class='text page'><?php the_content() ?></div>
             </article>
         <?php endforeach;

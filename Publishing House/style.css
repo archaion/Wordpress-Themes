@@ -4,7 +4,6 @@ Description: A Basic Theme for WordPress
 Author: sunvvheel
 Author URI: http://github.com/sunvvheel
 */
-
 @font-face {
   font-family: 'title';
   src: url('./LHF Thick and Thin.ttf') format('truetype');
@@ -23,19 +22,21 @@ html {
 body {
   color: black;
   background: url('./images/meander.png') repeat-y center,
-    linear-gradient(white 74%, rgb(248, 248, 248), rgb(230, 230, 230) 98%) fixed;
+    linear-gradient(white 75%, rgb(248, 248, 248), rgb(230, 230, 230) 99%) fixed;
   background-size: 100%;
   height: 100%;
   width: 100%;
   padding: 0;
   margin: 0;
   font-family: main, sans-serif;
+  overflow-x: hidden;
 }
 body:after {
   position: absolute;
   right: 1000vw;
   content: url('./images/gh2.svg') url('./images/tw2.svg')
-    url('./images/vk2.svg') url('./images/gb2.svg') url('./images/lionhead.svg');
+    url('./images/tg2.svg') url('./images/gb2.svg') url('./images/lionhead.svg')
+    url('./images/arrow-red.svg') url('./images/burger-red.svg');
 }
 a {
   color: rgb(175, 0, 0);
@@ -46,7 +47,12 @@ a:hover {
 }
 #fadeIn {
   z-index: -2;
-  background: linear-gradient(white 6.7%, rgba(0, 0, 0, 0) 33%) fixed;
+  background: linear-gradient(
+      white 0.5%,
+      rgba(255, 255, 255, 0.8) 5.5%,
+      rgba(0, 0, 0, 0) 30%
+    )
+    fixed;
   position: fixed;
   top: 0;
   left: 0;
@@ -87,9 +93,6 @@ a:hover {
   width: 30px;
   background-image: url('./images/lionhead-white.svg');
   background-size: cover;
-  font-family: title, serif;
-  text-decoration: none;
-  color: white;
   top: -1px;
   left: 1vw;
 }
@@ -99,40 +102,44 @@ a:hover {
 #burger {
   z-index: 300;
   position: relative;
-  font-size: 38px;
-  font-weight: bold;
-  color: white;
+  height: 25px;
+  width: 25px;
+  background-image: url('./images/burger.svg');
+  background-size: cover;
   top: 0px;
-  right: 1.5vw;
+  right: 1.3vw;
 }
 #burger:hover {
   cursor: pointer;
-  color: red;
+  background-image: url('./images/burger-red.svg');
 }
 #ex {
   z-index: 301;
-  font-size: 30px;
+  font-size: 26px;
   font-weight: bold;
+  transform: scaleX(1.3);
   color: white;
   cursor: pointer;
   position: fixed;
-  top: -6px;
+  top: -4px;
   right: 1.6vw;
 }
 #ex:hover {
   color: red;
 }
 #arrow {
-  z-index: 400;
-  font-size: 130px;
-  margin-top: -185px;
-  height: 80px;
-  padding: 0;
-  color: white;
+  z-index: 300;
+  position: relative;
+  height: 25px;
+  width: 30px;
+  transform: scaleX(0.9);
+  background-image: url('./images/arrow.svg');
+  background-size: cover;
+  top: -1px;
 }
 #arrow:hover {
   cursor: pointer;
-  color: red;
+  background-image: url('./images/arrow-red.svg');
 }
 #dropdown {
   z-index: 200;
@@ -220,10 +227,10 @@ a:hover {
   background-image: url('./images/lion.svg');
   background-size: 100% 100%;
   position: absolute;
-  top: 25px;
+  top: 23px;
   right: calc(50% - 350px);
-  height: 90px;
-  width: 98px;
+  height: 100px;
+  width: 105px;
 }
 #leftLogo {
   right: unset;
@@ -233,9 +240,9 @@ a:hover {
 #leftLogo.small,
 #rightLogo.small {
   right: calc(50% - 280px);
-  top: 26px;
-  height: 65px;
-  width: 73px;
+  top: 21px;
+  height: 75px;
+  width: 80px;
 }
 #leftLogo.small {
   right: unset;
@@ -258,8 +265,8 @@ a:hover {
 #pub {
   font-family: main, serf;
   text-align: center;
-  margin: -14px auto 26px auto;
-  font-size: 16px;
+  margin: -23px auto 25px auto;
+  font-size: 15px;
   font-weight: bold;
   letter-spacing: 0.05vw;
 }
@@ -304,20 +311,22 @@ a:hover {
   border-top: none;
 }
 .subtitle.page {
-  padding: 42px 0 30px 0;
+  padding: 40px 0 30px 0;
 }
-#shadow {
+/*#shadow {
   position: absolute;
-  left: calc(50% - 199px);
-  width: 398px;
-  height: 69.8vh;
+  background: white;
+  width: 218px;
+  left: calc(50vw - 127px);
+  height: 330px;
   margin: 10px auto 10px auto;
   box-shadow: 0px 0.5px 6px 2.5px rgb(227, 227, 227),
     0px 0.5px 6px 2px rgb(207, 207, 207);
-}
+  display: none;
+}*/
 #carousel {
-  width: 400px;
-  height: 80vh;
+  width: 720px;
+  height: 450px;
   margin: 10px auto 10px auto;
   overflow-x: hidden;
   position: relative;
@@ -327,34 +336,40 @@ a:hover {
   display: none;
 }
 .slide {
-  column-width: 400px;
-  column-gap: 0;
-  height: 80vh;
+  column-width: 220px;
+  height: 430px;
+  column-gap: 20px;
+  margin: 10px;
   left: 0px;
   position: relative;
   transition: left 0.55s cubic-bezier(0.4, 0.3, 0.35, 1);
 }
 .cover {
-  width: 400px;
-  height: 70vh;
+  width: 220px;
+  height: 330px;
   margin-bottom: 10px;
   display: inline;
 }
 .cover img {
-  width: 400px;
-  height: 70vh;
+  margin-top: 10px;
+  width: 220px;
+  height: 330px;
+  padding-left: 0px;
   display: inline;
   position: relative;
-  aspect-ratio: unset;
+  aspect-ratio: initial;
+  box-shadow: 0px 0.5px 6px 2.5px rgb(227, 227, 227),
+    0px 0.5px 6px 2px rgb(207, 207, 207);
 }
 .info {
-  width: 400px;
+  width: 220px;
   height: 5vh;
   font-family: main, sans-serif;
   font-size: 10pt;
   font-weight: 100;
   display: flex;
   justify-content: center;
+  text-align: center;
 }
 .info a {
   font-weight: bold;
@@ -367,12 +382,12 @@ a:hover {
   font-size: 30pt;
   font-weight: bold;
   color: black;
-  background-color: rgba(170, 170, 170, 0.8);
+  background-color: rgba(190, 190, 190, 0.6);
   margin: 0 auto;
   cursor: pointer;
   position: absolute;
   z-index: 9;
-  top: 31vh;
+  top: 485px;
   text-align: center;
   line-height: 33px;
 }
@@ -380,10 +395,12 @@ a:hover {
   color: red;
 }
 #prev {
-  left: 5px;
+  left: 10%;
+  letter-spacing: -4px;
 }
 #next {
-  right: 5px;
+  right: 10%;
+  letter-spacing: -7px;
 }
 #main .hentry {
   width: 110px;
@@ -401,22 +418,24 @@ a:hover {
   box-shadow: 0px 0.5px 5px 1.5px rgb(227, 227, 227),
     0px 0.5px 5px 1px rgb(207, 207, 207);
 }
-#searchBox {
-  position: absolute;
-  width: 100%;
+.user {
+  position: relative;
+  width: 50%;
   margin: 0 auto;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  text-align: center;
   font-family: head, serif;
   font-size: 20px;
   font-weight: bold;
   letter-spacing: 7px;
-  padding: 24.5px 0 17px 0;
+  padding: 24.5px 0 30px 0;
+  border-bottom: 1px solid black;
 }
-#categories {
-  position: absolute;
+.searchform {
   width: 100%;
+}
+/*#categories {
+  position: relative;
+  width: 60%;
   margin: 0 auto;
   text-align: center;
   font-family: head, serif;
@@ -475,9 +494,9 @@ a:hover {
 }
 #links.shrink a {
   opacity: 0 !important;
-}
+}*/
 #gallery {
-  margin: 0 auto 24px auto;
+  margin: 24.5px auto 30px auto;
   max-width: 600px;
   display: flex;
   flex-direction: row;
@@ -489,10 +508,10 @@ a:hover {
   padding-bottom: 10px;
   margin: 28px auto 45px auto;
   max-width: 55vw;
-  height: 150px;
+  height: auto;
 }
 .caption {
-  height: 20px;
+  height: auto;
   letter-spacing: 1px;
   font-family: main, sans-serif;
   font-weight: bold;
@@ -503,12 +522,15 @@ a:hover {
 .text {
   font-family: main, sans-serif;
 }
+.text.page p:first-child {
+  margin-top: 8px;
+}
 .text.page a {
   display: none;
 }
 .thumb {
   float: left;
-  margin: 3px 30px 0 0;
+  margin: 6px 30px 10px 0;
 }
 .thumb .wp-post-image {
   display: block;
@@ -525,7 +547,7 @@ a:hover {
 #order a {
   float: right;
   font-weight: bold;
-  padding: 40px 25px 0 0;
+  padding: 20px 25px 0 0;
   height: 20px;
 }
 footer {
@@ -552,26 +574,26 @@ footer a {
   padding: 0;
   margin: 0;
 }
-#gh {
-  background-image: url('./images/gh.svg');
+#tg {
+  background-image: url('./images/tg.svg');
 }
 #tw {
   background-image: url('./images/tw.svg');
 }
-#vk {
-  background-image: url('./images/vk.svg');
+#gh {
+  background-image: url('./images/gh.svg');
 }
 #gb {
   background-image: url('./images/gb.svg');
 }
-#gh:hover {
-  background-image: url('./images/gh2.svg');
+#tg:hover {
+  background-image: url('./images/tg2.svg');
 }
 #tw:hover {
   background-image: url('./images/tw2.svg');
 }
-#vk:hover {
-  background-image: url('./images/vk2.svg');
+#gh:hover {
+  background-image: url('./images/gh2.svg');
 }
 #gb:hover {
   background-image: url('./images/gb2.svg');
@@ -604,7 +626,7 @@ footer a {
     left: 18.5%;
   }
   #pub {
-    margin: -23px auto 28px auto;
+    margin: -27px auto 29px auto;
   }
   #home {
     left: 9px;
@@ -615,8 +637,11 @@ footer a {
   #ex {
     right: 17px;
   }
-  #links {
+  /*#links {
     width: 50%;
+  }*/
+  #carousel {
+    width: 480px;
   }
 }
 @media screen and (max-width: 700px) {
@@ -628,6 +653,9 @@ footer a {
     height: auto;
     max-height: 600px;
     margin: 6px auto 35px auto;
+  }
+  .item p:first-child {
+    text-align: center;
   }
   .state {
     padding-top: 17px;
@@ -649,14 +677,17 @@ footer a {
   .item .caption {
     display: flex;
     justify-content: center;
+    text-align: center;
     margin: 0 auto;
     width: 100%;
+    height: auto;
   }
   #order a {
-    display: flex;
-    justify-content: center;
-    padding: 20px 0;
-    width: 100%;
+    display: relative;
+    text-align: center;
+    padding: 20px 0 0 0;
+    width: 49%;
+    margin: 0 auto;
   }
 }
 
@@ -692,13 +723,13 @@ footer a {
   #menu {
     font-size: 2vw;
   }
-  #links {
+  /*#links {
     font-size: 2.5vw;
-  }
+  }*/
   #leftLogo,
   #rightLogo {
-    height: 63px;
-    width: 71px;
+    height: 65px;
+    width: 70px;
     right: 8%;
   }
   #leftLogo {
@@ -707,41 +738,43 @@ footer a {
   }
   #leftLogo.small,
   #rightLogo.small {
-    height: 50px;
-    width: 58px;
-    top: 20px;
+    height: 55px;
+    width: 60px;
+    top: 18px;
     right: 9%;
   }
   #leftLogo.small {
     right: unset;
     left: 9%;
   }
-  #shadow {
-    width: 238px;
-    left: calc(50vw - 127px);
-    height: 59.8vh;
-  }
+  /*#shadow {
+    display: none;
+    width: 242px;
+    left: calc(50vw - 130px);
+    height: 62vh;
+  }*/
   #carousel {
-    width: 240px;
-    height: 70vh;
+    width: 260px;
   }
   .selector {
-    top: 28vh;
+    top: 445px;
   }
   .slide {
-    column-width: 240px;
-    height: 70vh;
+    column-width: 220px;
+    column-gap: 20px;
   }
   .cover {
     width: 240px;
-    height: 60vh;
   }
   .cover img {
     width: 240px;
-    height: 60vh;
+    padding-left: 0px;
   }
   .info {
     width: 240px;
+  }
+  #order a {
+    font-size: 3vw;
   }
 }
 @media screen and (max-width: 420px) {
@@ -770,9 +803,9 @@ footer a {
   #rightLogo,
   #leftLogo.small,
   #rightLogo.small {
-    height: 50px;
-    width: 58px;
-    top: 15px;
+    height: 55px;
+    width: 60px;
+    top: 13px;
     right: 9%;
   }
   #leftLogo,
@@ -780,8 +813,11 @@ footer a {
     left: 9%;
   }
   #burger {
-    top: 2px;
+    top: 1px;
     font-size: 40px;
+  }
+  #arrow:hover {
+    background-image: url('./images/arrow.svg');
   }
   #ex {
     font-size: 26px;
@@ -790,39 +826,20 @@ footer a {
   #menu {
     font-size: 2.7vw;
   }
-  #links {
+  /*#links {
     font-size: 3.2vw;
     width: 55%;
+    top: 47px;
   }
   .subtitle:first-child {
     padding: 10px 0 30px 0;
   }
-  #categories,
+  /*#categories,
   .subtitle:first-child {
     padding: 10px 0 17px 0;
-  }
-  #links {
-    top: 47px;
-  }
-  #shadow {
-    left: calc(50% - 119px);
-    height: 49.8vh;
-  }
-  #carousel {
-    width: 240px;
-    height: 60vh;
-  }
+  }*/
   .selector {
-    top: 21.5vh;
-  }
-  .slide {
-    height: 60vh;
-  }
-  .cover {
-    height: 50vh;
-  }
-  .cover img {
-    height: 50vh;
+    top: 415px;
   }
   .thumb .wp-post-image {
     width: 160px;

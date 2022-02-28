@@ -2,8 +2,10 @@
 ?>
 <div id='menuBar' class='rollUp'>
     <a id='home' href='<?= site_url() ?>'></a>
-    <div id='arrow'>&#x2f0;</div>
-    <div id='burger'>&equiv;</div>
+    <!--<div id='arrow'>&#x1431;</div>
+    <div id='burger'>&equiv;</div>-->
+    <div id='arrow'></div>
+    <div id='burger'></div>
 </div>
 <div id='ex' class='hidden'>X</div>
 <div id='overlay' class='disabled'></div>

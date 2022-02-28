@@ -21,14 +21,14 @@ get_header() ?>
         <a href="<?= site_url() . '/news' ?>">NEWS</a>
         <a href="<?= site_url() . '/about' ?>">ABOUT</a>
     </div>
-    <div id='searchBox'>
+    <div class='user'>
         <?php get_search_form(); ?>
     </div>
-    <section id='main' style='padding-top: 94px;'>
+    <section id='main' style='padding-top: 40px;'>
         <?php if (have_posts()) :
             while (have_posts()) : the_post() ?>
-                <?php if (get_the_ID() == 129) : //REPLACE WITH DEFAULT SEARCH POST ?>
-                    <div><br><br><br><br><br><br><br></div>
+                <?php if (get_the_ID() == 124) : //REPLACE WITH DEFAULT SEARCH POST ID ?>
+                    <br><br><br><br><br><br><br>
                 <?php else : ?>
                     <article class='item' id='post-<?php the_ID() ?>'>
                         <a class='thumb' href='<?php the_permalink() ?>'><?php the_post_thumbnail() ?></a>
@@ -38,7 +38,8 @@ get_header() ?>
             <?php endif;
             endwhile;
         else : ?>
-            <p>Not Found</p>
+            <div style='margin: 0 auto; width: 100%; text-align: center;'>Not Found</div>
+            <br><br><br><br><br><br><br>
         <?php
         endif;
         wp_reset_postdata() ?>

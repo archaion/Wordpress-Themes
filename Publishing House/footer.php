@@ -1,8 +1,8 @@
 <footer>
-    <a href='https://github.com/sunvvheel/' id='gh'></a>
-    <a href='https://twitter.com/' id='tw'></a>
-    <a href='https://vk.com/' id='vk'></a>
-    <a href='https://gab.com/' id='gb'></a>
+    <a href='https://t.me/TraditionBooks' id='tg'></a>
+    <a href='https://github.com/sunvvheel' id='gh'></a>
+    <a href='https://twitter.com/TraditionBooks' id='tw'></a>
+    <a href='https://gab.com/TraditionBooks' id='gb'></a>
     <?php //wp_footer(); 
     ?>
 </footer>
