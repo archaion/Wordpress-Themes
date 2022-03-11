@@ -506,7 +506,7 @@ a:hover {
 }
 .item {
   padding-bottom: 10px;
-  margin: 28px auto 45px auto;
+  margin: 28px auto 0px auto;
   max-width: 55vw;
   height: auto;
 }
@@ -538,6 +538,16 @@ a:hover {
   height: 150px;
   box-shadow: 0px 0.5px 5px 1.5px rgb(225, 225, 225),
     0px 0.5px 5px 1px rgb(205, 205, 205);
+}
+.break {
+  width: 15%;
+  height: 1px;
+  margin: 25px auto 50px auto;
+  text-align: center;
+  border-bottom: 1px solid black;
+}
+.break:last-child{
+  border-bottom: none;
 }
 .state {
   padding-top: 0px;
@@ -686,7 +696,7 @@ footer a {
     display: relative;
     text-align: center;
     padding: 20px 0 0 0;
-    width: 49%;
+    width: 48%;
     margin: 0 auto;
   }
 }

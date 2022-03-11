@@ -35,6 +35,7 @@ get_header() ?>
                         <a class='caption' href='<?php the_permalink() ?>'><?php the_title() ?></a>
                         <div class='text page'><?php the_content() ?></div>
                     </article>
+                    <div class='break'></div>
             <?php endif;
             endwhile;
         else : ?>
