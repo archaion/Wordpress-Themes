@@ -1,0 +1,342 @@
+/*
+Theme Name: Devlog
+Description: A Basic Theme for WordPress 
+Author: Archaion
+Author URI: http://github.com/archaion/
+*/
+@font-face {
+  font-family: 'Gothic';
+  src: url('./MORPHEUS.TTF') format('truetype');
+}
+@font-face {
+  font-family: 'Roman';
+  src: url('./RomanSerif.ttf') format('truetype');
+}
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-button {
+  display: none;
+}
+::-webkit-scrollbar-thumb {
+  background-color: rgb(83, 80, 77);
+}
+::-webkit-scrollbar-track {
+  background-color: rgb(58, 55, 52);
+}
+html {
+  color: rgba(220, 220, 220);
+  scrollbar-color: rgb(85, 80, 75);
+  scrollbar-width: thin;
+  scroll-behavior: smooth !important;
+}
+a {
+  color: rgb(200, 170, 110);
+  text-decoration: none;
+  font-weight: bold;
+  font-weight: 100;
+}
+a:hover {
+  text-decoration: underline;
+}
+body {
+  font-family: 'Roman';
+  font-size: 12pt;
+  height: 100%;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  background: url('./bg2.jpg') no-repeat center center fixed; /*rgb(50, 50, 50);*/
+  background-size: cover;
+}
+#top {
+  margin: 0;
+  padding: 0;
+}
+#banner {
+  width: 100%;
+  height: calc(100vh - 60px);
+  margin: 0;
+  padding: 0;
+  background-image: url('./title.png');
+  background-size: 100% 100%;
+}
+#navbar div,
+#main article,
+.menu,
+.title,
+#gallery img {
+  background: rgba(8, 6, 6, 0.88);
+  border: 1px solid rgba(155, 115, 65, 0.8);
+  border-radius: 3px;
+}
+#main,
+#page1,
+#page2,
+#page3 {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 20px;
+  position: relative;
+  height: auto;
+  display: flex;
+  flex-flow: row wrap;
+  gap: 0 0;
+}
+#navbar {
+  font-family: 'Gothic';
+  font-weight: 100;
+  flex: 0 1 100%;
+  z-index: 100;
+  padding: 0 20px;
+  text-align: center;
+  position: sticky;
+  top: 0px;
+}
+#navbar div {
+  padding: 10px;
+  height: 20px;
+}
+#navbar a {
+  display: inline;
+  margin: 0 5%;
+  padding: 0;
+}
+#left1 {
+  flex: 0.7;
+  align-self: flex-start;
+  margin-top: 181px;
+  padding-right: 20px;
+  position: sticky;
+  top: 62px;
+  bottom: 20px;
+}
+.menu {
+  box-sizing: border-box;
+  height: calc(100vh - 82px);
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+.menu h1 {
+  font-family: 'Gothic';
+  font-weight: 100;
+  font-size: 16pt;
+  margin: 0;
+  position: sticky;
+  top: 0;
+  width: 100%;
+  padding: 10px 0;
+  text-align: center;
+  background: rgba(9, 6, 6, 0.88);
+}
+.note {
+  overflow: auto;
+  padding: 10px;
+  font-size: 10pt;
+  background: rgba(9, 6, 6, 0.88);
+  border-top: 1px solid rgba(155, 115, 65, 0.8);
+}
+.note ul {
+  margin: 0;
+  padding: 0;
+  display: inline;
+}
+.note li {
+  display: inline;
+  list-style: none;
+}
+.note a {
+  padding: 0;
+  margin: 0;
+}
+.note a.thumb {
+  width: 50px;
+  height: 50px;
+  margin-right: 10px;
+  float: left;
+}
+.thumb img {
+  width: 50px;
+  height: 50px;
+}
+#right1,
+#left2 {
+  flex: 2;
+}
+.title {
+  padding: 10px;
+  position: relative;
+  text-align: center;
+  border: none;
+  margin: 20px 0;
+  background: none;
+  border-radius: 0;
+  height: 120px;
+  flex: 0 1 100%;
+  background-image: url('./paper.png');
+  background-size: 100% 100%;
+}
+.title h1 {
+  color: red;
+  text-shadow: 0 0 2px black, 0 0 2px black;
+  font-family: 'Gothic';
+  font-weight: bold;
+  font-size: 24pt;
+  padding-top: 20px;
+  margin: 0;
+}
+.title p {
+  margin-top: 5px;
+}
+.posts {
+  margin: 20px 0;
+  padding: 20px;
+  position: relative;
+  min-height: 100px;
+  overflow: auto;
+}
+.posts:first-child {
+  margin-top: 0;
+}
+.posts:last-child {
+  margin-bottom: 0;
+}
+.posts > span {
+  font-family: 'Gothic';
+  font-weight: 100;
+  font-size: 15pt;
+  float: left;
+  text-align: right;
+  width: calc(65% - 20px);
+  padding-bottom: 15px;
+  border-bottom: 4px ridge rgb(170, 120, 70);
+}
+#left2 .posts > span {
+  float: right;
+  text-align: left;
+}
+.posts a {
+  font-family: 'serif';
+  font-size: 30pt;
+  color: red;
+  float: right;
+  line-height: 0%;
+  padding: 20px 0 15px 0;
+}
+.posts a:hover {
+  font-weight: bold;
+  text-decoration: none;
+}
+.posts .wp-post-image {
+  width: 35%;
+  height: 35%;
+  padding: 0;
+  float: right;
+  margin: 0 0 10px 20px;
+}
+#left2 .posts .wp-post-image {
+  float: left;
+  margin: 0 20px 10px 0;
+}
+.posts p {
+  padding-top: 15px;
+  margin: 0;
+  clear: left;
+  text-align: justify;
+}
+#left2 .posts p {
+  clear: right;
+}
+#right2 {
+  flex: 0.7;
+  align-self: flex-start;
+  padding-left: 20px;
+  position: sticky;
+  direction: rtl;
+  text-align: left;
+  top: 62px;
+}
+#list {
+  padding: 20px;
+}
+#list li {
+  list-style: none;
+}
+#gallery {
+  max-width: 1000px;
+  column-count: 4;
+  column-gap: 20px;
+  overflow-y: hidden;
+  padding-bottom: 20px;
+}
+#gallery img {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin-bottom: 20px;
+}
+#exit {
+  position: fixed;
+  display: none;
+  top: 4vh;
+  right: 12vw;
+  z-index: 1000;
+  color: red;
+  font-family: Roman;
+  font-size: 20pt;
+  font-weight: bold;
+  transform: scaleX(1.2);
+  text-shadow: 0 0 2px black, 0 0 2px black;
+}
+#exit:hover {
+  cursor: pointer;
+}
+#modal {
+  width: 100vw;
+  height: 100vh;
+  z-index: 100;
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: rgba(8, 6, 6, 0.75);
+}
+iframe {
+  height: 95vh;
+  width: 80vw;
+  position: fixed;
+  top: 2.5vh;
+  left: 10vw;
+  border-radius: 4px;
+  border: 1px solid rgba(155, 115, 65, 0.8);
+}
+.single p {
+  padding-top: 0;
+}
+
+/**************************************** DYNAMIC RULES *****************************************/
+
+.center {
+  width: 100% !important;
+  text-align: center !important;
+}
+.expand {
+  width: 100% !important;
+  margin: 20px 0 !important;
+}
+.single .expand {
+  margin: 0 0 20px 0 !important;
+}
+.show {
+  display: block !important;
+}
+.stop {
+  position: sticky !important;
+  overflow: hidden !important;
+  padding-right: 10px !important;
+}
+.category-gallery img {
+  width: 100% !important;
+  height: 100% !important;
+}
