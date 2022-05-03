@@ -1,5 +1,5 @@
 # wordpress-themes
-A growing collection of website templates in various stages of completion. There are currently two themes available, which can be viewed live at http://bookstore.html-5.me/ and http://publisher.a0001.net/, as well as in the screenshots below. Future updates will add to the number of themes available in this repository.
+A growing collection of website templates in various stages of completion. There are currently three themes available, which can be viewed live at http://bookstore.html-5.me/ and http://publisher.a0001.net/, as well as in the screenshots below. Future updates will add to the number of themes available in this repository.
 
 
 Screenshots:
