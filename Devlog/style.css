@@ -17,13 +17,16 @@ Author URI: http://github.com/archaion/
   height: 10px;
 }
 ::-webkit-scrollbar-button {
-  display: none;
+  background-color: rgb(74, 70, 69);
+  height: 13px;
 }
 ::-webkit-scrollbar-thumb {
-  background-color: rgb(83, 80, 77);
+  background-color: rgb(77, 74, 71);
+  border-top: 1.4px solid rgb(30, 30, 30);
+  border-bottom: 1.4px solid rgb(30, 30, 30);
 }
 ::-webkit-scrollbar-track {
-  background-color: rgb(58, 55, 52);
+  background: rgb(52, 49, 46);
 }
 html {
   color: rgba(220, 220, 220);
@@ -38,16 +41,16 @@ a {
   font-weight: 100;
 }
 a:hover {
-  text-decoration: underline;
+  color: rgb(200, 168, 106);
 }
 body {
   font-family: 'Roman';
   font-size: 12pt;
-  height: 100%;
+  height: 100vh;
   width: 100%;
   padding: 0;
   margin: 0;
-  background: url('./bg2.jpg') no-repeat center center fixed; /*rgb(50, 50, 50);*/
+  background: url('./bg2.jpg') no-repeat center center fixed;
   background-size: cover;
 }
 #top {
@@ -56,20 +59,33 @@ body {
 }
 #banner {
   width: 100%;
-  height: calc(100vh - 60px);
+  height: calc(100vh - 63px);
   margin: 0;
   padding: 0;
-  background-image: url('./title.png');
-  background-size: 100% 100%;
+  background: url('./title.png') no-repeat;
+  background-size: 80% 80%;
+}
+#links {
+  position: absolute;
+  top: calc(100vh - 200px);
+  right: 0px;
+  height: 100px;
+  width: 400px;
+  font-size: 30pt;
+  text-shadow: 0 0 10px black, 0 0 10px black, 0 0 10px black, 0 0 10px black,
+    0 0 10px black;
 }
 #navbar div,
 #main article,
 .menu,
 .title,
-#gallery img {
-  background: rgba(8, 6, 6, 0.88);
-  border: 1px solid rgba(155, 115, 65, 0.8);
-  border-radius: 3px;
+#button1,
+#button2,
+#button3,
+#next a,
+#prev a {
+  background: rgba(9, 7, 6, 0.88);
+  border: 1.7px inset rgba(188, 148, 99, 0.88);
 }
 #main,
 #page1,
@@ -77,65 +93,116 @@ body {
 #page3 {
   max-width: 1000px;
   margin: 0 auto;
-  padding: 0 20px;
+  padding: 0 0 20px 0;
   position: relative;
   height: auto;
   display: flex;
   flex-flow: row wrap;
   gap: 0 0;
 }
+#page3,
+#main {
+  padding: 0;
+  max-width: none;
+}
 #navbar {
+  text-align: center;
   font-family: 'Gothic';
+  letter-spacing: 0.6px;
   font-weight: 100;
+  max-width: 990px;
+  margin: 0 auto;
   flex: 0 1 100%;
   z-index: 100;
-  padding: 0 20px;
-  text-align: center;
+  border: 20px solid transparent;
+  border-image: url('./border1.png') 200 200 205 200 stretch;
   position: sticky;
-  top: 0px;
+  top: -20px;
 }
 #navbar div {
+  line-height: 18px;
   padding: 10px;
   height: 20px;
+  border: 2px inset rgba(188, 148, 99, 0.88);
+  box-shadow: 0px 0px 10px inset black, 0px 0px 15px inset black,
+    0px 0px 20px inset black;
 }
 #navbar a {
   display: inline;
   margin: 0 5%;
   padding: 0;
 }
+#navbar a:hover,
+#contacts a:hover {
+  color: rgb(202, 169, 106);
+  text-shadow: 0 0 5px rgb(220, 0, 0), 0 0 9px rgb(225, 0, 0),
+    0 0 18px rgb(225, 0, 0), 0 0 23px rgb(215, 0, 0);
+}
+.title {
+  padding: 10px;
+  position: relative;
+  text-align: center;
+  border: none;
+  margin: 35px auto 25px auto;
+  border-radius: 0;
+  height: auto;
+  flex: 0 1 100%;
+  background: radial-gradient(black, transparent 70%),
+    radial-gradient(black, transparent 70%),
+    radial-gradient(black, transparent 70%),
+    radial-gradient(black, transparent 70%);
+}
+.title h1 {
+  color: red;
+  font-family: 'Gothic';
+  font-weight: 100;
+  font-size: 40pt;
+  letter-spacing: 2px;
+  line-height: 80%;
+  padding: 22px 0 15px 0;
+  margin: 0 auto;
+  width: 500px;
+  border-bottom: 4px ridge rgb(170, 120, 70);
+}
+.title p {
+  margin-top: 6px;
+}
 #left1 {
   flex: 0.7;
   align-self: flex-start;
-  margin-top: 181px;
-  padding-right: 20px;
+  border: 20px solid transparent;
+  border-image: url('./border6.png') 155 195 165 200 stretch;
   position: sticky;
-  top: 62px;
-  bottom: 20px;
+  top: 43px;
 }
 .menu {
   box-sizing: border-box;
-  height: calc(100vh - 82px);
+  height: calc(100vh - 73px);
   overflow-y: auto;
   overflow-x: hidden;
+  border: 2px inset rgba(188, 148, 99, 0.88);
 }
 .menu h1 {
   font-family: 'Gothic';
-  font-weight: 100;
+  color: red;
+  font-weight: bold;
   font-size: 16pt;
+  letter-spacing: 2px;
   margin: 0;
   position: sticky;
   top: 0;
   width: 100%;
   padding: 10px 0;
   text-align: center;
-  background: rgba(9, 6, 6, 0.88);
+  background: rgba(7, 5, 5, 0.88);
 }
 .note {
   overflow: auto;
   padding: 10px;
   font-size: 10pt;
-  background: rgba(9, 6, 6, 0.88);
   border-top: 1px solid rgba(155, 115, 65, 0.8);
+  box-shadow: 0px 0px 12px inset black, 0px 0px 17px inset black,
+    0px 0px 25px inset black;
 }
 .note ul {
   margin: 0;
@@ -149,6 +216,11 @@ body {
 .note a {
   padding: 0;
   margin: 0;
+}
+.note a:hover {
+  color: rgb(204, 170, 106);
+  text-shadow: 0 0 1px rgb(205, 0, 0), 0 0 3px rgb(210, 0, 0),
+    0 0 6px rgb(203, 0, 0), 0 0 10px rgb(198, 0, 0);
 }
 .note a.thumb {
   width: 50px;
@@ -164,47 +236,41 @@ body {
 #left2 {
   flex: 2;
 }
-.title {
-  padding: 10px;
-  position: relative;
-  text-align: center;
-  border: none;
-  margin: 20px 0;
-  background: none;
-  border-radius: 0;
-  height: 120px;
-  flex: 0 1 100%;
-  background-image: url('./paper.png');
-  background-size: 100% 100%;
+#right1 .posts .wp-post-image {
+  cursor: pointer;
 }
-.title h1 {
-  color: red;
-  text-shadow: 0 0 2px black, 0 0 2px black;
-  font-family: 'Gothic';
-  font-weight: bold;
-  font-size: 24pt;
-  padding-top: 20px;
-  margin: 0;
+#page1 .poster {
+  border: 20px solid transparent;
+  border-image: url('./border4.png') 200 200 200 200 stretch;
+  border-left: none;
+  padding-left: 10px;
 }
-.title p {
-  margin-top: 5px;
+#page2 .poster {
+  border: 20px solid transparent;
+  border-image: url('./border3.png') 200 200 200 200 stretch;
+  border-right: none;
+  padding-right: 10px;
 }
 .posts {
-  margin: 20px 0;
   padding: 20px;
   position: relative;
   min-height: 100px;
   overflow: auto;
+  box-shadow: 0px 0px 15px inset black, 0px 0px 30px inset black,
+    0px 0px 40px inset black, 0px 0px 55px inset black;
 }
-.posts:first-child {
-  margin-top: 0;
+#page1 .posts {
+  border-top-left-radius: 8px;
+  border-bottom-left-radius: 8px;
 }
-.posts:last-child {
-  margin-bottom: 0;
+#page2 .posts {
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
 }
 .posts > span {
   font-family: 'Gothic';
   font-weight: 100;
+  letter-spacing: 1px;
   font-size: 15pt;
   float: left;
   text-align: right;
@@ -227,6 +293,8 @@ body {
 .posts a:hover {
   font-weight: bold;
   text-decoration: none;
+  text-shadow: 0 0 5px red;
+  transform: scaleX(1.05);
 }
 .posts .wp-post-image {
   width: 35%;
@@ -234,10 +302,12 @@ body {
   padding: 0;
   float: right;
   margin: 0 0 10px 20px;
+  border-radius: 3px;
 }
 #left2 .posts .wp-post-image {
   float: left;
   margin: 0 20px 10px 0;
+  cursor: pointer;
 }
 .posts p {
   padding-top: 15px;
@@ -248,33 +318,131 @@ body {
 #left2 .posts p {
   clear: right;
 }
+#load1,
+#load2 {
+  width: 105px;
+  margin: 0 auto;
+  border-top: 10px;
+  border-bottom: 10px;
+  border-right: 16vw;
+  border-left: 16vw;
+  border-style: solid;
+  border-image: url('./border5.png') 120 483 120 473 stretch;
+}
+#button1,
+#button2 {
+  font-family: roman;
+  font-size: 12pt;
+  color: rgb(200, 170, 110);
+  width: 108px;
+  border-radius: 9px;
+  margin: 0 auto;
+  padding: 8px;
+  margin-left: -2px;
+  outline: none;
+  box-shadow: 0px 0px 10px inset black, 0px 0px 15px inset black,
+    0px 0px 20px inset black;
+}
+#button1:hover,
+#button2:hover,
+#next:hover,
+#prev:hover {
+  cursor: pointer;
+  color: rgb(203, 170, 105);
+  text-shadow: 0 0 2px rgb(208, 0, 0), 0 0 6px rgb(212, 0, 0),
+    0 0 10px rgb(203, 0, 0), 0 0 12px rgb(198, 0, 0);
+}
 #right2 {
   flex: 0.7;
   align-self: flex-start;
-  padding-left: 20px;
-  position: sticky;
   direction: rtl;
   text-align: left;
-  top: 62px;
+  position: sticky;
+  top: 43px;
+  border: 20px solid transparent;
+  border-image: url('./border2.png') 155 200 165 195 stretch;
+}
+#right2 .menu {
+  box-shadow: 0px 0px 15px inset black, 0px 0px 30px inset black,
+    0px 0px 40px inset black, 0px 0px 55px inset black;
 }
 #list {
   padding: 20px;
 }
-#list li {
-  list-style: none;
+#list a:hover {
+  color: rgb(203, 169, 106);
+  text-shadow: 0 0 1px rgb(197 0 0), 0 0 5px rgb(200 0 0), 0 0 9px rgb(203 0 0),
+    0 0 18px rgb(195 0 0);
+}
+#page3 {
+  max-width: 100vw;
+  background: linear-gradient(
+    transparent 10%,
+    rgba(0, 0, 0, 0.5) 75%,
+    black 99%
+  );
+}
+#page3 .title {
+  max-width: 960px;
 }
 #gallery {
-  max-width: 1000px;
+  max-width: 990px;
+  margin: 0 auto;
   column-count: 4;
-  column-gap: 20px;
-  overflow-y: hidden;
-  padding-bottom: 20px;
+  column-gap: 15px;
+  padding: 0 10px 0 5px;
+}
+#gallery a {
+  height: auto;
+  margin-bottom: 20px;
+  display: block;
+  line-height: 0;
 }
 #gallery img {
+  height: 100%;
+  width: calc(100% - 40px);
+  border: 20px solid transparent;
+  border-image: url('./border8.png') 180 125 180 125 stretch;
+  background: linear-gradient(125deg, rgb(83, 68, 44), rgb(168, 138, 69));
+  padding: 1.5px;
+  background-clip: padding-box;
+}
+#load3 {
+  width: 50px;
+  margin: 0 auto;
+  border: 20px solid transparent;
+  border-image: url('./border7.png') 180 repeat round;
+}
+#button3 {
+  font-family: 'serif';
+  width: 50px;
+  font-size: 30pt;
+  color: red;
+  line-height: 1%;
+  padding: 20px 10px 25px 10px;
+  outline: none;
+  box-shadow: 0px 0px 10px inset black, 0px 0px 15px inset black,
+    0px 0px 20px inset black;
+}
+#button3:hover {
+  cursor: pointer;
+  text-shadow: 0 0 5px red;
+  text-decoration: none;
+}
+#bottom {
+  height: 130px;
+  background: black;
   width: 100%;
-  height: auto;
-  display: block;
-  margin-bottom: 20px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  text-align: center;
+}
+#contacts {
+  margin-top: 60px;
+  flex: 0.3;
+  font-size: 20pt;
+  font-family: 'Gothic';
 }
 #exit {
   position: fixed;
@@ -311,8 +479,218 @@ iframe {
   border-radius: 4px;
   border: 1px solid rgba(155, 115, 65, 0.8);
 }
+.archive #page1,
+.single #page1 {
+  margin: 0 20px 20px 20px;
+  width: 100%;
+}
+.archive .poster,
+.single .poster {
+   margin: 5px 20px;
+   border: 20px solid !important;
+   padding-left: 0 !important;
+   border-image: url(./border8.png) 170 135 stretch !important;
+}
+.archive .posts,
+.single .posts {
+  border-top-left-radius: 0 !important;
+  border-bottom-left-radius: 0 !important;
+}
+/*.archive #page1 .poster:nth-child(even) {
+  border: 20px solid transparent;
+  border-image: url('./border3.png') 200 200 200 200 stretch;
+  border-right: none;
+  padding-right: 5px;
+  border-left: unset;
+  padding-left: 0;
+}
+.archive #page1 .posts:nth-child(even) {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  border-top-right-radius: 8px;
+  border-bottom-right-radius: 8px;
+}*/
+.archive .title,
+.single .title {
+  margin: 30px auto 0px auto;
+  font-size: smaller;
+}
+.archive .title h1,
+.single .title h1 {
+  font-size: 20pt;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+.category-gallery .wp-post-image {
+  display: block !important;
+  margin: 0 auto !important;
+  float: none !important;
+  width: unset !important;
+  min-width: 50% !important;
+  max-width: 100% !important;
+  height: unset !important;
+  min-height: 60vw !important;
+  max-height: 77vw !important;
+}
+.archive .category-gallery,
+.single .category-gallery {
+  padding: 5px;
+}
+.single .wp-post-image {
+  margin-bottom: 0;
+}
+#select {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+}
+#next,
+#prev {
+  width: fit-content;
+  margin: 0;
+  display: inline;
+  border-top: 10px;
+  border-bottom: 10px;
+  border-right: 16vw;
+  border-left: 10px;
+  border-style: solid;
+  border-image: url('./border5.png') 250 483 250 0 stretch;
+}
+#prev {
+  border-right: 10px;
+  border-left: 16vw;
+  border-style: solid;
+  border-image: url('./border5.png') 250 0 250 473 stretch;
+}
+#next a,
+#prev a {
+  border-radius: 9px;
+  font-family: roman;
+  font-size: 12pt;
+  color: rgb(200, 170, 110);
+  width: 108px;
+  padding: 8px;
+  margin: 0 auto;
+  margin-right: -2px;
+  outline: none;
+  box-shadow: 0px 0px 10px inset black, 0px 0px 15px inset black,
+    0px 0px 20px inset black;
+}
+#prev a {
+  margin-left: -2px;
+}
 .single p {
   padding-top: 0;
+}
+/*APPLY TO LOAD MORE BUTTON*/
+.fade-out {
+  opacity: 0;
+}
+.is-animating {
+  animation: fade-in 0.7s 0.25s ease both;
+}
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+/*
+*{
+   outline: 1px solid red;
+}*/
+
+/*************************************** DESKTOP VIEWS *******************************************
+
+@media screen and (max-width: 1150px) {
+  body {
+    font-size: 10pt;
+  }
+  #left {
+    flex: 0 0 25%;
+    margin-bottom: 50vh;
+  }
+  #menu {
+    height: calc(50vh - 60px);
+    bottom: 50vh;
+  }
+  #right {
+    flex: 0 0 75%;
+  }
+  #page2,
+  .posts {
+    margin: 20px 0 20px 20px;
+  }
+  .posts a {
+    font-size: 12pt;
+    width: calc(60% - 20px);
+  }
+  .posts .wp-post-image {
+    width: 40%;
+  }
+  #bottom {
+    flex: 0 0 25%;
+    margin-top: 50vh;
+    top: -50vh;
+  }
+  #left2 {
+    direction: ltr;
+    height: calc(50vh - 60px);
+  }
+}
+
+/*************************************** TABLET VIEWS *******************************************
+
+@media screen and (max-width: 800px) {
+  #left {
+    display: none; /*show-hide*
+  }
+  #right {
+    width: 100%;
+  }
+  .posts img {
+    width: 25%;
+  }
+  .posts:nth-child(odd) .wp-post-image {
+    float: left;
+    margin: 0px 20px 10px 0;
+  }
+  .posts:nth-child(odd) a {
+    float: right;
+    text-align: left;
+  }
+  .posts:nth-child(odd) p {
+    clear: right;
+  }
+  #page2,
+  .posts {
+    margin: 20px 0;
+  }
+  #bottom {
+    width: 100%;
+  }
+  #left2 {
+    margin: 10px 0 20px 0;
+  }
+}
+
+/**************************************** MOBILE VIEWS *****************************************
+
+@media screen and (max-width: 502px) {
+}
+@media screen and (max-width: 420px) {
+  body,
+  #menu,
+  #bottom {
+    font-size: 4.5vw;
+  }
+  .posts a {
+    font-size: 5.5vw;
+  }
+}
+@media screen and (max-width: 350px) {
 }
 
 /**************************************** DYNAMIC RULES *****************************************/
@@ -335,8 +713,4 @@ iframe {
   position: sticky !important;
   overflow: hidden !important;
   padding-right: 10px !important;
-}
-.category-gallery img {
-  width: 100% !important;
-  height: 100% !important;
 }

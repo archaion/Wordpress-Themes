@@ -1,124 +1,79 @@
 <?php
+///////////////////////////////////////////////////// AJAX LOADING FUNCTIONS 
+add_action('wp_enqueue_scripts', function () {
+   global $args1;                                  // Pass variables from index.php
+   global $args2;
+   global $args3;
+   global $max1;
+   global $max2;
+   global $max3;
+   wp_enqueue_script('load', get_stylesheet_directory_uri() . '/loader.js', array('jquery'));
+   wp_localize_script('load', 'args', array(
+      'ajaxURL' => admin_url('admin-ajax.php'),    // WordPress AJAX URL
+      'query1' => $args1,                          // WP_Query parameters
+      'query2' => $args2,
+      'query3' => $args3,
+      'thisPage1' => get_query_var('paged') ? get_query_var('paged') : 1,  // Separate pagination variables
+      'thisPage2' => get_query_var('paged') ? get_query_var('paged') : 1,
+      'thisPage3' => get_query_var('paged') ? get_query_var('paged') : 1,
+      'maxPage1' => $max1,
+      'maxPage2' => $max2,
+      'maxPage3' => $max3,
+      'category1' => 'the-world',
+      'category2' => 'the-system',
+      'category3' => 'gallery'
+   ));
+});
 
-add_theme_support('title-tag');
-function create_menu_widget() {
-	register_sidebar([
-		'name' => __('Custom Menu'),
-		'id' => 'widget',
-		'before_title' => '<h3 class="widget-title">',
-		'after_title' => '</h3>',
-		'before_widget' => '<li id="%1$s" class="widget-container %2$s">',
-		'after_widget' => '</li>'
-	]);
-}
+function ajax_handler() {
+   $args = json_decode(stripslashes($_POST['query']), true);
+   $args['paged'] = $_POST['page'] + 1;            // Declaration of properties from loader.js
+   $args['category_name'] = $_POST['category'];
+   $args['post_status'] = 'publish';
 
-function load1_scripts() {
-	global $args1;
-	global $max1;
-	wp_register_script('load1', get_stylesheet_directory_uri() . '/load1.js', array('jquery'));
-	wp_localize_script('load1', 'load1_args', array(
-		'ajaxurl' => admin_url('admin-ajax.php'),
-		'posts' => $args1,
-		'posts_per_page' => get_option('posts_per_page'),
-		'current_page' => get_query_var('paged') ? get_query_var('paged') : 1,
-		'max_page' => $max1
-	));
-	wp_enqueue_script('load1');
-}
-
-function load2_scripts() { 
-	global $args2;
-	global $max2;
-	wp_register_script('load2', get_stylesheet_directory_uri() . '/load2.js', array('jquery'));
-	wp_localize_script('load2', 'load2_args', array(
-		'ajaxurl' => admin_url('admin-ajax.php'),
-		'posts' => $args2, 
-		'posts_per_page' => get_option('posts_per_page'),
-		'current_page' => get_query_var('paged') ? get_query_var('paged') : 1,
-		'max_page' => $max2
-	));
-	wp_enqueue_script('load2');
-}
-
-add_action('wp_enqueue_scripts', 'load1_scripts');
-add_action('wp_enqueue_scripts', 'load2_scripts');
-
-function ajax_handler1() {
-	$args = json_decode(stripslashes($_POST['query']), true);
-	$args['paged'] = $_POST['page'] + 1; 
-	$args['post_status'] = 'publish';
-	$args['category_name'] = 'the-world'; 
-	query_posts($args);
-	if (have_posts()) : while (have_posts()) : the_post(); ?>
-			<article <?php post_class('posts') ?> id='post-<?php the_ID(); ?>'>
-				<?php if (has_post_thumbnail()) : ?>
-					<span><?php the_title(); ?></span>
-				<?php the_post_thumbnail();
-				else : ?>
-					<span class='center'><?php the_title(); ?></span>
-				<?php endif;
-				the_excerpt(); ?>
-				<a href='<?php the_permalink(); ?>'>&raquo;</a>
-			</article>
+   if ($args['category_name'] != 'gallery') {
+      query_posts($args);                          // Display new posts
+      if (have_posts()) : while (have_posts()) : the_post(); ?>
+            <div class='poster'>
+               <article <?php post_class('posts') ?> id=' post-<?php the_ID(); ?>'>
+                  <?php if (has_post_thumbnail()) : ?>
+                     <span><?php the_title(); ?></span>
+                  <?php the_post_thumbnail();
+                  else : ?>
+                     <span class='center'><?php the_title(); ?></span>
+                  <?php endif;
+                  the_excerpt(); ?>
+                  <a href='<?php the_permalink(); ?>'>&raquo;</a>
+               </article>
+            </div>
+         <?php endwhile;
+      endif;
+      die;                                         // Exit the script - no wp_reset_query() required
+   } else {
+      query_posts($args); 
+      if (have_posts()) : while (have_posts()) : the_post(); ?>
+            <a class='picture' href='<?php the_permalink(); ?>'><?php the_post_thumbnail(); ?></a>
 <?php endwhile;
-	endif;
-	die; 
+      endif;
+      die;
+   }
 }
 
-function ajax_handler2() {	
-	$args = json_decode(stripslashes($_POST['query']), true);
-	$args['paged'] = $_POST['page'] + 1; 
-	$args['post_status'] = 'publish';
-	$args['category_name'] = 'the-system'; 
-	query_posts($args);
-	if (have_posts()) : while (have_posts()) : the_post(); ?>
-			<article <?php post_class('posts') ?> id='post-<?php the_ID(); ?>'>
-				<?php if (has_post_thumbnail()) : ?>
-					<span><?php the_title(); ?></span>
-				<?php the_post_thumbnail();
-				else : ?>
-					<span class='center'><?php the_title(); ?></span>
-				<?php endif;
-				the_excerpt(); ?>
-				<a href='<?php the_permalink(); ?>'>&raquo;</a>
-			</article>
-<?php endwhile;
-	endif;
-	die; 
-}
+add_action('wp_ajax_load', 'ajax_handler');        // wp_ajax_{action}
+add_action('wp_ajax_nopriv_load', 'ajax_handler'); // wp_ajax_nopriv_{action}
 
-add_action('wp_ajax_load1', 'ajax_handler1'); 
-add_action('wp_ajax_nopriv_load1', 'ajax_handler1');
-
-add_action('wp_ajax_load2', 'ajax_handler2');
-add_action('wp_ajax_nopriv_load2', 'ajax_handler2');
-
+///////////////////////////////////////////////////////////////////////////////////////////
 add_filter('excerpt_more', 'change_excerpt_more', 10, 1);
 function change_excerpt_more($more) {
-	return ' . . . ';
+   return ' . . . ';
 }
 add_filter('excerpt_length', 'custom_excerpt_length', 999);
 function custom_excerpt_length($length) {
-	return 70;
+   return 70;
 }
 function add_featured_image_support() {
-	add_theme_support('post-thumbnails');
-	add_image_size('small-thumb', 95, 150, false);
+   add_theme_support('post-thumbnails');
+   add_image_size('small-thumb', 95, 150, false);
 }
 
 add_action('after_setup_theme', 'add_featured_image_support');
-add_action('widgets_init', 'create_menu_widget');
-/*
-function create_post_type() {
-    $labels = array(
-        'name' => ('Custom Post'),        
-        'rewrite' => array('slug' => 'custom-posts')
-    );
-    $args = array(
-        'labels' => $labels,
-        'public' => true
-    );
-    register_post_type('custom', $args);
-}
-add_action('init', 'create_post_type');
-*/
