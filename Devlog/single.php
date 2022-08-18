@@ -11,20 +11,20 @@
 <body <?php body_class() ?>>
    <section id='main'>
       <div id='page1'>
-         <div class='title'>
-            <h1><?php the_title(); ?></h1>
-            <p><?php echo get_the_date(); ?></p>
-         </div>
          <div id='right1' class='single'>
-            <?php if (have_posts()) : while (have_posts()) : the_post(); ?>
+            <?php if (have_posts()) : while (have_posts()) : the_post() ?>
+                  <div class='title'>
+                     <h1><?php the_title(); ?></h1>
+                     <p><?php echo get_the_date(); ?></p>
+                  </div>
                   <div class='poster'>
                      <article <?php post_class('posts') ?> id='post-<?php the_ID(); ?>'>
                         <?php the_post_thumbnail();
                         the_content(); ?>
                      </article>
                   </div>
-               <?php endwhile; ?>
-            <?php else : ?>
+               <?php endwhile;
+            else : ?>
                <p>Nothing Found</p>
             <?php endif; ?>
          </div>

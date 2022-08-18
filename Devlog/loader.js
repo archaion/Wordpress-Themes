@@ -1,9 +1,11 @@
-jQuery(function ($) { // use jQuery code inside this to avoid "$ is not defined" error
+jQuery(function ($)
+{ // use jQuery code inside this to avoid "$ is not defined" error
    $('#load1').click(() => post(1))
    $('#load2').click(() => post(2))
    $('#load3').click(() => post(3))
 
-   function post(part) {
+   function post(part)
+   {
       var data = {
          'action': 'load',
          'query': part == 1 ? args.query1 : (part == 2 ? args.query2 : args.query3), // Get params from wp_localize_script()
@@ -19,8 +21,11 @@ jQuery(function ($) { // use jQuery code inside this to avoid "$ is not defined"
          /*beforeSend: function (xhr) {
             button.text('Loading...') // change the button text / add a preloader image
          },*/
-         success: function (data) {
+         success: function (data)
+         {
             if (data) {
+               load1.classList.toggle('snap')
+               load2.classList.toggle('snap')
                button.prev().after(data) // insert new posts [add button.text('Continue . . .')]
                if (part == 1) {
                   args.thisPage1++
@@ -32,6 +37,10 @@ jQuery(function ($) { // use jQuery code inside this to avoid "$ is not defined"
                   args.thisPage3++
                   if (args.thisPage3 == args.maxPage3) button.remove()
                }
+               setTimeout(function() {
+                  load1.classList.toggle('snap')
+                  load2.classList.toggle('snap')
+               }, 300)  
             } else {
                button.remove()
             }

@@ -17,13 +17,13 @@ Author URI: http://github.com/archaion/
   height: 10px;
 }
 ::-webkit-scrollbar-button {
-  background-color: rgb(74, 70, 69);
+  background-color: rgb(77, 74, 71);
   height: 13px;
 }
 ::-webkit-scrollbar-thumb {
   background-color: rgb(77, 74, 71);
-  border-top: 1.4px solid rgb(30, 30, 30);
-  border-bottom: 1.4px solid rgb(30, 30, 30);
+  border-top: 1.5px solid rgb(49, 46, 43);
+  border-bottom: 1.5px solid rgb(49, 46, 43);
 }
 ::-webkit-scrollbar-track {
   background: rgb(52, 49, 46);
@@ -32,7 +32,9 @@ html {
   color: rgba(220, 220, 220);
   scrollbar-color: rgb(85, 80, 75);
   scrollbar-width: thin;
-  scroll-behavior: smooth !important;
+  scroll-snap-type: y proximity;
+  scroll-behavior: smooth;
+  /*scroll-snap-margin: 20px;*/
 }
 a {
   color: rgb(200, 170, 110);
@@ -59,7 +61,7 @@ body {
 }
 #banner {
   width: 100%;
-  height: calc(100vh - 63px);
+  height: calc(100vh - 64px);
   margin: 0;
   padding: 0;
   background: url('./title.png') no-repeat;
@@ -85,7 +87,7 @@ body {
 #next a,
 #prev a {
   background: rgba(9, 7, 6, 0.88);
-  border: 1.7px inset rgba(188, 148, 99, 0.88);
+  border: 2px inset rgb(180, 150, 88);
 }
 #main,
 #page1,
@@ -115,15 +117,14 @@ body {
   flex: 0 1 100%;
   z-index: 100;
   border: 20px solid transparent;
-  border-image: url('./border1.png') 200 200 205 200 stretch;
+  border-image: url('./border1.png') 210 200 205 200 stretch;
   position: sticky;
-  top: -20px;
+  top: -18px;
 }
 #navbar div {
   line-height: 18px;
   padding: 10px;
   height: 20px;
-  border: 2px inset rgba(188, 148, 99, 0.88);
   box-shadow: 0px 0px 10px inset black, 0px 0px 15px inset black,
     0px 0px 20px inset black;
 }
@@ -143,14 +144,17 @@ body {
   position: relative;
   text-align: center;
   border: none;
-  margin: 35px auto 25px auto;
+  margin: 45px auto 40px auto;
   border-radius: 0;
   height: auto;
   flex: 0 1 100%;
-  background: radial-gradient(black, transparent 70%),
-    radial-gradient(black, transparent 70%),
-    radial-gradient(black, transparent 70%),
-    radial-gradient(black, transparent 70%);
+  background: url('border9.png'),
+  radial-gradient(black, transparent 65%),
+    radial-gradient(black, transparent 65%),
+    radial-gradient(black, transparent 65%),
+    radial-gradient(black, transparent 65%),
+    radial-gradient(black, transparent 65%);
+  background-size: 100% 100%;
 }
 .title h1 {
   color: red;
@@ -161,7 +165,8 @@ body {
   line-height: 80%;
   padding: 22px 0 15px 0;
   margin: 0 auto;
-  width: 500px;
+  width: 50%;
+  max-width: 500px;
   border-bottom: 4px ridge rgb(170, 120, 70);
 }
 .title p {
@@ -171,16 +176,16 @@ body {
   flex: 0.7;
   align-self: flex-start;
   border: 20px solid transparent;
-  border-image: url('./border6.png') 155 195 165 200 stretch;
+  border-image: url('./border6.png') 155 195 165 210 stretch;
+  margin-left: 2px;
   position: sticky;
-  top: 43px;
+  top: 44px;
 }
 .menu {
   box-sizing: border-box;
-  height: calc(100vh - 73px);
+  height: calc(100vh - 74.5px);
   overflow-y: auto;
   overflow-x: hidden;
-  border: 2px inset rgba(188, 148, 99, 0.88);
 }
 .menu h1 {
   font-family: 'Gothic';
@@ -241,13 +246,13 @@ body {
 }
 #page1 .poster {
   border: 20px solid transparent;
-  border-image: url('./border4.png') 200 200 200 200 stretch;
+  border-image: url('./border4.png') 200 200 200 188 stretch;
   border-left: none;
   padding-left: 10px;
 }
 #page2 .poster {
   border: 20px solid transparent;
-  border-image: url('./border3.png') 200 200 200 200 stretch;
+  border-image: url('./border3.png') 200 188 200 200 stretch;
   border-right: none;
   padding-right: 10px;
 }
@@ -266,6 +271,8 @@ body {
 #page2 .posts {
   border-top-right-radius: 8px;
   border-bottom-right-radius: 8px;
+  border-right: 1.8px inset rgb(180, 150, 88);
+
 }
 .posts > span {
   font-family: 'Gothic';
@@ -321,13 +328,16 @@ body {
 #load1,
 #load2 {
   width: 105px;
-  margin: 0 auto;
+  margin: 5px auto 10px auto;
   border-top: 10px;
-  border-bottom: 10px;
+  border-bottom: 30px;
   border-right: 16vw;
   border-left: 16vw;
   border-style: solid;
-  border-image: url('./border5.png') 120 483 120 473 stretch;
+  border-image: url('./border5.png') 130 483 130 473 stretch;
+}
+.snap {
+   scroll-snap-align: end;
 }
 #button1,
 #button2 {
@@ -358,9 +368,10 @@ body {
   direction: rtl;
   text-align: left;
   position: sticky;
-  top: 43px;
+  top: 44.5px;
   border: 20px solid transparent;
-  border-image: url('./border2.png') 155 200 165 195 stretch;
+  border-image: url('./border2.png') 155 210 165 195 stretch
+  ;margin-right: 2px;
 }
 #right2 .menu {
   box-shadow: 0px 0px 15px inset black, 0px 0px 30px inset black,
@@ -402,9 +413,9 @@ body {
   height: 100%;
   width: calc(100% - 40px);
   border: 20px solid transparent;
-  border-image: url('./border8.png') 180 125 180 125 stretch;
-  background: linear-gradient(125deg, rgb(83, 68, 44), rgb(168, 138, 69));
-  padding: 1.5px;
+  border-image: url('./border8.png') 180 120 180 130 stretch;
+  background: linear-gradient(150deg, rgb(83, 68, 44) 25%, rgb(168, 138, 69));
+  padding: 2px;
   background-clip: padding-box;
 }
 #load3 {
@@ -412,6 +423,7 @@ body {
   margin: 0 auto;
   border: 20px solid transparent;
   border-image: url('./border7.png') 180 repeat round;
+  /*transition: all 0.3s ease-in-out;*/
 }
 #button3 {
   font-family: 'serif';
@@ -448,7 +460,7 @@ body {
   position: fixed;
   display: none;
   top: 4vh;
-  right: 12vw;
+  right: 10%;
   z-index: 1000;
   color: red;
   font-family: Roman;
@@ -472,10 +484,10 @@ body {
 }
 iframe {
   height: 95vh;
-  width: 80vw;
+  width: 86%;
   position: fixed;
   top: 2.5vh;
-  left: 10vw;
+  left: 7%;
   border-radius: 4px;
   border: 1px solid rgba(155, 115, 65, 0.8);
 }
@@ -484,12 +496,23 @@ iframe {
   margin: 0 20px 20px 20px;
   width: 100%;
 }
+.archive .title,
+.single .title {
+  margin: 30px auto 0px auto;
+  font-size: smaller;
+}
+.archive .title h1,
+.single .title h1 {
+  font-size: 20pt;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
 .archive .poster,
 .single .poster {
-   margin: 5px 20px;
-   border: 20px solid !important;
-   padding-left: 0 !important;
-   border-image: url(./border8.png) 170 135 stretch !important;
+  margin: 5px 0;
+  border: 20px solid !important;
+  padding-left: 0 !important;
+  border-image: url(./border8.png) 174 115 174 125 stretch !important;
 }
 .archive .posts,
 .single .posts {
@@ -510,27 +533,26 @@ iframe {
   border-top-right-radius: 8px;
   border-bottom-right-radius: 8px;
 }*/
-.archive .title,
-.single .title {
-  margin: 30px auto 0px auto;
-  font-size: smaller;
+.single .category-the-system p,
+.single .category-the-world p {
+  padding-top: 0;
 }
-.archive .title h1,
-.single .title h1 {
-  font-size: 20pt;
-  font-weight: bold;
-  letter-spacing: 1px;
+.archive .category-the-system p,
+.srchive .category-the-world p {
+  padding-top: 15px;
 }
 .category-gallery .wp-post-image {
   display: block !important;
   margin: 0 auto !important;
   float: none !important;
   width: unset !important;
-  min-width: 50% !important;
+  min-width: 40% !important;
   max-width: 100% !important;
   height: unset !important;
-  min-height: 60vw !important;
-  max-height: 77vw !important;
+  min-height: 40vh !important;
+  max-height: 99vh !important;
+  pointer-events: none !important;
+  cursor: default !important;
 }
 .archive .category-gallery,
 .single .category-gallery {
@@ -540,7 +562,7 @@ iframe {
   margin-bottom: 0;
 }
 #select {
-  margin-top: 20px;
+  margin-top: 35px;
   display: flex;
   justify-content: center;
 }
@@ -579,15 +601,12 @@ iframe {
 #prev a {
   margin-left: -2px;
 }
-.single p {
-  padding-top: 0;
-}
 /*APPLY TO LOAD MORE BUTTON*/
-.fade-out {
+.fadeOut {
   opacity: 0;
 }
-.is-animating {
-  animation: fade-in 0.7s 0.25s ease both;
+.fadeIn {
+  animation: fade-in 0.2s ease both;
 }
 @keyframes fade-in {
   0% {
@@ -597,6 +616,39 @@ iframe {
     opacity: 1;
   }
 }
+
+/**************************************** DYNAMIC RULES *****************************************/
+
+.center {
+  width: 100% !important;
+  text-align: center !important;
+}
+.expand {
+  width: unset !important;
+  max-width: 100% !important;
+  height: unset !important;
+  min-height: 70vh !important;
+  max-height: 90vh !important;
+  margin: 20px 0 20px 20px !important;
+}
+#left2 .expand {
+  margin: 20px 20px 20px 0 !important;
+}
+.single .expand {
+   margin: 0 0 20px 20px !important;
+}
+.archive .expand {
+   margin: 20px 0 20px 20px !important;
+}
+.show {
+  display: block !important;
+}
+.stop {
+  position: sticky !important;
+  overflow: hidden !important;
+  padding-right: 10px !important;
+}
+
 /*
 *{
    outline: 1px solid red;
@@ -691,26 +743,4 @@ iframe {
   }
 }
 @media screen and (max-width: 350px) {
-}
-
-/**************************************** DYNAMIC RULES *****************************************/
-
-.center {
-  width: 100% !important;
-  text-align: center !important;
-}
-.expand {
-  width: 100% !important;
-  margin: 20px 0 !important;
-}
-.single .expand {
-  margin: 0 0 20px 0 !important;
-}
-.show {
-  display: block !important;
-}
-.stop {
-  position: sticky !important;
-  overflow: hidden !important;
-  padding-right: 10px !important;
 }

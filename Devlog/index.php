@@ -59,7 +59,7 @@
             $max1 = $posts1->max_num_pages;    // Set value for loader.php
             $args1 = json_encode($posts1->query_vars);
             if ($max1 >= 2) : ?>
-               <div id='load1'>
+               <div id='load1' class='snap'>
                   <input type='submit' value='Continue' id='button1'></input>
                </div>
             <?php endif;
@@ -101,7 +101,7 @@
             $max2 = $posts2->max_num_pages;
             $args2 = json_encode($posts2->query_vars);
             if ($max2 >= 2) : ?>
-               <div id='load2'>
+               <div id='load2' class='snap'>
                   <input type='submit' value='Continue' id='button2'></input>
                </div>
             <?php endif;
@@ -156,21 +156,23 @@
 </html>
 
 <script>
-   var page = document.querySelector('html'),
+   let page = document.querySelector('html'),
       modal = document.getElementById('modal'),
       exit = document.getElementById('exit'),
-      anchors = document.getElementById('anchors')
+      anchors = document.getElementById('anchors'),
+      load1 = document.getElementById('load1'),
+      load2 = document.getElementById('load2')
 
-   function addClickEvents() {
-      var links = document.getElementsByTagName('a'),
-         images = document.querySelectorAll('.posts > img')      // Select child elements
-         //frames = document.querySelectorAll('.picture > img')
+   addClickEvents = (e) => {
+      let links = document.getElementsByTagName('a'),
+         images = document.querySelectorAll('.posts > img') // Select child elements
+      //posters = document.getElementsByClassName('poster')
 
-      for (var i in images) {
-         if (!images[i].onclick) {     // Omit previous elements 
+      for (let i in images) {
+         if (!images[i].onclick) { // Omit previous images
             images[i].onclick = function() {
-               var title = this.parentElement.querySelector('span')
-
+               snapToggle()
+               let title = this.parentElement.querySelector('span')
                if (this.classList.contains('expand')) {
                   this.classList.remove('expand')
                   title.classList.remove('center')
@@ -178,14 +180,19 @@
                   this.classList.add('expand')
                   title.classList.add('center')
                }
+               //this.parentElement.scrollIntoView()
+               setTimeout(function() {
+                  snapToggle()
+               }, 300)  
             }
          }
       }
-      for (var i in links) {
+      for (let i in links) {
          if (links[i].target != 'frame' && links[i].parentElement != anchors) {
             links[i].target = 'frame'
             if (!links[i].onclick) {
                links[i].onclick = function() {
+                  snapToggle()
                   modal.classList.add('show')
                   exit.classList.add('show')
                   page.classList.add('stop')
@@ -193,11 +200,15 @@
             }
          }
       }
-      exit.onclick = function() {
+      /*for (let i in posters) {
+         posters[i].classList.add('fadeIn')
+      }*/
+      exit.onclick = () => {
          modal.classList.remove('show')
-         modal.innerHTML = "<iframe name='frame'></iframe>"       // Clear iframe content
+         modal.innerHTML = "<iframe name='frame'></iframe>" // Clear iframe content
          exit.classList.remove('show')
          page.classList.remove('stop')
+         snapToggle()
       }
       /*for (var i in frames) {
          if (!frames[i].style.borderImage) {
@@ -208,6 +219,10 @@
             }
          }
       }*/
+      snapToggle = () => {
+         load1.classList.toggle('snap')
+         load2.classList.toggle('snap')
+      }
    }
    window.onload = addClickEvents()
 </script>
