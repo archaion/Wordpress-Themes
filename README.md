@@ -1,5 +1,5 @@
 # wordpress-themes
-A growing collection of website templates in various stages of completion. There are currently three themes available, the first of which can be viewed live at http://http://darkaeon.zya.me/, and the others in the screenshots below. Future updates will add to the number of themes available in this repository, and improve the ones currently available.
+A growing collection of website templates in various stages of completion. There are currently three themes available, the first of which can be viewed live at http://darkaeon.zya.me/, and the others in the screenshots below. Future updates will add to the number of themes available in this repository, and improve the ones currently available.
 
 <br>
 <h1>Devlog Theme</h1>
