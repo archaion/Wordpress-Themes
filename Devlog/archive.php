@@ -18,7 +18,7 @@
                         <h1><?php the_title(); ?></h1>
                         <p><?php echo get_the_date(); ?></p>
                      </div>
-                     <div class='poster'>
+                     <div class='poster gallery-single'>
                         <article <?php post_class('posts') ?> id='post-<?php the_ID(); ?>'>
                            <?php the_post_thumbnail();
                            the_content(); ?>
@@ -28,7 +28,7 @@
                      <div class='poster'>
                         <article <?php post_class('posts') ?> id='post-<?php the_ID(); ?>'>
                            <?php if (has_post_thumbnail()) : ?>
-                              <span><?php the_title(); ?></span>
+                              <span class='post-title'><?php the_title(); ?></span>
                            <?php the_post_thumbnail();
                            else : ?>
                               <span class='center'><?php the_title(); ?></span>
@@ -59,13 +59,17 @@
 
 <script>
    var images = document.getElementsByClassName('wp-post-image')
-   for (var i in images) {
-      images[i].onclick = function() {
-
-         if (this.classList.contains('expand')) {
-            this.classList.remove('expand')
-         } else {
-            this.classList.add('expand')
+   for (let i in images) {
+      if (!images[i].onclick) { // Omit previous images
+         images[i].onclick = function() {
+            let title = this.parentElement.querySelector('span')
+            if (this.classList.contains('expand')) {
+               this.classList.remove('expand')
+               title.classList.remove('center')
+            } else {
+               this.classList.add('expand')
+               title.classList.add('center')
+            }
          }
       }
    }

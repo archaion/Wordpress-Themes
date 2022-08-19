@@ -17,13 +17,22 @@
                      <h1><?php the_title(); ?></h1>
                      <p><?php echo get_the_date(); ?></p>
                   </div>
-                  <div class='poster'>
-                     <article <?php post_class('posts') ?> id='post-<?php the_ID(); ?>'>
-                        <?php the_post_thumbnail();
-                        the_content(); ?>
-                     </article>
-                  </div>
-               <?php endwhile;
+                  <?php if (get_the_category()[0]->cat_name == 'Gallery') : ?>
+                     <div class='poster gallery-single'>
+                        <article <?php post_class('posts') ?> id='post-<?php the_ID(); ?>'>
+                           <?php the_post_thumbnail();
+                           the_content(); ?>
+                        </article>
+                     </div>
+                  <?php else : ?>
+                     <div class='poster'>
+                        <article <?php post_class('posts') ?> id='post-<?php the_ID(); ?>'>
+                           <?php the_post_thumbnail();
+                           the_content(); ?>
+                        </article>
+                     </div>
+               <?php endif;
+               endwhile;
             else : ?>
                <p>Nothing Found</p>
             <?php endif; ?>
@@ -35,15 +44,6 @@
 </html>
 
 <script>
-   var images = document.getElementsByClassName('wp-post-image')
-   for (var i in images) {
-      images[i].onclick = function() {
-
-         if (this.classList.contains('expand')) {
-            this.classList.remove('expand')
-         } else {
-            this.classList.add('expand')
-         }
-      }
-   }
+   var image = document.querySelector('.wp-post-image')
+   image.onclick = () => image.classList.toggle('expand')
 </script>

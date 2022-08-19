@@ -43,7 +43,7 @@
                   <div class='poster'>
                      <article <?php post_class('posts') ?> id='post-<?php the_ID(); ?>'>
                         <?php if (has_post_thumbnail()) : ?>
-                           <span><?php the_title(); ?></span>
+                           <span class='post-title'><?php the_title(); ?></span>
                         <?php the_post_thumbnail();
                         else : ?>
                            <span class='center'><?php the_title(); ?></span>
@@ -85,7 +85,7 @@
                   <div class='poster'>
                      <article <?php post_class('posts') ?> id='post-<?php the_ID(); ?>'>
                         <?php if (has_post_thumbnail()) : ?>
-                           <span><?php the_title(); ?></span>
+                           <span class='post-title'><?php the_title(); ?></span>
                         <?php the_post_thumbnail();
                         else : ?>
                            <span class='center'><?php the_title(); ?></span>
@@ -163,7 +163,7 @@
       load1 = document.getElementById('load1'),
       load2 = document.getElementById('load2')
 
-   addClickEvents = (e) => {
+   addClickEvents = () => {
       let links = document.getElementsByTagName('a'),
          images = document.querySelectorAll('.posts > img') // Select child elements
       //posters = document.getElementsByClassName('poster')
@@ -171,7 +171,7 @@
       for (let i in images) {
          if (!images[i].onclick) { // Omit previous images
             images[i].onclick = function() {
-               snapToggle()
+               snapSwitch()
                let title = this.parentElement.querySelector('span')
                if (this.classList.contains('expand')) {
                   this.classList.remove('expand')
@@ -180,9 +180,8 @@
                   this.classList.add('expand')
                   title.classList.add('center')
                }
-               //this.parentElement.scrollIntoView()
                setTimeout(function() {
-                  snapToggle()
+                  snapSwitch()
                }, 300)  
             }
          }
@@ -192,7 +191,7 @@
             links[i].target = 'frame'
             if (!links[i].onclick) {
                links[i].onclick = function() {
-                  snapToggle()
+                  snapSwitch()
                   modal.classList.add('show')
                   exit.classList.add('show')
                   page.classList.add('stop')
@@ -208,18 +207,9 @@
          modal.innerHTML = "<iframe name='frame'></iframe>" // Clear iframe content
          exit.classList.remove('show')
          page.classList.remove('stop')
-         snapToggle()
+         snapSwitch()
       }
-      /*for (var i in frames) {
-         if (!frames[i].style.borderImage) {
-            if (frames[i].clientHeight < frames[i].clientWidth) {
-               frames[i].style.borderImage = 'url("./border8.png") 200 200 200 200 stretch stretch !important'
-            } else {
-               frames[i].style.borderImage = 'url("./border7.png") 200 200 200 200 stretch stretch !important'
-            }
-         }
-      }*/
-      snapToggle = () => {
+      snapSwitch = () => {
          load1.classList.toggle('snap')
          load2.classList.toggle('snap')
       }

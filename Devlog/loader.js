@@ -24,8 +24,7 @@ jQuery(function ($)
          success: function (data)
          {
             if (data) {
-               load1.classList.toggle('snap')
-               load2.classList.toggle('snap')
+               snapSwitch()
                button.prev().after(data) // insert new posts [add button.text('Continue . . .')]
                if (part == 1) {
                   args.thisPage1++
@@ -38,8 +37,7 @@ jQuery(function ($)
                   if (args.thisPage3 == args.maxPage3) button.remove()
                }
                setTimeout(function() {
-                  load1.classList.toggle('snap')
-                  load2.classList.toggle('snap')
+                  snapSwitch()
                }, 300)  
             } else {
                button.remove()
