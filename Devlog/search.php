@@ -2,93 +2,80 @@
 /*
 Template Name: Search
 */
-get_header() ?>
+?>
+<!DOCTYPE html>
+<html <?php language_attributes(); ?>>
+
+<head>
+   <meta charset='<?php bloginfo('charset'); ?>'>
+   <link rel='stylesheet' type='text/css' media='all' href='<?php bloginfo('stylesheet_url'); ?>' />
+   <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+   <?php wp_head(); ?>
+</head>
 
 <body <?php body_class() ?>>
-    <?php get_sidebar(); ?>
-    <div id='fadeIn'></div>
-    <header>
-        <div id='leftLogo' class='small'></div>
-        <div id='rightLogo' class='small'></div>
-        <h1 id='title' class='adjust'>
-            <p id='name' class='adjust'>S E A R C H</p>
-        </h1>
-        <div id='line'></div>
-    </header>
-    <div id='menu'>
-        <a href="<?= site_url() ?>">HOME</a>
-        <a href="<?= site_url() . '/books' ?>">BROWSE</a>
-        <a href="<?= site_url() . '/news' ?>">NEWS</a>
-        <a href="<?= site_url() . '/about' ?>">ABOUT</a>
-    </div>
-    <div class='user'>
-        <?php get_search_form(); ?>
-    </div>
-    <section id='main' style='padding-top: 40px;'>
-        <?php if (have_posts()) :
-            while (have_posts()) : the_post() ?>
-                <?php if (get_the_ID() == 124) : //REPLACE WITH DEFAULT SEARCH POST ID ?>
-                    <br><br><br><br><br><br><br>
-                <?php else : ?>
-                    <article class='item' id='post-<?php the_ID() ?>'>
-                        <a class='thumb' href='<?php the_permalink() ?>'><?php the_post_thumbnail() ?></a>
-                        <a class='caption' href='<?php the_permalink() ?>'><?php the_title() ?></a>
-                        <div class='text page'><?php the_content() ?></div>
-                    </article>
-                    <div class='break'></div>
+   <section id='main'>
+      <div id='page1'>
+         <div id='right1' class='single'>
+            <?php if (have_posts()) : while (have_posts()) : the_post();
+                  if (get_the_category() && get_the_category()[0]->cat_name == 'Gallery') : ?>
+                     <div class='title'>
+                        <h1><?php the_title(); ?></h1>
+                        <p><?php echo get_the_date(); ?></p>
+                     </div>
+                     <div class='poster gallery-single'>
+                        <article <?php post_class('posts') ?> id='post-<?php the_ID(); ?>'>
+                           <?php the_post_thumbnail();
+                           the_content(); ?>
+                        </article>
+                     </div>
+                  <?php else : ?>
+                     <div class='poster'>
+                        <article <?php post_class('posts') ?> id='post-<?php the_ID(); ?>'>
+                           <?php if (has_post_thumbnail()) : ?>
+                              <span class='post-title'><?php the_title(); ?></span>
+                           <?php the_post_thumbnail();
+                           else : ?>
+                              <span class='center'><?php the_title(); ?></span>
+                           <?php endif;
+                           the_content(); ?>
+                        </article>
+                     </div>
+               <?php endif;
+               endwhile; ?>
+               <div id='select'>
+                  <?php if (get_previous_posts_link()) : ?>
+                     <div id='prev'><?php previous_posts_link('Return'); ?></div>
+                  <?php endif;
+                  if (get_next_posts_link()) : ?>
+                     <div id="next"><?php next_posts_link('Continue'); ?></div>
+                  <?php endif; ?>
+               </div>
+            <?php else : ?>
+               <p>Nothing Found</p>
             <?php endif;
-            endwhile;
-        else : ?>
-            <div style='margin: 0 auto; width: 100%; text-align: center;'>Not Found</div>
-            <br><br><br><br><br><br><br>
-        <?php
-        endif;
-        wp_reset_postdata() ?>
-    </section>
-    <br>
-    <?php
-    /* WORDPRESS TUTORIAL TEMPLATE/*
-    global $query_string;
-    $args = explode("&", $query_string);
-    $terms = array();
+            wp_reset_postdata(); ?>
+         </div>
+      </div>
+   </section>
+</body>
 
-    if (!empty($terms)) :
-        foreach ($args as $key => $str) {
-            $split = explode("=", $str);
-            $terms[$split[0]] = $split[1];
-        }
-        $WPQ = new WP_Query($terms);
-        global $wp_query;
-        $results = $wp_query->found_posts;    //number of results
+</html>
 
-        if ($WPQ->have_posts()) : ?>
-            <?php while ($WPQ->have_posts()) : $WPQ->the_post(); ?>
-                <article class='item' id='post-<?php the_ID() ?>'>
-                    <a class='thumb' href='<?php the_permalink() ?>'><?php the_post_thumbnail() ?></a>
-                    <a class='caption' href='<?php the_permalink() ?>'><?php the_title() ?></a>
-                    <div class='text page'><?php the_content() ?></div>
-                </article>
-            <?php endwhile;
-        endif;
-        wp_reset_postdata();
-    else : // no search query
-
-
-
-    $posts = get_posts('replace-WITH-SEARCH-QUERY@@@@@@@@@@@@@@@');
-    if (have_posts()) : ?>
-        <div class='subtitle'>Coming Soon</div>
-        <?php foreach ($posts as $post) : ?>
-            <article class='item' id='post-<?php the_ID() ?>'>
-                <a class='thumb' href='<?php the_permalink() ?>'><?php the_post_thumbnail() ?></a>
-                <a class='caption' href='<?php the_permalink() ?>'><?php the_title() ?></a>
-                <div class='text page'><?php the_content() ?></div>
-            </article>
-        <?php endforeach;
-    else : ?>
-        <p>Not Found</p>
-    <?php endif;
-    wp_reset_postdata()
-    ?> 
-</section> */
-    get_footer() ?>
+<script>
+   var images = document.getElementsByClassName('wp-post-image')
+   for (let i in images) {
+      if (!images[i].onclick) { // Omit previous images
+         images[i].onclick = function() {
+            let title = this.parentElement.querySelector('span')
+            if (this.classList.contains('expand')) {
+               this.classList.remove('expand')
+               title.classList.remove('center')
+            } else {
+               this.classList.add('expand')
+               title.classList.add('center')
+            }
+         }
+      }
+   }
+</script>

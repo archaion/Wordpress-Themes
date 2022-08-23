@@ -18,7 +18,7 @@
                      <p><?php echo get_the_date(); ?></p>
                   </div>
                   <?php if (get_the_category()[0]->cat_name == 'Gallery') : ?>
-                     <div class='poster gallery-single'>
+                     <div class='poster gallery-poster'>
                         <article <?php post_class('posts') ?> id='post-<?php the_ID(); ?>'>
                            <?php the_post_thumbnail();
                            the_content(); ?>
@@ -44,6 +44,5 @@
 </html>
 
 <script>
-   var image = document.querySelector('.wp-post-image')
-   image.onclick = () => image.classList.toggle('expand')
+   document.querySelector('.wp-post-image').onclick = function() { this.classList.toggle('expand') }
 </script>

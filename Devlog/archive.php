@@ -18,7 +18,7 @@
                         <h1><?php the_title(); ?></h1>
                         <p><?php echo get_the_date(); ?></p>
                      </div>
-                     <div class='poster gallery-single'>
+                     <div class='poster gallery-poster'>
                         <article <?php post_class('posts') ?> id='post-<?php the_ID(); ?>'>
                            <?php the_post_thumbnail();
                            the_content(); ?>

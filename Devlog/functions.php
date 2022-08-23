@@ -69,7 +69,7 @@ function change_excerpt_more($more) {
 }
 add_filter('excerpt_length', 'custom_excerpt_length', 999);
 function custom_excerpt_length($length) {
-   return 70;
+   return 60;
 }
 function add_featured_image_support() {
    add_theme_support('post-thumbnails');

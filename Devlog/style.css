@@ -70,9 +70,10 @@ body {
 #links {
   position: absolute;
   top: calc(100vh - 200px);
-  right: 0px;
+  right: 10%;
   height: 100px;
-  width: 400px;
+  width: 100%;
+  text-align: right;
   font-size: 30pt;
   text-shadow: 0 0 10px black, 0 0 10px black, 0 0 10px black, 0 0 10px black,
     0 0 10px black;
@@ -108,10 +109,6 @@ body {
   max-width: none;
 }
 #navbar {
-  text-align: center;
-  font-family: 'Gothic';
-  letter-spacing: 0.6px;
-  font-weight: 100;
   max-width: 990px;
   margin: 0 auto;
   flex: 0 1 100%;
@@ -121,23 +118,132 @@ body {
   position: sticky;
   top: -18px;
 }
-#navbar div {
-  line-height: 18px;
-  padding: 10px;
+#anchors {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  text-align: center;
+  padding: 10px 5%;
   height: 20px;
   box-shadow: 0px 0px 10px inset black, 0px 0px 15px inset black,
     0px 0px 20px inset black;
 }
-#navbar a {
+#anchors a {
+  width: 15%;
+}
+.text {
   display: inline;
   margin: 0 5%;
   padding: 0;
+  font-family: 'Gothic';
+  letter-spacing: 0.6px;
+  font-weight: 100;
+  line-height: 18px;
 }
-#navbar a:hover,
+.text:hover,
 #contacts a:hover {
   color: rgb(202, 169, 106);
   text-shadow: 0 0 5px rgb(220, 0, 0), 0 0 9px rgb(225, 0, 0),
     0 0 18px rgb(225, 0, 0), 0 0 23px rgb(215, 0, 0);
+}
+#search-link:hover {
+  cursor: pointer;
+}
+.icon {
+  display: none;
+  width: 20px;
+  height: 20px;
+  background-size: 100% 100%;
+}
+#home-icon {
+  background-image: url('home.png');
+}
+#world-icon {
+  background-image: url('world.png');
+}
+#system-icon {
+  background-image: url('system.png');
+}
+#gallery-icon {
+  background-image: url('gallery.png');
+}
+#search-icon {
+  background-image: url('search.png');
+}
+#form {
+  display: flex;
+  flex: 0 1 100%;
+  align-items: center;
+  justify-content: center;
+  height: 90px;
+  margin: -20px 30% 0 30%;
+  position: sticky;
+  top: 46px;
+  transition: all 0.3s ease;
+  z-index: 999;
+  background: radial-gradient(black, transparent 65%),
+    radial-gradient(black, transparent 65%),
+    radial-gradient(black, transparent 65%),
+    radial-gradient(black, transparent 65%);
+}
+#form div {
+  width: 80%;
+  text-align: center;
+}
+#input,
+#enter {
+  font-family: 'Roman';
+  background-color: black;
+  color: rgba(220, 220, 220);
+  outline: none;
+}
+#input {
+  height: 25px;
+  border-top-left-radius: 50px;
+  border-bottom-left-radius: 50px;
+  padding-left: 10px;
+  width: 60%;
+  border: 2px inset rgb(180, 150, 88);
+}
+#enter {
+  height: 31px;
+  position: relative;
+  left: -5px;
+  padding: 0 10px;
+  border-top-right-radius: 50px;
+  border-bottom-right-radius: 50px;
+  border: 2px outset rgb(180, 150, 88);
+  border-left: 1px outset rgb(180, 150, 88);
+}
+#enter:active {
+  border: 2px inset rgb(180, 150, 88);
+  border-left: 1px outset rgb(180, 150, 88);
+}
+#exit1 {
+  height: 20px;
+  position: absolute;
+  top: 3px;
+  left: 85%;
+  z-index: 1000;
+  color: red;
+  font-family: Roman;
+  font-size: 20pt;
+  font-weight: bold;
+  transform: scaleX(1.2);
+  text-shadow: 0 0 2px black, 0 0 2px black;
+}
+#exit1:hover {
+  cursor: pointer;
+}
+#form.hidden,
+#input .hidden,
+#enter .hidden,
+#exit1.hidden {
+  height: 0px !important;
+  padding: 0;
+  margin: 0;
+  border-width: 0;
+  display: none;
 }
 .title {
   padding: 10px;
@@ -148,8 +254,7 @@ body {
   border-radius: 0;
   height: auto;
   flex: 0 1 100%;
-  background: url('border9.png'),
-  radial-gradient(black, transparent 65%),
+  background: url('border9.png'), radial-gradient(black, transparent 65%),
     radial-gradient(black, transparent 65%),
     radial-gradient(black, transparent 65%),
     radial-gradient(black, transparent 65%),
@@ -336,7 +441,7 @@ body {
   border-image: url('./border5.png') 130 483 130 473 stretch;
 }
 .snap {
-   scroll-snap-align: end;
+  scroll-snap-align: end;
 }
 #button1,
 #button2 {
@@ -369,8 +474,8 @@ body {
   position: sticky;
   top: 44.5px;
   border: 20px solid transparent;
-  border-image: url('./border2.png') 155 210 165 195 stretch
-  ;margin-right: 2px;
+  border-image: url('./border2.png') 155 210 165 195 stretch;
+  margin-right: 2px;
 }
 #right2 .menu {
   box-shadow: 0px 0px 15px inset black, 0px 0px 30px inset black,
@@ -451,11 +556,24 @@ body {
 }
 #contacts {
   margin-top: 60px;
-  flex: 0.3;
+  flex: 1;
   font-size: 20pt;
   font-family: 'Gothic';
 }
-#exit {
+
+/**************************************** IFRAME RULES *****************************************/
+
+#modal {
+  width: 100vw;
+  height: 100vh;
+  z-index: 100;
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: rgba(8, 6, 6, 0.75);
+}
+#exit2 {
   position: fixed;
   display: none;
   top: 4vh;
@@ -468,18 +586,8 @@ body {
   transform: scaleX(1.2);
   text-shadow: 0 0 2px black, 0 0 2px black;
 }
-#exit:hover {
+#exit2:hover {
   cursor: pointer;
-}
-#modal {
-  width: 100vw;
-  height: 100vh;
-  z-index: 100;
-  display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  background: rgba(8, 6, 6, 0.75);
 }
 iframe {
   height: 95vh;
@@ -495,8 +603,13 @@ iframe {
   margin: 0 20px 20px 20px;
   width: 100%;
 }
+.search #page1 {
+  margin: 20px;
+  width: 100%;
+}
 .archive .title,
-.single .title {
+.single .title,
+.search .title {
   margin: 30px auto 0px auto;
   font-size: smaller;
   background: radial-gradient(black, transparent 65%),
@@ -505,35 +618,41 @@ iframe {
     radial-gradient(black, transparent 65%);
 }
 .archive .title h1,
-.single .title h1 {
+.single .title h1,
+.search .title h1 {
   font-size: 20pt;
   font-weight: bold;
   letter-spacing: 1px;
 }
-.archive #page1 .poster:nth-child(even) {
-  border: 20px solid ;
+.archive #page1 .poster:nth-child(even),
+.search #page1 .poster:nth-child(even) {
+  border: 20px solid;
   border-image: url('./border3.png') 200 200 200 200 stretch;
   border-right: none;
   padding-right: 5px;
   padding-left: 0;
 }
-.archive #page1 .poster:nth-child(even) .posts {
+.archive #page1 .poster:nth-child(even) .posts,
+.search #page1 .poster:nth-child(even) .posts {
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
   border-top-right-radius: 8px;
   border-bottom-right-radius: 8px;
   border-right: 1.8px inset rgb(180, 150, 88);
 }
-.archive #page1 .poster:nth-child(even) .posts > span {
-   float: right;
-   text-align: left;
- }
- .archive #page1 .poster:nth-child(even) .posts .wp-post-image {
+.archive #page1 .poster:nth-child(even) .posts > span,
+.search #page1 .poster:nth-child(even) .posts > span {
+  float: right;
+  text-align: left;
+}
+.archive #page1 .poster:nth-child(even) .posts .wp-post-image,
+.search #page1 .poster:nth-child(even) .posts .wp-post-image {
   float: left;
   margin: 0 20px 10px 0;
   cursor: pointer;
 }
-.archive #page1 .poster:nth-child(even) .posts p {
+.archive #page1 .poster:nth-child(even) .posts p,
+.search #page1 .poster:nth-child(even) .posts p {
   clear: right;
 }
 .single .category-the-system p,
@@ -541,36 +660,36 @@ iframe {
   padding-top: 0;
 }
 .archive .category-the-system p,
-.archive .category-the-world p {
+.archive .category-the-world p,
+.search .category-the-system p,
+.search .category-the-world p {
   padding-top: 15px;
 }
 .category-gallery .wp-post-image {
-  display: block !important;
+  display: block ;
   margin: 0 auto !important;
   float: none !important;
-  width: unset !important;
-  min-width: 40% !important;
-  max-width: 100% !important;
-  height: unset !important;
-  min-height: 40vh !important;
-  max-height: 99vh !important;
-  pointer-events: none !important;
-  cursor: default !important;
+  width: unset ;
+  min-width: 40% ;
+  max-width: 100% ;
+  height: unset ;
+  min-height: 40vh ;
+  max-height: 99vh ;
+  pointer-events: none ;
+  cursor: default ;
 }
-.category-gallery .single .poster,
-.gallery-single {
+.single .wp-post-image {
+  margin-bottom: 0;
+}
+.gallery-poster {
   margin: 5px 0;
   border: 20px solid !important;
   padding-left: 0 !important;
   padding-right: 0 !important;
   border-image: url(./border8.png) 174 115 174 125 stretch !important;
 }
-.category-gallery .single .posts,
-.gallery-single .posts {
+.gallery-poster .posts {
   border-radius: 0 !important;
-}
-.single .wp-post-image {
-  margin-bottom: 0;
 }
 #select {
   margin-top: 35px;
@@ -621,23 +740,25 @@ iframe {
 }
 .expand {
   width: unset !important;
-  max-width: 100% !important;
+  max-width: 100%;
   height: unset !important;
-  min-height: 70vh !important;
-  max-height: 90vh !important;
+  min-height: 70vh;
+  max-height: 90vh;
   margin: 20px 0 20px 20px !important;
 }
 #left2 .expand {
   margin: 20px 20px 20px 0 !important;
 }
 .single .expand {
-   margin: 0 0 20px 20px !important;
+  margin: 0 0 20px 20px !important;
 }
-.archive .expand {
-   margin: 20px 0 20px 20px !important;
+.archive .expand,
+.search .expand {
+  margin: 20px 0 20px 20px !important;
 }
-.archive .poster:nth-child(even) .expand {
-   margin: 20px 20px 20px 0 !important;
+.archive .poster:nth-child(even) .expand,
+.search .poster:nth-child(even) .expand {
+  margin: 20px 20px 20px 0 !important;
 }
 .show {
   display: block !important;
@@ -645,7 +766,7 @@ iframe {
 .stop {
   position: sticky !important;
   overflow: hidden !important;
-  padding-right: 10px !important;
+  padding-right: 10px;
 }
 /*APPLY TO LOAD MORE BUTTON*/
 .fadeOut {
@@ -663,97 +784,122 @@ iframe {
   }
 }
 
-/*
-*{
-   outline: 1px solid red;
-}*/
-
-/*************************************** DESKTOP VIEWS *******************************************
+/*************************************** WINDOWED VIEW *******************************************
 
 @media screen and (max-width: 1150px) {
-  body {
-    font-size: 10pt;
-  }
-  #left {
-    flex: 0 0 25%;
-    margin-bottom: 50vh;
-  }
-  #menu {
-    height: calc(50vh - 60px);
-    bottom: 50vh;
-  }
-  #right {
-    flex: 0 0 75%;
-  }
-  #page2,
-  .posts {
-    margin: 20px 0 20px 20px;
-  }
-  .posts a {
-    font-size: 12pt;
-    width: calc(60% - 20px);
-  }
-  .posts .wp-post-image {
-    width: 40%;
-  }
-  #bottom {
-    flex: 0 0 25%;
-    margin-top: 50vh;
-    top: -50vh;
-  }
-  #left2 {
-    direction: ltr;
-    height: calc(50vh - 60px);
-  }
 }
 
-/*************************************** TABLET VIEWS *******************************************
+/*************************************** TABLET VIEW *******************************************
 
 @media screen and (max-width: 800px) {
-  #left {
-    display: none; /*show-hide*
+}
+
+/**************************************** MOBILE VIEW *****************************************/
+
+@media screen and (max-width: 750px) {
+  #banner {
+    background-size: 100% 80%;
   }
-  #right {
-    width: 100%;
+  #anchors a {
+    width: unset;
   }
-  .posts img {
-    width: 25%;
+  .text {
+    display: none;
   }
-  .posts:nth-child(odd) .wp-post-image {
-    float: left;
-    margin: 0px 20px 10px 0;
+  .icon {
+    display: flex;
+    margin: 0 2%;
+    padding: 0;
   }
-  .posts:nth-child(odd) a {
+  #home-icon:hover {
+    background-image: url('home2.png');
+  }
+  #world-icon:hover {
+    background-image: url('world2.png');
+  }
+  #system-icon:hover {
+    background-image: url('system2.png');
+  }
+  #gallery-icon:hover {
+    background-image: url('gallery2.png');
+  }
+  #search-icon:hover {
+    background-image: url('search2.png');
+  }
+  #form {
+    margin: -20px 10% 0 10%;
+  }
+  #left1,
+  #right2 {
+    height: 0px;
+    display: none;
+  }
+  .title {
+    margin: 35px auto 40px auto;
+  }
+  #page1 .poster:nth-child(even) {
+    border: 20px solid;
+    border-image: url('./border3.png') 200 200 200 200 stretch;
+    border-right: none;
+    padding-right: 5px;
+    padding-left: 0;
+  }
+  #page2 .poster:nth-child(even) {
+    border: 20px solid;
+    border-image: url('./border4.png') 200 200 200 200 stretch;
+    border-left: none;
+    padding-left: 5px;
+    padding-right: 0;
+  }
+  #page1 .poster:nth-child(even) .posts {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+    border-right: 1.8px inset rgb(180, 150, 88);
+  }
+  #page2 .poster:nth-child(even) .posts {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+    border-left: 1.8px inset rgb(180, 150, 88);
+  }
+  #page1 .poster:nth-child(even) .posts > span {
     float: right;
     text-align: left;
   }
-  .posts:nth-child(odd) p {
+  #page2 .poster:nth-child(even) .posts > span {
+    float: left;
+    text-align: right;
+  }
+  #page1 .poster:nth-child(even) .posts .wp-post-image {
+    float: left;
+    margin: 0 20px 10px 0;
+    cursor: pointer;
+  }
+  #page2 .poster:nth-child(even) .posts .wp-post-image {
+    float: right;
+    margin: 0 0 10px 20px;
+    cursor: pointer;
+  }
+  #page2 .poster:nth-child(even) .expand {
+    margin: 20px 0 20px 20px !important;
+  }
+  .single .poster:nth-child(even) .expand {
+    margin: 0 20px 20px 0 !important;
+  }
+  .single #page2 .poster:nth-child(even) .expand {
+    margin: 0 0 20px 20px !important;
+  }
+  #page1 .poster:nth-child(even) .posts p {
     clear: right;
   }
-  #page2,
-  .posts {
-    margin: 20px 0;
+  #page2 .poster:nth-child(even) .posts p {
+    clear: left;
   }
-  #bottom {
-    width: 100%;
-  }
-  #left2 {
-    margin: 10px 0 20px 0;
-  }
-}
-
-/**************************************** MOBILE VIEWS *****************************************
-
-@media screen and (max-width: 502px) {
-}
-@media screen and (max-width: 420px) {
-  body,
-  #menu,
-  #bottom {
-    font-size: 4.5vw;
-  }
-  .posts a {
-    font-size: 5.5vw;
+  #gallery {
+    column-count: 1;
   }
 }
 @media screen and (max-width: 350px) {

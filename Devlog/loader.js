@@ -1,12 +1,10 @@
-jQuery(function ($)
-{ // use jQuery code inside this to avoid "$ is not defined" error
+jQuery(function ($) {                  // use jQuery code inside this to avoid "$ is not defined" error
    $('#load1').click(() => post(1))
    $('#load2').click(() => post(2))
    $('#load3').click(() => post(3))
 
-   function post(part)
-   {
-      var data = {
+   function post(part) {
+      let data = {
          'action': 'load',
          'query': part == 1 ? args.query1 : (part == 2 ? args.query2 : args.query3), // Get params from wp_localize_script()
          'category': part == 1 ? args.category1 : (part == 2 ? args.category2 : args.category3),
@@ -19,13 +17,12 @@ jQuery(function ($)
          data: data,
          type: 'POST',
          /*beforeSend: function (xhr) {
-            button.text('Loading...') // change the button text / add a preloader image
+            button.text('Loading...')     // change the button text / add a preloader image
          },*/
-         success: function (data)
-         {
+         success: function (data) {
             if (data) {
                snapSwitch()
-               button.prev().after(data) // insert new posts [add button.text('Continue . . .')]
+               button.prev().after(data)  // insert new posts [add button.text('Continue . . .')]
                if (part == 1) {
                   args.thisPage1++
                   if (args.thisPage1 == args.maxPage1) button.remove() // remove button if last page

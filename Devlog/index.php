@@ -16,12 +16,20 @@
    <section id='main'>
       <nav id='navbar'>
          <div id='anchors'>
-            <a href='#top'>Home</a>
-            <a href='#page1'>The World</a>
-            <a href='#page2'>The System</a>
-            <a href='#page3'>Gallery</a>
+            <a href='#top'><span class='text'>Home</span><span class='icon' id='home-icon'></span></a>
+            <a href='#page1'><span class='text'>The World</span><span class='icon' id='world-icon'></span></a>
+            <a href='#page2'><span class='text'>The System</span><span class='icon' id='system-icon'></span></a>
+            <a href='#page3'><span class='text'>Gallery</span><span class='icon' id='gallery-icon'></span></a>
+            <a id='search-link'><span class='text'>Search</span><span class='icon' id='search-icon'></span></a>
          </div>
       </nav>
+      <form id='form' class='hidden' role='search' method='get' action='<?php echo home_url(); ?>'>
+         <div>
+            <input id='input' class='hidden' value='' name='s' type='text'>
+            <input id='enter' class='hidden' value='Enter' type='submit' formtarget='frame'>
+            <p id='exit1'>X</p>
+         </div>
+      </form>
       <div id='page1'>
          <div class='title'>
             <h1>The World</h1>
@@ -144,10 +152,10 @@
    </section>
    <div id='bottom'>
       <nav id='contacts'>
-         <a href=''>&copy; Sunwheel Studios</a>
+         <a href='https://github.com/archaion'>&copy; 2022 Archaion</a>
       </nav>
    </div>
-   <div id='exit'>X</div>
+   <div id='exit2'>X</div>
    <div id='modal'>
       <iframe name='frame'></iframe>
    </div>
@@ -157,17 +165,39 @@
 
 <script>
    let page = document.querySelector('html'),
+      form = document.getElementById('form'),
       modal = document.getElementById('modal'),
-      exit = document.getElementById('exit'),
-      anchors = document.getElementById('anchors'),
-      load1 = document.getElementById('load1'),
-      load2 = document.getElementById('load2')
+      exit2 = document.getElementById('exit2')
+
+   snapSwitch = () => {
+      document.getElementById('load1') && document.getElementById('load1').classList.toggle('snap')
+      document.getElementById('load2') && document.getElementById('load2').classList.toggle('snap')
+   }
+
+   formSwitch = () => {
+      snapSwitch()
+      form.classList.toggle('hidden')
+      setTimeout(() => snapSwitch(), 300)
+   }
+
+   document.getElementById('search-link').onclick = () => formSwitch()
+   document.getElementById('exit1').onclick = () => formSwitch()
+
+   form.onsubmit = () => {
+      snapSwitch()
+      page.classList.add('stop')
+      modal.classList.add('show')
+      exit2.classList.add('show')
+      form.classList.toggle('hidden')
+   }
 
    addClickEvents = () => {
       let links = document.getElementsByTagName('a'),
          images = document.querySelectorAll('.posts > img') // Select child elements
-      //posters = document.getElementsByClassName('poster')
-
+      /*posters = document.getElementsByClassName('poster')
+        for (let i in posters) {
+         posters[i].classList.add('fadeIn')
+      }*/
       for (let i in images) {
          if (!images[i].onclick) { // Omit previous images
             images[i].onclick = function() {
@@ -180,39 +210,34 @@
                   this.classList.add('expand')
                   title.classList.add('center')
                }
-               setTimeout(function() {
-                  snapSwitch()
-               }, 300)  
+               setTimeout(() => snapSwitch(), 300)
             }
          }
       }
+
       for (let i in links) {
-         if (links[i].target != 'frame' && links[i].parentElement != anchors) {
+         if (links[i].target != 'frame' &&
+            links[i].parentElement != document.getElementById('anchors')) {
             links[i].target = 'frame'
             if (!links[i].onclick) {
-               links[i].onclick = function() {
+               links[i].onclick = () => {
                   snapSwitch()
                   modal.classList.add('show')
-                  exit.classList.add('show')
+                  exit2.classList.add('show')
                   page.classList.add('stop')
                }
             }
          }
       }
-      /*for (let i in posters) {
-         posters[i].classList.add('fadeIn')
-      }*/
-      exit.onclick = () => {
+
+      exit2.onclick = () => {
          modal.classList.remove('show')
          modal.innerHTML = "<iframe name='frame'></iframe>" // Clear iframe content
-         exit.classList.remove('show')
+         exit2.classList.remove('show')
          page.classList.remove('stop')
          snapSwitch()
       }
-      snapSwitch = () => {
-         load1.classList.toggle('snap')
-         load2.classList.toggle('snap')
-      }
    }
+
    window.onload = addClickEvents()
 </script>
