@@ -31,7 +31,7 @@
          </div>
       </form>
       <div id='page1'>
-         <div class='title'>
+         <div class='title' style='padding-top: 0'>
             <h1>The World</h1>
             <p>Notes about the world, its history and inhabitants</p>
          </div>
@@ -168,6 +168,7 @@
       form = document.getElementById('form'),
       modal = document.getElementById('modal'),
       exit2 = document.getElementById('exit2')
+      //,timeOut
 
    snapSwitch = () => {
       document.getElementById('load1') && document.getElementById('load1').classList.toggle('snap')
@@ -240,4 +241,11 @@
    }
 
    window.onload = addClickEvents()
+
+   /*window.onresize = () => {
+      clearTimeout(timeOut)
+      timeOut = setTimeout(() => {
+         snapSwitch()
+      }, 50)
+   }*/
 </script>

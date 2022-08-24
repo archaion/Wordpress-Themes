@@ -29,7 +29,7 @@ Author URI: http://github.com/archaion/
   background: rgb(52, 49, 46);
 }
 html {
-  color: rgba(220, 220, 220);
+  color: rgba(205, 205, 205);
   scrollbar-color: rgb(85, 80, 75);
   scrollbar-width: thin;
   scroll-snap-type: y proximity;
@@ -48,11 +48,11 @@ a:hover {
 body {
   font-family: 'Roman';
   font-size: 12pt;
-  height: 100vh;
   width: 100%;
   padding: 0;
   margin: 0;
-  background: url('./bg2.jpg') no-repeat center center fixed;
+  background: linear-gradient(hsl(0, 100%, 20%) 36%, black) no-repeat center
+    center fixed;
   background-size: cover;
 }
 #top {
@@ -64,7 +64,22 @@ body {
   height: calc(100vh - 65px);
   margin: 0;
   padding: 0;
-  background: url('./title.png') no-repeat;
+  -webkit-mask-image: linear-gradient(rgba(0, 0, 0, 1) 65%, transparent);
+  mask-image: linear-gradient(rgba(0, 0, 0, 1) 65%, transparent);
+}
+#banner div {
+  background-image: url('city.png');
+  background-size: 100% 100%;
+  width: 100%;
+  height: calc(100vh - 65px);
+}
+#head {
+  position: absolute;
+  top: -25px;
+  left: 0;
+  width: 100%;
+  height: calc(100vh - 65px);
+  background: url(title.png) no-repeat;
   background-size: 80% 80%;
 }
 #links {
@@ -77,18 +92,6 @@ body {
   font-size: 30pt;
   text-shadow: 0 0 10px black, 0 0 10px black, 0 0 10px black, 0 0 10px black,
     0 0 10px black;
-}
-#navbar div,
-#main article,
-.menu,
-.title,
-#button1,
-#button2,
-#button3,
-#next a,
-#prev a {
-  background: rgba(9, 7, 6, 0.88);
-  border: 2px inset rgb(180, 150, 88);
 }
 #main,
 #page1,
@@ -127,6 +130,8 @@ body {
   height: 20px;
   box-shadow: 0px 0px 10px inset black, 0px 0px 15px inset black,
     0px 0px 20px inset black;
+  background: rgba(9, 7, 6, 0.9);
+  border: 2px inset rgb(180, 150, 88);
 }
 #anchors a {
   width: 15%;
@@ -194,7 +199,7 @@ body {
 #enter {
   font-family: 'Roman';
   background-color: black;
-  color: rgba(220, 220, 220);
+  color: rgba(205, 205, 205);
   outline: none;
 }
 #input {
@@ -250,14 +255,15 @@ body {
   position: relative;
   text-align: center;
   border: none;
-  margin: 45px auto 40px auto;
+  margin: 45px auto 35px auto;
   border-radius: 0;
   height: auto;
   flex: 0 1 100%;
-  background: url('border9.png'), radial-gradient(black, transparent 65%),
-    radial-gradient(black, transparent 65%),
-    radial-gradient(black, transparent 65%),
-    radial-gradient(black, transparent 65%),
+  background: url('border9.png'), radial-gradient(black, transparent 35%),
+    radial-gradient(black, transparent 35%),
+    radial-gradient(black, transparent 45%),
+    radial-gradient(black, transparent 45%),
+    radial-gradient(black, transparent 55%),
     radial-gradient(black, transparent 65%);
   background-size: 100% 100%;
 }
@@ -286,6 +292,11 @@ body {
   position: sticky;
   top: 44px;
 }
+.menu,
+.posts {
+  background: rgba(9, 7, 6, 0.8);
+  border: 2px inset rgb(180, 150, 88);
+}
 .menu {
   box-sizing: border-box;
   height: calc(100vh - 74.5px);
@@ -304,14 +315,14 @@ body {
   width: 100%;
   padding: 10px 0;
   text-align: center;
-  background: rgba(7, 5, 5, 0.88);
+  background: rgba(7, 5, 5, 0.94);
 }
 .note {
   overflow: auto;
   padding: 10px;
   font-size: 10pt;
   border-top: 1px solid rgba(155, 115, 65, 0.8);
-  box-shadow: 0px 0px 12px inset black, 0px 0px 17px inset black,
+  box-shadow: 0px 0px 10px inset black, 0px 0px 15px inset black,
     0px 0px 25px inset black;
 }
 .note ul {
@@ -341,6 +352,7 @@ body {
 .thumb img {
   width: 50px;
   height: 50px;
+  border-radius: 2.5px;
 }
 #right1,
 #left2 {
@@ -413,7 +425,7 @@ body {
   padding: 0;
   float: right;
   margin: 0 0 10px 20px;
-  border-radius: 3px;
+  border-radius: 4px;
 }
 #left2 .posts .wp-post-image {
   float: left;
@@ -444,6 +456,12 @@ body {
   scroll-snap-align: end;
 }
 #button1,
+#button2,
+#button3 {
+  background: rgba(9, 7, 6, 0.9);
+  border: 2px inset rgb(180, 150, 88);
+}
+#button1,
 #button2 {
   font-family: roman;
   font-size: 12pt;
@@ -454,8 +472,8 @@ body {
   padding: 8px;
   margin-left: -2px;
   outline: none;
-  box-shadow: 0px 0px 10px inset black, 0px 0px 15px inset black,
-    0px 0px 20px inset black;
+  box-shadow: 0px 0px 3px inset black, 0px 0px 6px inset black,
+    0px 0px 9px inset black;
 }
 #button1:hover,
 #button2:hover,
@@ -513,7 +531,7 @@ body {
   display: block;
   line-height: 0;
 }
-#gallery img {
+#gallery a img {
   height: 100%;
   width: calc(100% - 40px);
   border: 20px solid transparent;
@@ -612,9 +630,9 @@ iframe {
 .search .title {
   margin: 30px auto 0px auto;
   font-size: smaller;
-  background: radial-gradient(black, transparent 65%),
-    radial-gradient(black, transparent 65%),
-    radial-gradient(black, transparent 65%),
+  background: radial-gradient(black, transparent 35%),
+    radial-gradient(black, transparent 45%),
+    radial-gradient(black, transparent 55%),
     radial-gradient(black, transparent 65%);
 }
 .archive .title h1,
@@ -666,17 +684,17 @@ iframe {
   padding-top: 15px;
 }
 .category-gallery .wp-post-image {
-  display: block ;
+  display: block;
   margin: 0 auto !important;
   float: none !important;
-  width: unset ;
-  min-width: 40% ;
-  max-width: 100% ;
-  height: unset ;
-  min-height: 40vh ;
-  max-height: 99vh ;
-  pointer-events: none ;
-  cursor: default ;
+  width: unset;
+  min-width: 40%;
+  max-width: 100%;
+  height: unset;
+  min-height: 40vh;
+  max-height: 99vh;
+  pointer-events: none;
+  cursor: default;
 }
 .single .wp-post-image {
   margin-bottom: 0;
@@ -716,6 +734,8 @@ iframe {
 }
 #next a,
 #prev a {
+  background: rgb(9, 7, 6);
+  border: 2px inset rgb(180, 150, 88);
   border-radius: 9px;
   font-family: roman;
   font-size: 12pt;
@@ -782,16 +802,6 @@ iframe {
   100% {
     opacity: 1;
   }
-}
-
-/*************************************** WINDOWED VIEW *******************************************
-
-@media screen and (max-width: 1150px) {
-}
-
-/*************************************** TABLET VIEW *******************************************
-
-@media screen and (max-width: 800px) {
 }
 
 /**************************************** MOBILE VIEW *****************************************/
@@ -900,7 +910,13 @@ iframe {
   }
   #gallery {
     column-count: 1;
+    text-align: center;
+    padding: 0;
   }
-}
-@media screen and (max-width: 350px) {
+  #gallery a img {
+    height: unset;
+    max-height: 90vh;
+    width: unset;
+    max-width: 90%;
+  }
 }
