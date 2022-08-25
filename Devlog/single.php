@@ -10,7 +10,7 @@
 
 <body <?php body_class() ?>>
    <section id='main'>
-      <div id='page1'>
+      <div id='the_world'>
          <div id='right1' class='single'>
             <?php if (have_posts()) : while (have_posts()) : the_post() ?>
                   <div class='title'>
@@ -18,7 +18,7 @@
                      <p><?php echo get_the_date(); ?></p>
                   </div>
                   <?php if (get_the_category()[0]->cat_name == 'Gallery') : ?>
-                     <div class='poster gallery-poster'>
+                     <div class='poster gallery_poster'>
                         <article <?php post_class('posts') ?> id='post-<?php the_ID(); ?>'>
                            <?php the_post_thumbnail();
                            the_content(); ?>

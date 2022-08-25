@@ -21,7 +21,7 @@ jQuery(function ($) {                  // use jQuery code inside this to avoid "
          },*/
          success: function (data) {
             if (data) {
-               snapSwitch()
+               snap_switch()
                button.prev().after(data)  // insert new posts [add button.text('Continue . . .')]
                if (part == 1) {
                   args.thisPage1++
@@ -34,12 +34,12 @@ jQuery(function ($) {                  // use jQuery code inside this to avoid "
                   if (args.thisPage3 == args.maxPage3) button.remove()
                }
                setTimeout(function() {
-                  snapSwitch()
+                  snap_switch()
                }, 300)  
             } else {
                button.remove()
             }
-            addClickEvents()
+            add_events()
          }
       })
    }

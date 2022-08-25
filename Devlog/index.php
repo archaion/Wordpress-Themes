@@ -10,27 +10,27 @@
 </head>
 
 <body <?php body_class() ?>>
-   <header id='top'>
+   <header id='home'>
       <?php get_header(); ?>
    </header>
    <section id='main'>
       <nav id='navbar'>
          <div id='anchors'>
-            <a href='#top'><span class='text'>Home</span><span class='icon' id='home-icon'></span></a>
-            <a href='#page1'><span class='text'>The World</span><span class='icon' id='world-icon'></span></a>
-            <a href='#page2'><span class='text'>The System</span><span class='icon' id='system-icon'></span></a>
-            <a href='#page3'><span class='text'>Gallery</span><span class='icon' id='gallery-icon'></span></a>
-            <a id='search-link'><span class='text'>Search</span><span class='icon' id='search-icon'></span></a>
+            <a href='#home'><span class='link'>Home</span><span class='icon' id='home_icon'></span></a>
+            <a href='#the_world'><span class='link'>The World</span><span class='icon' id='world_icon'></span></a>
+            <a href='#the_system'><span class='link'>The System</span><span class='icon' id='system_icon'></span></a>
+            <a href='#gallery'><span class='link'>Gallery</span><span class='icon' id='gallery_icon'></span></a>
+            <a id='search_link'><span class='link'>Search</span><span class='icon' id='search_icon'></span></a>
          </div>
       </nav>
-      <form id='form' class='hidden' role='search' method='get' action='<?php echo home_url(); ?>'>
+      <form id='search_form' class='hide' role='search' method='get' action='<?php echo home_url(); ?>'>
          <div>
-            <input id='input' class='hidden' value='' name='s' type='text'>
-            <input id='enter' class='hidden' value='Enter' type='submit' formtarget='frame'>
+            <input id='input' value='' name='s' type='text'>
+            <input id='enter' value='Enter' type='submit' formtarget='frame'>
             <p id='exit1'>X</p>
          </div>
       </form>
-      <div id='page1'>
+      <div id='the_world'>
          <div class='title' style='padding-top: 0'>
             <h1>The World</h1>
             <p>Notes about the world, its history and inhabitants</p>
@@ -51,7 +51,7 @@
                   <div class='poster'>
                      <article <?php post_class('posts') ?> id='post-<?php the_ID(); ?>'>
                         <?php if (has_post_thumbnail()) : ?>
-                           <span class='post-title'><?php the_title(); ?></span>
+                           <span><?php the_title(); ?></span>
                         <?php the_post_thumbnail();
                         else : ?>
                            <span class='center'><?php the_title(); ?></span>
@@ -75,7 +75,7 @@
             ?>
          </section>
       </div>
-      <div id='page2'>
+      <div id='the_system'>
          <div class='title'>
             <h1>The System</h1>
             <p>Information about systems, technology, and how things work</p>
@@ -93,7 +93,7 @@
                   <div class='poster'>
                      <article <?php post_class('posts') ?> id='post-<?php the_ID(); ?>'>
                         <?php if (has_post_thumbnail()) : ?>
-                           <span class='post-title'><?php the_title(); ?></span>
+                           <span><?php the_title(); ?></span>
                         <?php the_post_thumbnail();
                         else : ?>
                            <span class='center'><?php the_title(); ?></span>
@@ -119,12 +119,12 @@
             <?php get_footer(); ?>
          </aside>
       </div>
-      <div id='page3'>
+      <div id='gallery'>
          <div class='title'>
             <h1>Gallery</h1>
             <p>Sketches of environments, objects and characters</p>
          </div>
-         <div id='gallery'>
+         <div id='display'>
             <?php global $args3;
             global $max3;
             $posts3 = new wp_query(array(
@@ -134,7 +134,7 @@
             ));
             if ($posts3->have_posts()) :
                while ($posts3->have_posts()) : $posts3->the_post() ?>
-                  <a class='picture' href='<?php the_permalink(); ?>'><?php the_post_thumbnail(); ?></a>
+                  <a href='<?php the_permalink(); ?>'><?php the_post_thumbnail(); ?></a>
                <?php endwhile;
             else : ?>
                <p>Nothing Found</p>
@@ -150,14 +150,22 @@
          </div>
       </div>
    </section>
-   <div id='bottom'>
-      <nav id='contacts'>
-         <a href='https://github.com/archaion'>&copy; 2022 Archaion</a>
-      </nav>
+   <div id='index'>
+      <iframe id='frame2' name='frame2'></iframe>
    </div>
+   <div id='exit3'>X</div>
+   <div id='news_link'>
+      <a href='sidebar.php' target='frame2'><span class='icon' id='news_icon'>NEWS</span></a>
+   </div>
+   <div id='archive_link'>
+      <a href='footer.php' target='frame2'><span class='icon' id='archive_icon'>ARCH</span></a>
+   </div>
+   <nav id='contact'>
+      <a href='https://github.com/archaion'>&copy; 2022 Archaion</a>
+   </nav>
    <div id='exit2'>X</div>
    <div id='modal'>
-      <iframe name='frame'></iframe>
+      <iframe id='frame1' name='frame1'></iframe>
    </div>
 </body>
 
@@ -165,44 +173,64 @@
 
 <script>
    let page = document.querySelector('html'),
-      form = document.getElementById('form'),
+      form = document.getElementById('search_form'),
       modal = document.getElementById('modal'),
-      exit2 = document.getElementById('exit2')
-      //,timeOut
+      exit2 = document.getElementById('exit2'),
+      index = document.getElementById('index'),
+      exit3 = document.getElementById('exit3'),
+      timer
 
-   snapSwitch = () => {
+   snap_switch = () => {
       document.getElementById('load1') && document.getElementById('load1').classList.toggle('snap')
       document.getElementById('load2') && document.getElementById('load2').classList.toggle('snap')
    }
 
-   formSwitch = () => {
-      snapSwitch()
-      form.classList.toggle('hidden')
-      setTimeout(() => snapSwitch(), 300)
+   document.getElementById('news_link').onclick = () => {
+      snap_switch()
+      index.classList.add('show')
+      exit3.classList.add('show')
+   }
+   document.getElementById('archive_link').onclick = () => {
+      snap_switch()
+      index.classList.add('show')
+      exit3.classList.add('show')
+   }
+   exit3.onclick = () => {
+      index.classList.remove('show')
+      index.innerHTML = "<iframe id='frame2' name='frame2'></iframe>" // Clear iframe content
+      exit3.classList.remove('show')
+      snap_switch()
    }
 
-   document.getElementById('search-link').onclick = () => formSwitch()
-   document.getElementById('exit1').onclick = () => formSwitch()
+   form_switch = () => {
+      snap_switch()
+      form.classList.toggle('hide')
+      setTimeout(() => snap_switch(), 300)
+   }
+
+   document.getElementById('search_link').onclick = () => form_switch()
+   document.getElementById('exit1').onclick = () => form_switch()
 
    form.onsubmit = () => {
-      snapSwitch()
+      snap_switch()
       page.classList.add('stop')
       modal.classList.add('show')
       exit2.classList.add('show')
-      form.classList.toggle('hidden')
+      form.classList.toggle('hide')
    }
 
-   addClickEvents = () => {
+   add_events = () => {
       let links = document.getElementsByTagName('a'),
          images = document.querySelectorAll('.posts > img') // Select child elements
       /*posters = document.getElementsByClassName('poster')
         for (let i in posters) {
          posters[i].classList.add('fadeIn')
       }*/
+
       for (let i in images) {
          if (!images[i].onclick) { // Omit previous images
             images[i].onclick = function() {
-               snapSwitch()
+               snap_switch()
                let title = this.parentElement.querySelector('span')
                if (this.classList.contains('expand')) {
                   this.classList.remove('expand')
@@ -211,18 +239,18 @@
                   this.classList.add('expand')
                   title.classList.add('center')
                }
-               setTimeout(() => snapSwitch(), 300)
+               setTimeout(() => snap_switch(), 300)
             }
          }
       }
 
       for (let i in links) {
-         if (links[i].target != 'frame' &&
+         if (links[i].target != 'frame1' && links[i].target != 'frame2' &&
             links[i].parentElement != document.getElementById('anchors')) {
-            links[i].target = 'frame'
+            links[i].target = 'frame1'
             if (!links[i].onclick) {
                links[i].onclick = () => {
-                  snapSwitch()
+                  snap_switch()
                   modal.classList.add('show')
                   exit2.classList.add('show')
                   page.classList.add('stop')
@@ -233,19 +261,16 @@
 
       exit2.onclick = () => {
          modal.classList.remove('show')
-         modal.innerHTML = "<iframe name='frame'></iframe>" // Clear iframe content
+         modal.innerHTML = "<iframe id='frame1' name='frame1'></iframe>" // Clear iframe content
          exit2.classList.remove('show')
          page.classList.remove('stop')
-         snapSwitch()
+         snap_switch()
       }
    }
 
-   window.onload = addClickEvents()
+   window.onload = add_events()
 
-   /*window.onresize = () => {
-      clearTimeout(timeOut)
-      timeOut = setTimeout(() => {
-         snapSwitch()
-      }, 50)
-   }*/
+   window.onresize = () => {
+      window.innerWidth > 750 && (index.classList.remove('show'), exit3.classList.remove('show'))
+   }
 </script>

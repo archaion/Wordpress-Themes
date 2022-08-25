@@ -52,7 +52,7 @@ function ajax_handler() {
    } else {
       query_posts($args); 
       if (have_posts()) : while (have_posts()) : the_post(); ?>
-            <a class='picture' href='<?php the_permalink(); ?>'><?php the_post_thumbnail(); ?></a>
+            <a href='<?php the_permalink(); ?>'><?php the_post_thumbnail(); ?></a>
 <?php endwhile;
       endif;
       die;

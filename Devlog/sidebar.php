@@ -2,7 +2,7 @@
    <h1>News</h1>
    <?php $posts = get_posts('posts_per_page=50');
    if (have_posts()) : foreach ($posts as $post) : ?>
-         <div class='note'>
+         <div class='item'>
             <?php if (has_post_thumbnail()) : ?>
                <a class='thumb' href='<?php the_permalink(); ?>'><?php the_post_thumbnail(); ?></a>
             <?php endif; ?>
