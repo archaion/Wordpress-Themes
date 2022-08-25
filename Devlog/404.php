@@ -10,7 +10,7 @@
 
 <body <?php body_class() ?>>
    <section id='main'>
-      <div id='page1'>
+      <div id='the_world'>
          <div class='title'>
             <h1>404</h1>
             <p>NOT FOUND</p>

@@ -31,7 +31,7 @@
          </div>
       </form>
       <div id='the_world'>
-         <div class='title' style='padding-top: 0'>
+         <div class='title'>
             <h1>The World</h1>
             <p>Notes about the world, its history and inhabitants</p>
          </div>
@@ -155,13 +155,13 @@
    </div>
    <div id='exit3'>X</div>
    <div id='news_link'>
-      <a href='sidebar.php' target='frame2'><span class='icon' id='news_icon'>NEWS</span></a>
+      <a href='sidebar.php' target='frame2'><span class='icon' id='news_icon'></span></a>
    </div>
    <div id='archive_link'>
-      <a href='footer.php' target='frame2'><span class='icon' id='archive_icon'>ARCH</span></a>
+      <a href='footer.php' target='frame2'><span class='icon' id='archive_icon'></span></a>
    </div>
    <nav id='contact'>
-      <a href='https://github.com/archaion'>&copy; 2022 Archaion</a>
+      <a href='https://github.com/archaion' target='_blank'>&copy; 2022 Archaion</a>
    </nav>
    <div id='exit2'>X</div>
    <div id='modal'>
@@ -185,12 +185,12 @@
       document.getElementById('load2') && document.getElementById('load2').classList.toggle('snap')
    }
 
-   document.getElementById('news_link').onclick = () => {
+   document.getElementById('news_icon').onclick = () => {
       snap_switch()
       index.classList.add('show')
       exit3.classList.add('show')
    }
-   document.getElementById('archive_link').onclick = () => {
+   document.getElementById('archive_icon').onclick = () => {
       snap_switch()
       index.classList.add('show')
       exit3.classList.add('show')
@@ -245,7 +245,7 @@
       }
 
       for (let i in links) {
-         if (links[i].target != 'frame1' && links[i].target != 'frame2' &&
+         if (links[i].target != 'frame1' && links[i].target != 'frame2'  && links[i].target != '_blank' &&
             links[i].parentElement != document.getElementById('anchors')) {
             links[i].target = 'frame1'
             if (!links[i].onclick) {
