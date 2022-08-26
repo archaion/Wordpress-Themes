@@ -23,10 +23,10 @@
             <a id='search_link'><span class='link'>Search</span><span class='icon' id='search_icon'></span></a>
          </div>
       </nav>
-      <form id='search_form' class='hide' role='search' method='get' action='<?php echo home_url(); ?>'>
+      <form id='search' class='hide' role='search' method='get' action='<?php echo home_url(); ?>'>
          <div>
             <input id='input' value='' name='s' type='text'>
-            <input id='enter' value='Enter' type='submit' formtarget='frame'>
+            <input id='enter' value='Enter' type='submit' formtarget='frame1'>
             <p id='exit1'>X</p>
          </div>
       </form>
@@ -154,11 +154,15 @@
       <iframe id='frame2' name='frame2'></iframe>
    </div>
    <div id='exit3'>X</div>
-   <div id='news_link'>
-      <a href='sidebar.php' target='frame2'><span class='icon' id='news_icon'></span></a>
+   <div id='news_frame'>
+      <div id='news_tab'>
+         <a href='<?php echo site_url() ?>/news' target='frame2'><span class='icon' id='news_icon'></span></a>
+      </div>
    </div>
-   <div id='archive_link'>
-      <a href='footer.php' target='frame2'><span class='icon' id='archive_icon'></span></a>
+   <div id='archives_frame'>
+      <div id='archives_tab'>
+         <a href='<?php echo site_url() ?>/archives' target='frame2'><span class='icon' id='archives_icon'></span></a>
+      </div>
    </div>
    <nav id='contact'>
       <a href='https://github.com/archaion' target='_blank'>&copy; 2022 Archaion</a>
@@ -173,16 +177,18 @@
 
 <script>
    let page = document.querySelector('html'),
-      form = document.getElementById('search_form'),
+      form = document.getElementById('search'),
       modal = document.getElementById('modal'),
       exit2 = document.getElementById('exit2'),
       index = document.getElementById('index'),
       exit3 = document.getElementById('exit3'),
-      timer
+      news = document.getElementById('news_frame'),
+      archives = document.getElementById('archives_frame'),
+      drop = false
 
    snap_switch = () => {
-      document.getElementById('load1') && document.getElementById('load1').classList.toggle('snap')
-      document.getElementById('load2') && document.getElementById('load2').classList.toggle('snap')
+      document.getElementById('load1').classList.toggle('snap')
+      document.getElementById('load2').classList.toggle('snap')
    }
 
    document.getElementById('news_icon').onclick = () => {
@@ -190,7 +196,7 @@
       index.classList.add('show')
       exit3.classList.add('show')
    }
-   document.getElementById('archive_icon').onclick = () => {
+   document.getElementById('archives_icon').onclick = () => {
       snap_switch()
       index.classList.add('show')
       exit3.classList.add('show')
@@ -245,7 +251,7 @@
       }
 
       for (let i in links) {
-         if (links[i].target != 'frame1' && links[i].target != 'frame2'  && links[i].target != '_blank' &&
+         if (links[i].target != 'frame1' && links[i].target != 'frame2' && links[i].target != '_blank' &&
             links[i].parentElement != document.getElementById('anchors')) {
             links[i].target = 'frame1'
             if (!links[i].onclick) {
@@ -271,6 +277,22 @@
    window.onload = add_events()
 
    window.onresize = () => {
-      window.innerWidth > 750 && (index.classList.remove('show'), exit3.classList.remove('show'))
+      if (window.innerWidth > 750 && index.classList.contains('show')) {
+         index.classList.remove('show')
+         exit3.classList.remove('show')
+         document.getElementById('load1').classList.remove('snap')
+         document.getElementById('load2').classList.remove('snap')
+      }
+   }
+   window.onscroll = () => {
+      if (window.pageYOffset < 50 && !drop) {
+         news.classList.remove('lift')
+         archives.classList.remove('lift')
+         drop = true
+      } else if (window.pageYOffset >= 50 && drop) {
+         news.classList.add('lift')
+         archives.classList.add('lift')
+         drop = false
+      }
    }
 </script>
