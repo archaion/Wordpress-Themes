@@ -4,11 +4,15 @@ A growing collection of website templates in various stages of completion. There
 <br>
 <h1>Devlog Theme</h1>
 
-<img width="914" alt="Untitled" src="https://user-images.githubusercontent.com/80986857/182003565-3a7d3752-c6e5-4bef-8911-a7d84dd6a629.png">
+<img width="797" alt="Untitled1" src="https://user-images.githubusercontent.com/80986857/187012068-b74413ae-ee2a-401b-b505-a339bdb4469f.png">
 
-<img width="915" alt="Untitled2" src="https://user-images.githubusercontent.com/80986857/182003566-7968ab7f-bb3e-4393-b293-3db7386a2b1e.png">
+<img width="414" alt="Untitled5" src="https://user-images.githubusercontent.com/80986857/187012074-b9e3a3a2-0a65-4e00-a906-50be0b356615.png">
 
-<img width="911" alt="Untitled3" src="https://user-images.githubusercontent.com/80986857/182003567-823d882f-399f-499f-bf23-dcd17e6c92c6.png">
+<img width="797" alt="Untitled2" src="https://user-images.githubusercontent.com/80986857/187012086-2274797a-7516-4152-b1dd-004aba8059cf.png">
+
+<img width="414" alt="Untitled4" src="https://user-images.githubusercontent.com/80986857/187012094-c1271cf1-171b-48a6-bfbb-1ba7e7e47200.png">
+
+<img width="797" alt="Untitled3" src="https://user-images.githubusercontent.com/80986857/187012096-1c64c031-37cd-4e52-875a-fbd7fb4b7ee1.png">
 
 <br>
 <h1>Bookstore Theme</h1>
