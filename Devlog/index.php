@@ -44,7 +44,7 @@
             $posts1 = new WP_Query(array(
                'category_name' => 'the-world',
                'paged' => get_query_var('paged') ? get_query_var('paged') : 1,
-               'posts_per_page' => 3
+               'posts_per_page' => 4
             ));
             if ($posts1->have_posts()) :
                while ($posts1->have_posts()) : $posts1->the_post() ?>
@@ -57,7 +57,7 @@
                            <span class='center'><?php the_title(); ?></span>
                         <?php endif;
                         the_excerpt(); ?>
-                        <a href='<?php the_permalink(); ?>'>&raquo;</a>
+                        <nav class='tags'><?php the_tags('','- ',''); ?></nav>
                      </article>
                   </div>
                <?php endwhile;
@@ -68,7 +68,7 @@
             $args1 = json_encode($posts1->query_vars);
             if ($max1 >= 2) : ?>
                <div id='load1' class='snap'>
-                  <input type='submit' value='Continue' id='button1'></input>
+                  <input type='submit' value='Next' id='button1'></input>
                </div>
             <?php endif;
             wp_reset_postdata();
@@ -86,7 +86,7 @@
             $posts2 = new WP_Query(array(
                'category_name' => 'the-system',
                'paged' => get_query_var('paged') ? get_query_var('paged') : 1,
-               'posts_per_page' => 3
+               'posts_per_page' => 4
             ));
             if ($posts2->have_posts()) :
                while ($posts2->have_posts()) : $posts2->the_post() ?>
@@ -99,7 +99,7 @@
                            <span class='center'><?php the_title(); ?></span>
                         <?php endif;
                         the_excerpt(); ?>
-                        <a href='<?php the_permalink(); ?>'>&raquo;</a>
+                        <nav class='tags'><?php the_tags('','- ',''); ?></nav>
                      </article>
                   </div>
                <?php endwhile;
@@ -110,7 +110,7 @@
             $args2 = json_encode($posts2->query_vars);
             if ($max2 >= 2) : ?>
                <div id='load2' class='snap'>
-                  <input type='submit' value='Continue' id='button2'></input>
+                  <input type='submit' value='Next' id='button2'></input>
                </div>
             <?php endif;
             wp_reset_postdata(); ?>
@@ -130,11 +130,11 @@
             $posts3 = new wp_query(array(
                'category_name' => 'gallery',
                'paged' => get_query_var('paged') ? get_query_var('paged') : 1,
-               'posts_per_page' => 3
+               'posts_per_page' => 4
             ));
             if ($posts3->have_posts()) :
                while ($posts3->have_posts()) : $posts3->the_post() ?>
-                  <a href='<?php the_permalink(); ?>'><?php the_post_thumbnail(); ?></a>
+                  <a class='picture' href='<?php the_permalink(); ?>'><?php the_post_thumbnail(); ?></a>
                <?php endwhile;
             else : ?>
                <p>Nothing Found</p>
@@ -177,27 +177,29 @@
 
 <script>
    let page = document.querySelector('html'),
-      form = document.getElementById('search'),
+      search = document.getElementById('search'),
       modal = document.getElementById('modal'),
       exit2 = document.getElementById('exit2'),
       index = document.getElementById('index'),
       exit3 = document.getElementById('exit3'),
       news = document.getElementById('news_frame'),
+      load1 = document.getElementById('load1'),
+      load2 = document.getElementById('load2'),
       archives = document.getElementById('archives_frame'),
       drop = false
 
-   snap_switch = () => {
-      document.getElementById('load1').classList.toggle('snap')
-      document.getElementById('load2').classList.toggle('snap')
+   snap_toggle = () => {
+      load1 && load1.classList.toggle('snap')
+      load2 && load2.classList.toggle('snap')
    }
 
    document.getElementById('news_icon').onclick = () => {
-      snap_switch()
+      snap_toggle()
       index.classList.add('show')
       exit3.classList.add('show')
    }
    document.getElementById('archives_icon').onclick = () => {
-      snap_switch()
+      snap_toggle()
       index.classList.add('show')
       exit3.classList.add('show')
    }
@@ -205,24 +207,24 @@
       index.classList.remove('show')
       index.innerHTML = "<iframe id='frame2' name='frame2'></iframe>" // Clear iframe content
       exit3.classList.remove('show')
-      snap_switch()
+      snap_toggle()
    }
 
-   form_switch = () => {
-      snap_switch()
-      form.classList.toggle('hide')
-      setTimeout(() => snap_switch(), 300)
+   search_toggle = () => {
+      snap_toggle()
+      search.classList.toggle('hide')
+      setTimeout(() => snap_toggle(), 300)
    }
 
-   document.getElementById('search_link').onclick = () => form_switch()
-   document.getElementById('exit1').onclick = () => form_switch()
+   document.getElementById('search_link').onclick = () => search_toggle()
+   document.getElementById('exit1').onclick = () => search_toggle()
 
-   form.onsubmit = () => {
-      snap_switch()
+   search.onsubmit = () => {
+      snap_toggle()
       page.classList.add('stop')
       modal.classList.add('show')
       exit2.classList.add('show')
-      form.classList.toggle('hide')
+      search.classList.toggle('hide')
    }
 
    add_events = () => {
@@ -236,7 +238,7 @@
       for (let i in images) {
          if (!images[i].onclick) { // Omit previous images
             images[i].onclick = function() {
-               snap_switch()
+               snap_toggle()
                let title = this.parentElement.querySelector('span')
                if (this.classList.contains('expand')) {
                   this.classList.remove('expand')
@@ -245,7 +247,7 @@
                   this.classList.add('expand')
                   title.classList.add('center')
                }
-               setTimeout(() => snap_switch(), 300)
+               setTimeout(() => snap_toggle(), 300)
             }
          }
       }
@@ -256,7 +258,7 @@
             links[i].target = 'frame1'
             if (!links[i].onclick) {
                links[i].onclick = () => {
-                  snap_switch()
+                  snap_toggle()
                   modal.classList.add('show')
                   exit2.classList.add('show')
                   page.classList.add('stop')
@@ -270,7 +272,7 @@
          modal.innerHTML = "<iframe id='frame1' name='frame1'></iframe>" // Clear iframe content
          exit2.classList.remove('show')
          page.classList.remove('stop')
-         snap_switch()
+         snap_toggle()
       }
    }
 
@@ -285,14 +287,16 @@
       }
    }
    window.onscroll = () => {
-      if (window.pageYOffset < 50 && !drop) {
-         news.classList.remove('lift')
-         archives.classList.remove('lift')
-         drop = true
-      } else if (window.pageYOffset >= 50 && drop) {
-         news.classList.add('lift')
-         archives.classList.add('lift')
-         drop = false
+      if (window.innerWidth <= 750) {
+         if (window.pageYOffset < 50 && !drop) {
+            news.classList.remove('lift')
+            archives.classList.remove('lift')
+            drop = true
+         } else if (window.pageYOffset >= 50 && drop) {
+            news.classList.add('lift')
+            archives.classList.add('lift')
+            drop = false
+         }
       }
    }
 </script>

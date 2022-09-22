@@ -1,6 +1,6 @@
 <div class='menu'>
    <h1>News</h1>
-   <?php $posts = get_posts('posts_per_page=50');
+   <?php $posts = get_posts('posts_per_page=20');
    if (have_posts()) : foreach ($posts as $post) : ?>
          <div class='item'>
             <?php if (has_post_thumbnail()) : ?>

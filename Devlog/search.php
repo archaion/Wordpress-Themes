@@ -16,19 +16,14 @@ Template Name: Search
 <body <?php body_class() ?>>
    <section id='main'>
       <div id='the_world'>
-         <div id='right1' class='single'>
+         <div id='right1' class='framed'>
             <?php if (have_posts()) : while (have_posts()) : the_post();
                   if (get_the_category() && get_the_category()[0]->cat_name == 'Gallery') : ?>
                      <div class='title'>
                         <h1><?php the_title(); ?></h1>
                         <p><?php echo get_the_date(); ?></p>
                      </div>
-                     <div class='poster gallery_single'>
-                        <article <?php post_class('posts') ?> id='post-<?php the_ID(); ?>'>
-                           <?php the_post_thumbnail();
-                           the_content(); ?>
-                        </article>
-                     </div>
+                     <a class='picture' href='<?php the_permalink(); ?>'><?php the_post_thumbnail(); ?></a>
                   <?php else : ?>
                      <div class='poster'>
                         <article <?php post_class('posts') ?> id='post-<?php the_ID(); ?>'>
@@ -39,16 +34,17 @@ Template Name: Search
                               <span class='center'><?php the_title(); ?></span>
                            <?php endif;
                            the_content(); ?>
+                           <nav class='tags'><?php the_tags('','- ',''); ?></nav>
                         </article>
                      </div>
                <?php endif;
                endwhile; ?>
                <div id='select'>
                   <?php if (get_previous_posts_link()) : ?>
-                     <div id='prev'><?php previous_posts_link('Return'); ?></div>
+                     <div id='prev'><?php previous_posts_link('Prev.'); ?></div>
                   <?php endif;
                   if (get_next_posts_link()) : ?>
-                     <div id="next"><?php next_posts_link('Continue'); ?></div>
+                     <div id="next"><?php next_posts_link('Next'); ?></div>
                   <?php endif; ?>
                </div>
             <?php else : ?>

@@ -43,16 +43,16 @@ function ajax_handler() {
                      <span class='center'><?php the_title(); ?></span>
                   <?php endif;
                   the_excerpt(); ?>
-                  <a href='<?php the_permalink(); ?>'>&raquo;</a>
+                  <nav class='tags'><?php the_tags('','- ',''); ?></nav>
                </article>
             </div>
          <?php endwhile;
       endif;
       die;                                         // Exit the script - no wp_reset_query() required
    } else {
-      query_posts($args); 
+      query_posts($args);
       if (have_posts()) : while (have_posts()) : the_post(); ?>
-            <a href='<?php the_permalink(); ?>'><?php the_post_thumbnail(); ?></a>
+            <a class='picture' href='<?php the_permalink(); ?>'><?php the_post_thumbnail(); ?></a>
 <?php endwhile;
       endif;
       die;
@@ -65,7 +65,7 @@ add_action('wp_ajax_nopriv_load', 'ajax_handler'); // wp_ajax_nopriv_{action}
 ///////////////////////////////////////////////////////////////////////////////////////////
 add_filter('excerpt_more', 'change_excerpt_more', 10, 1);
 function change_excerpt_more($more) {
-   return ' . . . ';
+   return ' . . . <a class="more" href="' . get_the_permalink() . '">Continue</a>';
 }
 add_filter('excerpt_length', 'custom_excerpt_length', 999);
 function custom_excerpt_length($length) {
