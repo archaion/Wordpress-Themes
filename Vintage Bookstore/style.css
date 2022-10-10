@@ -1,24 +1,24 @@
 /*
-Theme Name: Vintage Bookstore
+Theme Name: New Vintage Bookstore
 Description: A Basic Theme for WordPress 
 Author: sunvvheel
-Author URI: http://github.com/sunvvheel
+Author URI: http://github.com/archaion
 */
 @font-face {
-  font-family: "title";
-  src: url("./Showboat.ttf") format("truetype");
+  font-family: 'title';
+  src: url('./Showboat.ttf') format('truetype');
 }
 @font-face {
-  font-family: "amp";
-  src: url("./Clutter Street.ttf") format("truetype");
+  font-family: 'amp';
+  src: url('./Clutter Street.ttf') format('truetype');
 }
 @font-face {
-  font-family: "owner";
-  src: url("./Quikhand.ttf") format("truetype");
+  font-family: 'owner';
+  src: url('./Quikhand.ttf') format('truetype');
 }
 @font-face {
-  font-family: "type";
-  src: url("./Avojaloin.ttf") format("truetype");
+  font-family: 'type';
+  src: url('./Avojaloin.ttf') format('truetype');
 }
 html {
   overflow-x: hidden;
@@ -29,9 +29,9 @@ body {
   font-size: 17px;
   background: linear-gradient(
       245deg,
-      rgb(255, 240, 178),
+      rgb(255, 241, 186),
       rgb(255, 249, 203),
-      rgb(255, 254, 220) 47%
+      rgb(255, 255, 220) 47%
     )
     fixed;
   height: 100%;
@@ -40,7 +40,7 @@ body {
   margin: 0;
 }
 #overlay {
-  background-image: url("./images/overlay2.png");
+  background-image: url('./images/overlay2.png');
   background-size: 100%;
   background-repeat: repeat;
   position: relative;
@@ -49,7 +49,7 @@ body {
   z-index: 0;
 }
 #banner {
-  background-image: url("./images/Vintage-Open-Book.png");
+  background-image: url('./images/Vintage-Open-Book.png');
   background-size: 100% 100%;
   width: 101%;
   height: 63vw;
@@ -59,7 +59,7 @@ body {
   z-index: -10;
 }
 #gradient {
-  background-image: url("./images/Untitled.png");
+  background-image: url('./images/Untitled.png');
   background-size: 100% 100%;
   width: 37vw;
   height: 30vw;
@@ -119,7 +119,7 @@ body {
 }
 #ampersand {
   font-family: amp;
-  color: rgb(35, 35, 30);
+  color: rgb(30, 30, 25);
   font-size: 7.8vw;
   font-weight: 100;
   -webkit-transform: scale(1.1, 1.25);
@@ -177,7 +177,7 @@ body {
   top: -5vw;
   height: 22vw;
   width: 70vw;
-  background-image: url("./images/lines.png");
+  background-image: url('./images/lines.png');
   background-size: 100% 100%;
 }
 #menu {
@@ -221,9 +221,9 @@ body {
   letter-spacing: 2px;
   background: linear-gradient(
     -7deg,
-    rgb(255, 239, 192),
-    rgb(255, 248, 200) 3%,
-    rgb(255, 252, 228) 80%
+    rgb(255, 244, 197),
+    rgb(255, 255, 207) 3%,
+    rgb(255, 255, 227) 80%
   );
   border: 3.5px outset rgb(176, 169, 132);
   border-radius: 3.3px;
@@ -259,7 +259,7 @@ body {
   position: absolute;
   top: -2.43vw;
   right: -0.3vw;
-  background-image: url("./images/French-Corner-Bottom.png");
+  background-image: url('./images/French-Corner-Bottom.png');
   background-size: 100% 100%;
 }
 #corner3 {
@@ -268,7 +268,7 @@ body {
   position: absolute;
   top: 100.3%;
   right: -0.4vw;
-  background-image: url("./images/French-Corner-Top.png");
+  background-image: url('./images/French-Corner-Top.png');
   background-size: 100% 100%;
 }
 #main {
@@ -278,7 +278,7 @@ body {
 }
 #main section {
   padding-top: 0;
-  margin-top: -6.5vw;
+  margin-top: -10.3vw;
   margin-left: 3vw;
   margin-bottom: 2vw;
   float: left;
@@ -289,12 +289,12 @@ body {
   padding: 7px 30px 20px 27px;
   background: linear-gradient(
     18deg,
-    rgb(255, 239, 192),
-    rgb(255, 248, 200) 3%,
-    rgb(255, 252, 228) 80%
+    rgb(255, 244, 197),
+    rgb(255, 255, 207) 3%,
+    rgb(255, 255, 227) 80%
   );
-  box-shadow: -0.41px 0.38px 2.6px rgb(181, 160, 145),
-    -0.4px 0.4px 3px rgb(176, 155, 115);
+  box-shadow: -0.46px 0.38px 2px rgb(183 161 145),
+    -0.4px 0.4px 4px rgb(181 160 120);
   border-left: 1.2px solid rgb(192, 177, 124);
   border-bottom: 1.21px solid rgb(189, 169, 109);
   border-right: 0.5px solid rgb(226, 211, 155);
@@ -361,7 +361,7 @@ body {
   z-index: -10;
   height: 45vw;
   width: 45vw;
-  background-image: url("./images/corner.png");
+  background-image: url('./images/corner.png');
   background-size: 100% 100%;
   bottom: 0;
   margin: -45vw 0 0 53vw;
@@ -397,7 +397,7 @@ footer a {
 }
 footer #line2 {
   border-top: none;
-  background-image: url("./images/frame.png");
+  background-image: url('./images/frame.png');
   background-size: 100% 100%;
   height: 20px;
   width: 185px;
@@ -540,7 +540,7 @@ footer #angle {
     padding: 1.4vw 0;
   }
   #main section {
-    margin-top: -13.5vw;
+    margin-top: -17.3vw;
     margin-bottom: 0vw;
     width: 72%;
   }
