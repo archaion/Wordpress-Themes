@@ -54,8 +54,8 @@ body {
   width: 101%;
   height: 63vw;
   position: absolute;
-  left: 0;
-  top: -0.5vw;
+  left: 0.5vw;
+  top: -1.9vw;
   z-index: -10;
 }
 #gradient {
@@ -64,44 +64,78 @@ body {
   width: 37vw;
   height: 30vw;
   position: absolute;
-  left: -9.1vw;
+  left: -10.4vw;
   top: -1.1vw;
   z-index: -10;
 }
 #owner {
   position: absolute;
-  top: 10vw;
-  left: 26vw;
+  top: 8vw;
+  left: 24.6vw;
   color: rgb(205, 0, 0);
   font-family: owner;
-  font-weight: 600;
   font-size: 3.9vw;
-  letter-spacing: 0.25vw;
   -webkit-transform: rotate(-7deg) scale(1.55, 0.84);
   transform: rotate(-7deg) scale(1.55, 0.84);
 }
+#streak {
+  position: absolute;
+  top: 10vw;
+  left: 25vw;
+  background-image: url(./images/line.png);
+  background-size: 100% 100%;
+  width: 16vw;
+  height: 3vw;
+  -webkit-transform: rotate(-7deg) scale(1.55, 0.84);
+  transform: rotate(-7deg) scale(1.55, 0.84);
+}
+#splat {
+  position: absolute;
+  top: 0vw;
+  right: 13.6vw;
+  background-image: url(./images/splat.png);
+  background-size: 100% 100%;
+  width: 28vw;
+  height: 26vw;
+}
 .title {
   margin-bottom: -1.9vw;
-  padding-right: 8.8vw;
-  padding-top: 10.3vw;
+  /* padding-right: 8.8vw; */
+  padding-top: 8.7vw;
   background-color: rgba(0, 0, 0, 0);
   background-size: 100% 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 15vw;
+  letter-spacing: 0.8vw;
 }
 .title h1 {
-  margin: 0 4vw 0 2.5vw;
-  letter-spacing: 0.8vw;
+  margin-left: -7vw;
   -webkit-transform: scale(1.1);
   transform: scale(1.1);
 }
+#ampersand {
+  font-family: amp;
+  color: rgb(28, 28, 23);
+  font-size: 7.8vw;
+  -webkit-transform: scale(1.1, 1.25);
+  transform: scale(1.1, 1);
+  text-shadow: 0 0 0.07vw rgb(200 155 35), 0.04vw 0.04vw 0.05vw rgb(190 145 35),
+    0.04vw -0.04vw 0.05vw rgb(190 145 35),
+    -0.04vw -0.04vw 0.05vw rgb(190 145 35),
+    -0.04vw 0.04vw 0.05vw rgb(190 145 35);
+  width: 5vw;
+  height: 5vw;
+  position: absolute;
+  top: 11vw;
+  left: 51vw;
+  z-index: -1;
+}
 .title h2 {
-  letter-spacing: 0.8vw;
-  margin: -0.4vw 0 0 8.2vw;
-  -webkit-transform: scale(1.1, 1.15);
-  transform: scale(1.1, 1.15);
+  margin: 0 0 0 14vw;
+  -webkit-transform: scale(1.1, 1.1);
+  transform: scale(1.1, 1.1);
 }
 .print {
   font-family: title;
@@ -117,25 +151,6 @@ body {
     -0.04vw -0.04vw 0.08vw rgb(199, 150, 53),
     -0.04vw 0.04vw 0.08vw rgb(199, 150, 53);
 }
-#ampersand {
-  font-family: amp;
-  color: rgb(30, 30, 25);
-  font-size: 7.8vw;
-  font-weight: 100;
-  -webkit-transform: scale(1.1, 1.25);
-  transform: scale(1.1, 1.2);
-  text-shadow: 0 0 0.07vw rgb(200, 155, 35),
-    0.04vw 0.04vw 0.05vw rgb(190, 145, 35),
-    0.04vw -0.04vw 0.05vw rgb(190, 145, 35),
-    -0.04vw -0.04vw 0.05vw rgb(190, 145, 35),
-    -0.04vw 0.04vw 0.05vw rgb(190, 145, 35);
-  width: 5vw;
-  height: 5vw;
-  position: absolute;
-  top: 11.5vw;
-  left: 57.6vw;
-  z-index: -1;
-}
 #line {
   z-index: -2;
   width: 63.6vw;
@@ -148,7 +163,7 @@ body {
 .subtitle {
   position: relative;
   top: -2.6vw;
-  left: -4.5vw;
+  left: -4vw;
   width: 100%;
   display: flex;
   justify-content: center;
@@ -173,8 +188,8 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  left: -9.3vw;
-  top: -5vw;
+  left: -9.7vw;
+  top: -5.8vw;
   height: 22vw;
   width: 70vw;
   background-image: url('./images/lines.png');
@@ -183,7 +198,7 @@ body {
 #menu {
   position: relative;
   top: -0.5vw;
-  left: 10vw;
+  left: 10.2vw;
   text-align: center;
   width: 60vw;
   font-size: 1.8vw;
@@ -197,7 +212,7 @@ body {
   text-decoration: none;
   display: inline;
   padding-left: 0vw;
-  margin: 0 5.5vw;
+  margin: 0 5.8vw;
   font-family: serif;
 }
 #menu a:hover {
@@ -278,7 +293,7 @@ body {
 }
 #main section {
   padding-top: 0;
-  margin-top: -10.3vw;
+  margin-top: -11.5vw;
   margin-left: 3vw;
   margin-bottom: 2vw;
   float: left;
@@ -376,7 +391,7 @@ footer {
   height: 35px;
   padding-bottom: 80px;
   position: relative;
-  letter-spacing: 1px;
+  letter-spacing: 2px;
   top: -20px;
   left: 50px;
   width: 30%;
@@ -430,40 +445,73 @@ footer #angle {
 
 @media screen and (max-width: 850px) {
   #gradient {
-    left: -4vw;
-    top: -2.7vw;
+    left: -7.8vw;
+    top: -3.7vw;
   }
   #owner {
-    top: 10vw;
-    left: 20vw;
-    letter-spacing: 0.5vw;
-    -webkit-transform: rotate(-22deg) scale(1.5, 0.85);
-    transform: rotate(-22deg) scale(1.5, 0.85);
+    top: 9vw;
+    left: 15vw;
+    font-size: 5.5vw;
+    letter-spacing: 0.1vw;
+    -webkit-transform: rotate(-17.5deg) scale(1.3, 1);
+    transform: rotate(-17.5deg) scale(1.3, 1);
+  }
+  #streak {
+    position: absolute;
+    top: 11.7vw;
+    left: 15vw;
+    background-image: url(./images/line.png);
+    background-size: 100% 100%;
+    width: 26vw;
+    height: 4vw;
+    -webkit-transform: rotate(-17.5deg) scale(1.3, 1);
+    transform: rotate(-17.5deg) scale(1.3, 1);
+  }
+  #splat {
+    position: absolute;
+    top: 7.7vw;
+    right: 18.8vw;
+    background-image: url(./images/splat.png);
+    background-size: 100% 100%;
+    width: 26vw;
+    height: 29.5vw;
   }
   .title {
     height: 30vw;
-    margin: 0 6vw -1.9vw 0;
-    padding-top: 7vw;
+    margin: 0 0 -1.9vw 0;
+    padding-top: 6vw;
   }
   .title h1 {
-    -webkit-transform: scale(1.25);
-    transform: scale(1.25);
-    letter-spacing: 1.2vw;
+    -webkit-transform: scale(1.3);
+    transform: scale(1.3);
     width: 80vw;
+    margin-left: 8vw;
   }
   .title h1 a {
     position: absolute;
-    bottom: 1.5vw;
+    bottom: 1.3vw;
     left: 24.5vw;
   }
+  #ampersand {
+    left: 37.6vw;
+    top: 18.5vw;
+    font-size: 7.4vw;
+    -webkit-transform: scale(1.15, 1.17);
+    transform: scale(1.15, 1.17);
+  }
+  #line {
+    width: 43vw;
+    top: -14.5vw;
+    left: 5.3vw;
+    border-bottom: 2px solid black;
+  }
   .title h2 {
-    -webkit-transform: scale(1.25);
-    transform: scale(1.25);
-    letter-spacing: 1.3vw;
+    -webkit-transform: scale(1.3);
+    transform: scale(1.3);
     margin: 0 auto;
     position: absolute;
-    left: 54.3vw;
-    top: 21.9vw;
+    left: 47.6vw;
+    top: 20.5vw;
   }
   .print {
     text-shadow: 0 0 0.05vw rgb(212, 160, 50),
@@ -472,23 +520,10 @@ footer #angle {
       -0.04vw -0.04vw 0.05vw rgb(202, 150, 50),
       -0.04vw 0.04vw 0.05vw rgb(202, 150, 50);
   }
-  #ampersand {
-    left: 43.6vw;
-    top: 20vw;
-    font-size: 7.4vw;
-    -webkit-transform: scale(1.4, 1.07);
-    transform: scale(1.4, 1.07);
-  }
-  #line {
-    width: 50.7vw;
-    top: -14.45vw;
-    left: 0vw;
-    border-bottom: 2px solid black;
-  }
   .subtitle {
     position: relative;
-    top: -12.2vw;
-    left: 18.8vw;
+    top: -14vw;
+    left: 11.5vw;
     width: 20%;
     justify-content: left;
     align-items: flex-start;
@@ -497,19 +532,23 @@ footer #angle {
     margin: 0 auto;
     padding-bottom: 0.6vw;
     font-weight: 500;
-    font-size: 1.7vw;
+    font-size: 1.6vw;
     letter-spacing: 0.3vw;
     -webkit-transform: scale(1.2, 1);
     transform: scale(1.2, 1);
   }
+  #address1 {
+    position: relative;
+    top: 3vw;
+  }
   #address2 {
     position: relative;
+    top: 3vw;
     left: 3vw;
   }
   #address3 {
     position: relative;
-    top: 3.2vw;
-    left: -13vw;
+    left: -8.5vw;
   }
   .subtitle a:hover {
     color: rgb(248, 190, 0);
@@ -517,7 +556,7 @@ footer #angle {
       0 0 0.1vw black, 0 0 0.1vw black, 0 0 0.1vw black;
   }
   #divider {
-    top: -12vw;
+    top: -12.2vw;
   }
   #menu {
     top: -0.7vw;
@@ -540,7 +579,7 @@ footer #angle {
     padding: 1.4vw 0;
   }
   #main section {
-    margin-top: -17.3vw;
+    margin-top: -18.3vw;
     margin-bottom: 0vw;
     width: 72%;
   }
