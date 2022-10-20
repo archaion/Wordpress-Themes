@@ -70,38 +70,37 @@ body {
 }
 #owner {
   position: absolute;
-  top: 8vw;
-  left: 24.6vw;
+  top: 8.6vw;
+  left: 21vw;
   color: rgb(205, 0, 0);
   font-family: owner;
-  font-size: 3.9vw;
-  -webkit-transform: rotate(-7deg) scale(1.55, 0.84);
-  transform: rotate(-7deg) scale(1.55, 0.84);
+  font-size: 4vw;
+  -webkit-transform: rotate(-7deg) scale(1.6, 0.9);
+  transform: rotate(-7deg) scale(1.6, 0.9);
 }
 #streak {
   position: absolute;
-  top: 10vw;
-  left: 25vw;
+  top: 11vw;
+  left: 15vw;
   background-image: url(./images/line.png);
   background-size: 100% 100%;
-  width: 16vw;
-  height: 3vw;
-  -webkit-transform: rotate(-7deg) scale(1.55, 0.84);
-  transform: rotate(-7deg) scale(1.55, 0.84);
+  width: 30vw;
+  height: 2.6vw;
+  -webkit-transform: rotate(-7deg);
+  transform: rotate(-7deg);
 }
 #splat {
   position: absolute;
-  top: 0vw;
-  right: 13.6vw;
+  top: 3vw;
+  right: 15.6vw;
   background-image: url(./images/splat.png);
   background-size: 100% 100%;
-  width: 28vw;
-  height: 26vw;
+  width: 27vw;
+  height: 27vw;
 }
 .title {
-  margin-bottom: -1.9vw;
-  /* padding-right: 8.8vw; */
-  padding-top: 8.7vw;
+  margin-bottom: -2.4vw;
+  padding-top: 9.5vw;
   background-color: rgba(0, 0, 0, 0);
   background-size: 100% 100%;
   display: flex;
@@ -116,21 +115,21 @@ body {
   transform: scale(1.1);
 }
 #ampersand {
+  width: 5vw;
+  height: 5vw;
+  position: absolute;
+  top: 11.7vw;
+  left: 49vw;
+  z-index: -1;
   font-family: amp;
   color: rgb(28, 28, 23);
-  font-size: 7.8vw;
-  -webkit-transform: scale(1.1, 1.25);
+  font-size: 8vw;
+  -webkit-transform: scale(1.1, 1);
   transform: scale(1.1, 1);
   text-shadow: 0 0 0.07vw rgb(200 155 35), 0.04vw 0.04vw 0.05vw rgb(190 145 35),
     0.04vw -0.04vw 0.05vw rgb(190 145 35),
     -0.04vw -0.04vw 0.05vw rgb(190 145 35),
     -0.04vw 0.04vw 0.05vw rgb(190 145 35);
-  width: 5vw;
-  height: 5vw;
-  position: absolute;
-  top: 11vw;
-  left: 51vw;
-  z-index: -1;
 }
 .title h2 {
   margin: 0 0 0 14vw;
@@ -162,26 +161,29 @@ body {
 }
 .subtitle {
   position: relative;
-  top: -2.6vw;
+  top: -2.2vw;
   left: -4vw;
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-}
-.subtitle p {
-  display: inline;
-  padding-left: 0.3vw;
-  margin: 1.5vw 5vw;
   font-size: 1.3vw;
   font-family: georgia;
+  letter-spacing: 0.5vw;
   color: black;
+  text-shadow: 0 0 0.13vw rgb(205, 147, 0);
+}
+.subtitle span {
+  padding-left: 0.3vw;
+  margin: 1.5vw 5vw;
   -webkit-transform: scale(1.8, 1.15);
   transform: scale(1.8, 1.15);
-  letter-spacing: 0.5vw;
-  color: rgb(37, 37, 32);
-  text-shadow: 0 0 0.13vw rgb(210, 152, 0);
-  text-decoration: none;
+}
+#copy1 {
+  word-spacing: 1vw;
+}
+#copy2 {
+  padding-left: 3vw;
 }
 #divider {
   position: relative;
@@ -293,7 +295,7 @@ body {
 }
 #main section {
   padding-top: 0;
-  margin-top: -11.5vw;
+  margin-top: -12vw;
   margin-left: 3vw;
   margin-bottom: 2vw;
   float: left;
@@ -449,28 +451,28 @@ footer #angle {
     top: -3.7vw;
   }
   #owner {
-    top: 9vw;
-    left: 15vw;
-    font-size: 5.5vw;
+    top: 8.5vw;
+    left: 12.5vw;
+    font-size: 5.3vw;
     letter-spacing: 0.1vw;
-    -webkit-transform: rotate(-17.5deg) scale(1.3, 1);
-    transform: rotate(-17.5deg) scale(1.3, 1);
+    -webkit-transform: rotate(-17.5deg) scale(1.25, 1);
+    transform: rotate(-17.5deg) scale(1.25, 1);
   }
   #streak {
     position: absolute;
-    top: 11.7vw;
-    left: 15vw;
+    top: 11.2vw;
+    left: 8.7vw;
     background-image: url(./images/line.png);
     background-size: 100% 100%;
-    width: 26vw;
+    width: 33vw;
     height: 4vw;
-    -webkit-transform: rotate(-17.5deg) scale(1.3, 1);
-    transform: rotate(-17.5deg) scale(1.3, 1);
+    -webkit-transform: rotate(-17.5deg);
+    transform: rotate(-17.5deg);
   }
   #splat {
     position: absolute;
-    top: 7.7vw;
-    right: 18.8vw;
+    top: 7.2vw;
+    right: 19.3vw;
     background-image: url(./images/splat.png);
     background-size: 100% 100%;
     width: 26vw;
@@ -479,13 +481,13 @@ footer #angle {
   .title {
     height: 30vw;
     margin: 0 0 -1.9vw 0;
-    padding-top: 6vw;
+    padding-top: 5.5vw;
   }
   .title h1 {
     -webkit-transform: scale(1.3);
     transform: scale(1.3);
     width: 80vw;
-    margin-left: 8vw;
+    margin-left: 5vw;
   }
   .title h1 a {
     position: absolute;
@@ -493,8 +495,8 @@ footer #angle {
     left: 24.5vw;
   }
   #ampersand {
-    left: 37.6vw;
-    top: 18.5vw;
+    left: 36.5vw;
+    top: 18vw;
     font-size: 7.4vw;
     -webkit-transform: scale(1.15, 1.17);
     transform: scale(1.15, 1.17);
@@ -510,8 +512,8 @@ footer #angle {
     transform: scale(1.3);
     margin: 0 auto;
     position: absolute;
-    left: 47.6vw;
-    top: 20.5vw;
+    left: 46vw;
+    top: 20vw;
   }
   .print {
     text-shadow: 0 0 0.05vw rgb(212, 160, 50),
@@ -522,33 +524,28 @@ footer #angle {
   }
   .subtitle {
     position: relative;
-    top: -14vw;
-    left: 11.5vw;
-    width: 20%;
+    top: -15vw;
+    left: 11vw;
+    width: 25vw;
     justify-content: left;
     align-items: flex-start;
-  }
-  .subtitle p {
-    margin: 0 auto;
-    padding-bottom: 0.6vw;
-    font-weight: 500;
     font-size: 1.6vw;
     letter-spacing: 0.3vw;
+  }
+  .subtitle span {
+    margin: 0 auto;
     -webkit-transform: scale(1.2, 1);
     transform: scale(1.2, 1);
   }
-  #address1 {
+  #copy1 {
     position: relative;
-    top: 3vw;
+    top: 2.7vw;
+    word-spacing: initial;
   }
-  #address2 {
+  #copy2 {
     position: relative;
-    top: 3vw;
-    left: 3vw;
-  }
-  #address3 {
-    position: relative;
-    left: -8.5vw;
+    left: -10vw;
+    padding-left: 0;
   }
   .subtitle a:hover {
     color: rgb(248, 190, 0);
