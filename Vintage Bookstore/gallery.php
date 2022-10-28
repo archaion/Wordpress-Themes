@@ -1,4 +1,7 @@
-<?php get_header(); ?>
+<?php /*
+Template Name: gallery
+*/
+get_header(); ?>
 <section>
    <?php if (have_posts()) : ?>
       <?php while (have_posts()) : the_post(); ?>
@@ -10,6 +13,7 @@
                   <?php the_content('Read More..'); ?>
                </div>
                <div class='image-link'>
+                  <!--CHANGE TO MOBILE LAYOUT-->
                   <a href='<?php the_permalink(); ?>'><?php the_post_thumbnail(); ?></a>
                </div>
             </div>

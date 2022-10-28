@@ -12,7 +12,7 @@
    <div id='overlay'>
       <div id='banner'></div>
       <div id='gradient'></div>
-      <div id='owner'><span>Werwolf:</span></div>
+      <div id='owner'><span class='alt1'>W</span>er<span class='alt2'>e</span>wolf:</div>
       <div id='splat'></div>
       <div id='streak'></div>
       <header class='title'>
@@ -32,7 +32,10 @@
       </aside>
       <div id='divider'>
          <div id='menu'>
-            <a id='books' href='<?php echo bloginfo('url') . '/read'; ?>'>READ</a>|<a id='artwork' href='<?php echo bloginfo('url') . '/studio'; ?>'>STUDIO</a>|<a id='contact' href='<?php echo bloginfo('url') . '/contact'; ?>'>CONTACT</a>
+            <a id='comics' href='<?php echo bloginfo('url'); ?>'>COMICS</a>
+            |<a id='gallery' href='<?php echo bloginfo('url') . '/gallery'; ?>'>GALLERY</a>
+            |<a id='studio' href='<?php echo bloginfo('url') . '/studio'; ?>'>STUDIO</a>
+            |<a id='contact' href='<?php echo bloginfo('url') . '/contact'; ?>'>CONTACT</a>
          </div>
       </div>
       <?php get_sidebar(); ?>
