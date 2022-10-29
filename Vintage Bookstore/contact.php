@@ -7,7 +7,7 @@ get_header(); ?>
       <div class='post-wrap'>
          <h1>Commissions Open</h1>
          <p class='post-line'></p>
-         For information about commissions, please contact @pennyblood on Twitter.
+         <span>For information about commissions, please contact @pennyblood on Twitter.</span>
       </div>
    </article>
 </section>

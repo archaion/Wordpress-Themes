@@ -11,7 +11,7 @@
       <li><span>BROWSE</span>
          <div id='archives'>
             <?php wp_get_archives(array('type' => 'monthly', 'limit' => 5, 'format' => '', 'after' => '<div class="break"></div>')); ?>
-            <a href='<?php echo bloginfo('url') . '/archive'; ?>'>More...</a>
+            <a href='<?php echo bloginfo('url') . '/browse'; ?>'>More...</a>
          </div>
       </li>
       <li><a id='top' href='#'>RETURN</a></li>

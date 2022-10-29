@@ -12,7 +12,7 @@
    <div id='overlay'>
       <div id='banner'></div>
       <div id='gradient'></div>
-      <div id='owner'><span class='alt1'>W</span>er<span class='alt2'>e</span>wolf:</div>
+      <div id='owner'><span class='alt1'>W</span>er<span class='alt2'>c</span>wolf:</div>
       <div id='splat'></div>
       <div id='streak'></div>
       <header class='title'>

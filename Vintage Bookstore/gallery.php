@@ -3,8 +3,8 @@ Template Name: gallery
 */
 get_header(); ?>
 <section>
-   <?php if (have_posts()) : ?>
-      <?php while (have_posts()) : the_post(); ?>
+   <?php $posts = get_posts('category_name=gallery');
+   if (have_posts()) : foreach ($posts as $post) : ?>
          <article <?php post_class() ?> id='post-<?php the_ID(); ?>'>
             <div class='post-wrap'>
                <div class='post-text'>
@@ -18,7 +18,7 @@ get_header(); ?>
                </div>
             </div>
          </article>
-      <?php endwhile; ?>
+      <?php endforeach; ?>
       <div id='select'>
          <?php next_posts_link('&laquo; Prev'); ?>
          <?php previous_posts_link('Next &raquo;'); ?>
@@ -29,4 +29,8 @@ get_header(); ?>
    <?php endif; ?>
 </section>
 </div>
-<?php get_footer(); ?>
+<?php get_footer();
+/* if (have_posts()) : while (have_posts()) : the_post();
+                  if (get_the_category() && get_the_category()[0]->cat_name == 'Gallery') : ?>
+                           <nav class='tags'><?php the_tags('', '- ', ''); ?></nav>
+                           */ ?>

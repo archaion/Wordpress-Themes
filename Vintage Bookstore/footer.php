@@ -1,6 +1,6 @@
 <footer>
    <span id='angle'></span>
-   <p><a href='https://github.com/archaion/'>Pennyblood Comics</a></p>
+   <p><a href='https://github.com/archaion/'>Pennyblood Studios</a></p>
    <p id='line2'></p>
    <?php //wp_footer(); 
    ?>

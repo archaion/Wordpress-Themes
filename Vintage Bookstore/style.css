@@ -83,11 +83,10 @@ body {
 }
 .alt2 {
   position: relative;
-  top: -0.1vw;
-  left: -0.3vw;
-  font-weight: bold;
-  font-style: italic;
-  font-size: 3.7vw;
+  top: -0.3vw;
+  left: -0.1vw;
+  font-size: 3.8vw;
+  text-decoration: line-through;
 }
 #streak {
   position: absolute;
@@ -278,6 +277,7 @@ body {
   text-decoration: underline;
   margin-bottom: 1.4vw;
   display: block;
+  text-shadow: 0 0 0.13vw rgb(210, 152, 0);
 }
 #form {
   padding: 0;
@@ -321,14 +321,19 @@ body {
 }
 #sidebar a {
   color: black;
+  font-family: serif;
+  font-style: italic;
   text-decoration: none;
+  text-shadow: 0 0 0.13vw rgb(210, 152, 0);
 }
 #sidebar a#top {
+  font-family: type;
+  font-style: normal;
   text-decoration: underline;
 }
 #sidebar a:hover {
-  font-style: italic;
   text-decoration: none;
+  font-style: normal;
 }
 #corner2 {
   height: 2.2vw;
@@ -398,27 +403,55 @@ body {
 .post .post-text {
   float: right;
 }
-.post a {
-  color: rgb(35, 35, 30);
+.post h1 {
+  margin-bottom: 14px;
+}
+.post a,
+#list a {
+  color: black;
   text-shadow: 0 0 0.13vw rgb(210, 152, 0);
   text-decoration: none;
-  font-weight: bold;
 }
 .post .post-title {
   font-size: 14pt;
+  font-family: type;
+  font-weight: 100;
   -webkit-transform: scale(1.5, 1);
   transform: scale(1.5, 1);
-  letter-spacing: 0.25vw;
+  letter-spacing: 0.2vw;
+}
+.post-wrap h1 {
+   font-size: 14pt;
+   font-family: type;
+   font-weight: 100;
+   letter-spacing: 0.2vw;
+}
+#list {
+  color: black;
+  font-size: 11pt;
+  font-family: type;
+  letter-spacing: 0.1vw;
+  line-height: 3vw;
+  text-shadow: 0 0 0.13vw rgb(210, 152, 0);
+}
+.post-wrap #list {
+   font-family: serif;
+   line-height: 2.3vw;
+}
+.post-wrap #list a:hover {
+   text-decoration: underline;
 }
 .post .post-title:hover {
-  color: rgb(255, 189, 43);
-  text-shadow: 0 0 0.15vw rgb(40, 40, 35), 0 0 0.15vw rgb(40, 40, 35),
-    0 0 0.09vw black, 0 0 0.09vw black, 0 0 0.09vw black, 0 0 0.09vw black;
+  /*color: rgb(255, 189, 43);
+  text-shadow: 0 0 0.13vw rgb(40, 40, 35), 0 0 0.1vw black, 
+    0 0 0.1vw black, 0 0 0.1vw black, 0 0 0.1vw black, 0 0 0.1vw black;*/
+  font-weight: bold;
 }
 .post-line {
   width: 30vw;
   margin-right: 19vw;
-  border-bottom: 3px dotted rgb(140, 140, 140);
+  border-bottom: 3px dotted grey;
+  text-shadow: none;
 }
 .post p {
   margin-top: 0.5vw;
@@ -434,6 +467,13 @@ body {
   height: 100%;
   width: 100%;
   border-radius: 9px;
+  box-shadow: 0 0 0.5px rgb(55, 55, 55), 0 0 0.5px rgb(115, 115, 115),
+    0 0 1.5px rgb(140, 140, 140);
+}
+.post-wrap h1,
+.post-wrap span,
+.post-wrap p {
+  text-shadow: 0 0 0.13vw rgb(210, 152, 0);
 }
 #corner {
   position: relative;
@@ -463,14 +503,11 @@ footer p {
 }
 footer a {
   text-decoration: none;
-  text-shadow: 0.5px -0.5px 0 black, -0.5px 0.5px 0 black, -0.5px -0.5px 0 black,
-    -0.5px 0 0 black, 0 -0.5px 0 black, 0 0.5px 0 black, 0.5px 0 0 black,
-    0.5px 0.5px 0 black, 0px 0px 1.5px black;
-  color: rgb(255,30,30);
-  font-size: 14pt;
-  font-weight: 100;
+  color: rgb(205, 0, 0);
+  font-size: 14.5pt;
+  font-weight: bold;
   font-family: owner;
-  letter-spacing: 2.5px;
+  letter-spacing: 2px;
   line-height: 2.5vw;
 }
 footer #line2 {
@@ -521,11 +558,12 @@ footer #angle {
   }
   .alt1 {
     left: 0.4vw;
+    top: 0.1vw;
   }
   .alt2 {
     font-size: 4.9vw;
-    top: -0.1vw;
-    left: -0.3vw;
+    top: -0.45vw;
+    left: -0.2vw;
   }
   #streak {
     position: absolute;
@@ -613,7 +651,7 @@ footer #angle {
   }
   #copy2 {
     position: relative;
-    left: -10.5vw;
+    left: -10.2vw;
     padding-left: 0;
   }
   .subtitle a:hover {
@@ -645,12 +683,12 @@ footer #angle {
     letter-spacing: 0;
   }
   #sidebar a {
-    font-size: 1.8vw;
+    font-size: 1.9vw;
   }
   #main section {
     margin-top: -18.3vw;
     margin-bottom: 0vw;
-    width: 72vw;
+    width: 71vw;
   }
   #main .hentry {
     margin: 10px 0 25px 0;
@@ -726,11 +764,6 @@ footer #angle {
   }
   footer {
     font-size: 12pt;
-  }
-  footer a {
-    text-shadow: 0.5px -0.5px 0 black, -0.5px 0.5px 0 black,
-      -0.5px -0.5px 0 black, -0.5px 0 0 black, 0 -0.5px 0 black, 0 0.5px 0 black,
-      0.5px 0 0 black, 0.5px 0.5px 0 black, 0px 0px 1px black;
   }
   footer #line2 {
     top: 66px;
@@ -850,10 +883,6 @@ footer #angle {
     border-top: none;
   }
   footer a {
-    text-shadow: 0.5px -0.5px 0 black, -0.5px 0.5px 0 black,
-      -0.5px -0.5px 0 black, -0.5px 0 0 black, 0 -0.5px 0 black, 0 0.5px 0 black,
-      0.5px 0 0 black, 0.5px 0.5px 0 black, 0 0 2px black, 0 0 2px black,
-      0 0 3px black, 0 0 1.2px black;
     font-size: 3vw;
   }
   footer #line2 {
