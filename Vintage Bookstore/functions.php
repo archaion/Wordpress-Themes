@@ -30,6 +30,16 @@ function add_featured_image_support() {
    add_image_size('small-thumb', 95, 150, false);
 }
 
+add_filter('excerpt_length', 'custom_excerpt_length', 999);
+function custom_excerpt_length($length) {
+   return 64;
+}
+
+add_filter('excerpt_more', 'change_excerpt_more', 10, 1);
+function change_excerpt_more($more) {
+   return ' . . . <a class="more" href="' . get_the_permalink() . '">READ</a>';
+}
+
 add_action('after_setup_theme', 'add_featured_image_support');
 add_action('init', 'create_post_type');
 add_action('widgets_init', 'create_menu_widget');

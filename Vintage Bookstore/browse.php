@@ -3,7 +3,7 @@ Template Name: browse
 */
 get_header(); ?>
 <section>
-   <article <?php post_class() ?> id='contact'>
+   <article <?php post_class() ?> id='browse'>
       <div class='post-wrap'>
          <div>
             <h1>Archives</h1>

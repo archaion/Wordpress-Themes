@@ -3,13 +3,28 @@ Template Name: contact
 */
 get_header(); ?>
 <section>
-   <article <?php post_class() ?> id='contact'>
-      <div class='post-wrap'>
-         <h1>Commissions Open</h1>
-         <p class='post-line'></p>
-         <span>For information about commissions, please contact @pennyblood on Twitter.</span>
-      </div>
-   </article>
+   <?php $posts = get_posts('category_name=contact');
+   if (have_posts()) : foreach ($posts as $post) : ?>
+         <article <?php post_class() ?> id='contact'>
+            <div class='post-wrap'>
+               <div class='post-text'>
+                  <h1><a class='post-title' href='<?php the_permalink(); ?>'><?php the_title(); ?></a></h1>
+                  <p class='post-line'></p>
+                  <?php the_content('Read More..'); ?>
+                  <div class='tags'><?php the_tags(); ?></div>
+               </div>
+               <div class='image-link'>
+                  <a href='<?php echo wp_get_attachment_image_url(get_post_thumbnail_id(), 'large'); ?>' target='_blank'>
+                     <?php the_post_thumbnail(); ?>
+                  </a>
+               </div>
+            </div>
+         </article>
+      <?php endforeach; ?>
+   <?php else : ?>
+      <p>Not Found<br>
+         Sorry, there's nothing here.</p>
+   <?php endif; ?>
 </section>
 </div>
 <?php get_footer(); ?>

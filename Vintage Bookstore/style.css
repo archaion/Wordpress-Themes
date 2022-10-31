@@ -181,7 +181,7 @@ body {
   font-family: georgia;
   letter-spacing: 0.45vw;
   color: black;
-  text-shadow: 0 0 0.13vw rgb(205, 147, 0);
+  text-shadow: 0 0 0.1vw rgb(205, 147, 0);
 }
 .subtitle span {
   padding-left: 0.3vw;
@@ -277,7 +277,7 @@ body {
   text-decoration: underline;
   margin-bottom: 1.4vw;
   display: block;
-  text-shadow: 0 0 0.13vw rgb(210, 152, 0);
+  text-shadow: 0 0 0.1vw rgb(210, 152, 0);
 }
 #form {
   padding: 0;
@@ -299,8 +299,9 @@ body {
   outline: none;
   display: inline;
   padding: 0.3vw;
-  font-family: monospace;
-  font-weight: bold;
+  font-family: owner;
+  color: rgb(250, 0, 0);
+  text-shadow: 0 0 1px black;
   letter-spacing: 0.1vw;
   font-size: 8.5pt;
   border: 1px solid gray;
@@ -324,7 +325,7 @@ body {
   font-family: serif;
   font-style: italic;
   text-decoration: none;
-  text-shadow: 0 0 0.13vw rgb(210, 152, 0);
+  text-shadow: 0 0 0.1vw rgb(210, 152, 0);
 }
 #sidebar a#top {
   font-family: type;
@@ -392,24 +393,35 @@ body {
   display: inline-block;
   font-size: 12pt;
 }
+#main .hentry .post-wrap {
+  transform: rotate(0.7deg);
+  margin: 0.4vw 0 0 0;
+}
 #main .hentry:nth-child(even) .post-wrap {
   transform: rotate(-0.7deg);
-  margin: -0.4vw 0 0 0vw;
+  margin: -0.2vw 0 0 0;
 }
-#main .hentry:nth-child(odd) .post-wrap {
-  transform: rotate(0.7deg);
-  margin: 0.3vw 0 0 0vw;
+#main .hentry:nth-child(even) .image-link {
+  padding: 2vw 3vw 1vw 0;
 }
 .post .post-text {
   float: right;
+  max-width: 70%;
+  text-shadow: 0 0 0.1vw rgb(210, 152, 0);
 }
-.post h1 {
-  margin-bottom: 14px;
+.tags {
+  margin-left: 4vw;
+  font-size: smaller;
+  font-style: italic;
+}
+.tags a:hover {
+  text-decoration: underline;
 }
 .post a,
-#list a {
+#list a,
+#select a {
   color: black;
-  text-shadow: 0 0 0.13vw rgb(210, 152, 0);
+  text-shadow: 0 0 0.1vw rgb(210, 152, 0);
   text-decoration: none;
 }
 .post .post-title {
@@ -420,26 +432,25 @@ body {
   transform: scale(1.5, 1);
   letter-spacing: 0.2vw;
 }
-.post-wrap h1 {
-   font-size: 14pt;
-   font-family: type;
-   font-weight: 100;
-   letter-spacing: 0.2vw;
+#contact h1,
+#browse h1,
+#search h1 {
+  font-size: 14pt;
+  font-family: type;
+  font-weight: 100;
+  letter-spacing: 0.2vw;
+  margin: 1.6vw 0 1.2vw 0;
 }
 #list {
   color: black;
   font-size: 11pt;
-  font-family: type;
   letter-spacing: 0.1vw;
-  line-height: 3vw;
   text-shadow: 0 0 0.13vw rgb(210, 152, 0);
+  font-family: serif;
+  line-height: 24px;
 }
-.post-wrap #list {
-   font-family: serif;
-   line-height: 2.3vw;
-}
-.post-wrap #list a:hover {
-   text-decoration: underline;
+#list a:hover {
+  text-decoration: underline;
 }
 .post .post-title:hover {
   /*color: rgb(255, 189, 43);
@@ -449,7 +460,7 @@ body {
 }
 .post-line {
   width: 30vw;
-  margin-right: 19vw;
+  margin-right: 21vw;
   border-bottom: 3px dotted grey;
   text-shadow: none;
 }
@@ -458,8 +469,8 @@ body {
 }
 .post .image-link {
   height: 20vw;
-  width: 18vw;
-  padding: 2vw 3vw 2vw 0;
+  width: 25%;
+  padding: 2vw 3vw 0.5vw 0;
   vertical-align: top;
   float: left;
 }
@@ -470,10 +481,23 @@ body {
   box-shadow: 0 0 0.5px rgb(55, 55, 55), 0 0 0.5px rgb(115, 115, 115),
     0 0 1.5px rgb(140, 140, 140);
 }
-.post-wrap h1,
-.post-wrap span,
-.post-wrap p {
-  text-shadow: 0 0 0.13vw rgb(210, 152, 0);
+.post .more {
+  font-style: italic;
+  position: relative;
+  top: 2px;
+  font-family: owner;
+  color: rgb(205, 0, 0);
+  font-size: 14pt;
+  line-height: 0;
+  letter-spacing: 0.5px;
+}
+#select {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#select a {
+  font-family: type;
 }
 #corner {
   position: relative;
@@ -494,6 +518,9 @@ footer {
   top: -20px;
   left: 50px;
   width: 30%;
+}
+footer {
+  z-index: -1;
 }
 footer p {
   text-align: center;
@@ -694,20 +721,29 @@ footer #angle {
     margin: 10px 0 25px 0;
   }
   .post .image-link {
-    padding: 2.5vw 3vw 2vw 0;
+    padding: 2.8vw 3vw 0.4vw 0;
+  }
+  #main .hentry:nth-child(odd) .post-wrap h1 {
+    margin: 1.8vw 0 1.2vw 0;
   }
   .post-line {
-    margin-right: 10vw;
+    margin-right: 14vw;
   }
   .post .post-wrap {
     font-size: 11pt;
   }
   #main .hentry:nth-child(even) .post-wrap {
-    transform: rotate(-0.7deg);
     margin: 0.5vw 0 0 -0.2vw;
   }
-  .post .post-title {
+  .post .post-title,
+  #contact h1,
+  #browse h1,
+  #search h1 {
     font-size: 12pt;
+  }
+  #list {
+    font-size: 9pt;
+    line-height: 20px;
   }
   #corner {
     height: 50vw;
@@ -759,8 +795,14 @@ footer #angle {
   .post .post-wrap {
     font-size: 10pt;
   }
-  .post .post-title {
+  .post .post-title,
+  #contact h1,
+  #browse h1,
+  #search h1 {
     font-size: 11pt;
+  }
+  .post .more {
+    font-size: 12pt;
   }
   footer {
     font-size: 12pt;
@@ -792,11 +834,15 @@ footer #angle {
     font-size: 2vw;
     font-weight: 100;
   }
+  #sidebar a {
+    font-size: 2.1vw;
+  }
   #main section {
     margin-bottom: -5vw;
     flex-direction: column;
   }
   .post .post-text {
+    max-width: none;
     float: none;
   }
   .post .image-link {
@@ -868,7 +914,10 @@ footer #angle {
   .post .image-link {
     padding: 5vw 4vw 3vw 0;
   }
-  .post .post-title {
+  .post .post-title,
+  #contact h1,
+  #browse h1,
+  #search h1 {
     font-size: 4vw;
   }
   footer {
