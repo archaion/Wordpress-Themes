@@ -10,7 +10,7 @@
       </li>
       <li><span>_BROWSE_</span>
          <div id='archives'>
-            <?php wp_get_archives(array('type' => 'monthly', 'limit' => 5, 'format' => '', 'after' => '<div class="break"></div>')); ?>
+            <?php wp_get_archives(array('type' => 'monthly', 'limit' => 12, 'format' => '', 'after' => '<div class="break"></div>')); ?>
             <a href='<?php echo bloginfo('url') . '/browse'; ?>'>More...</a>
          </div>
       </li>

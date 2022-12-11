@@ -1,11 +1,11 @@
 <?php /*
-Template Name: studio
+Template Name: novel
 */
 get_header(); ?>
 <section>
-   <?php $posts = get_posts('category_name=studio');
+   <?php $posts = get_posts('category_name=novel');
    if (have_posts()) : foreach ($posts as $post) : ?>
-         <article <?php post_class() ?> id='studio'>
+         <article <?php post_class() ?> id='novel'>
             <div class='post-wrap'>
                <div class='post-text'>
                   <h1><a class='post-title' href='<?php the_permalink(); ?>'><?php the_title(); ?></a></h1>
@@ -32,4 +32,4 @@ get_header(); ?>
    <?php endif; ?>
 </section>
 </div>
-<?php get_footer(); ?>
+<?php get_footer();

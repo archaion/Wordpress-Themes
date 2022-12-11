@@ -12,27 +12,27 @@
    <div id='overlay'>
       <div id='banner'></div>
       <div id='gradient'></div>
-      <div id='owner'><span class='alt1'>W</span>er<span class='alt2'>c</span>wolf:</div>
+      <div id='owner'><span class='alt1'>V</span>amp<span class='alt2'>y</span>re<span class='alt3'>:</span></div>
       <div id='splat'></div>
       <div id='streak'></div>
       <header class='title'>
          <!-- link to home page -->
          <div id='back'></div>
-         <h1><a class='print' href='<?php bloginfo('url'); ?>'><em>Moonlight</em>
+         <h1><a class='print' href='<?php bloginfo('url'); ?>'><em><span class='alt4'>T</span>he <span class='alt4'>B</span>lood</em>
             </a></h1>
-         <div id='ampersand'><em>&amp;</em></div>
-         <h2><a class='print' href='<?php bloginfo('url'); ?>'><em>Thorns</em>
+         <!--<div id='ampersand'><em>&amp;</em></div>-->
+         <h2><a class='print' href='<?php bloginfo('url'); ?>'><em><span class='alt4'>C</span>urse</em>
             </a></h2>
       </header>
       <!--<div id='line'></div>-->
       <aside class='subtitle'>
          <!-- links to main pages -->
-         <span id='copy1'><em>Pennyblood Comics</em></span>
+         <span id='copy1'><em>Perdition Studios</em></span>
          <span id='copy2'><em>2022</em></span>
       </aside>
       <div id='divider'>
          <div id='menu'>
-            <a id='comics' href='<?php echo bloginfo('url'); ?>'>COMICS</a>
+            <a id='comics' href='<?php echo bloginfo('url') . '/novel'; ?>'>NOVEL</a>
             |<a id='gallery' href='<?php echo bloginfo('url') . '/gallery'; ?>'>GALLERY</a>
             |<a id='studio' href='<?php echo bloginfo('url') . '/studio'; ?>'>STUDIO</a>
             |<a id='contact' href='<?php echo bloginfo('url') . '/contact'; ?>'>CONTACT</a>

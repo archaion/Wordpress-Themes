@@ -6,6 +6,7 @@
             <div class='post-wrap'>
                <div class='post-text'>
                   <h1><a class='post-title' href='<?php the_permalink(); ?>'><?php the_title(); ?></a></h1>
+                  <p class='date'><?php the_date(); ?></p>
                   <p class='post-line'></p>
                   <?php the_excerpt('Read More..'); ?>
                   <div class='tags'><?php the_tags(); ?></div>

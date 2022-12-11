@@ -1,7 +1,7 @@
 /*
 Theme Name: New Vintage Bookstore
 Description: A Basic Theme for WordPress 
-Author: sunvvheel
+Author: Archaion
 Author URI: http://github.com/archaion
 */
 @font-face {
@@ -20,12 +20,16 @@ Author URI: http://github.com/archaion
   font-family: 'type';
   src: url('./Avojaloin.ttf') format('truetype');
 }
-html {
-  overflow-x: hidden;
-}
 body {
   font-family: georgia, serif;
   font-size: 17px;
+  background: -o-linear-gradient(
+      205deg,
+      rgb(255, 241, 186),
+      rgb(255, 249, 203),
+      rgb(255, 255, 220) 47%
+    )
+    fixed;
   background: linear-gradient(
       245deg,
       rgb(255, 241, 186),
@@ -50,10 +54,9 @@ body {
 #banner {
   background-image: url('./images/Vintage-Open-Book.png');
   background-size: 100% 100%;
-  width: 101%;
+  width: 100%;
   height: 63vw;
   position: absolute;
-  left: 0.5vw;
   top: -1.9vw;
   z-index: -10;
 }
@@ -69,40 +72,51 @@ body {
 }
 #owner {
   position: absolute;
-  top: 8.6vw;
+  top: 7vw;
   left: 20vw;
   color: rgb(205, 0, 0);
   font-family: owner;
   font-size: 4vw;
-  -webkit-transform: rotate(-7deg) scale(1.6, 0.9);
-  transform: rotate(-7deg) scale(1.6, 0.9);
+  font-style: italic;
+  -webkit-transform: rotate(-7deg) scale(1.6, 1);
+  -ms-transform: rotate(-7deg) scale(1.6, 1);
+  transform: rotate(-7deg) scale(1.6, 1);
 }
 .alt1 {
+  font-size: 5.5vw;
+  font-style: normal;
   position: relative;
-  left: 0.3vw;
+  top: 1.3vw;
+  left: 0.4vw;
 }
 .alt2 {
+  font-style: normal;
   position: relative;
-  top: -0.3vw;
-  left: -0.1vw;
-  font-size: 3.8vw;
-  text-decoration: line-through;
+  left: 0.2vw;
+  top: 0.1vw;
+  font-size: 3.9vw;
+}
+.alt3 {
+  position: relative;
+  font-size: smaller;
+  font-weight: bold;
 }
 #streak {
   position: absolute;
   top: 11vw;
-  left: 14.5vw;
+  left: 16.4vw;
   background-image: url(./images/line.png);
   background-size: 100% 100%;
   width: 30vw;
   height: 2.6vw;
   -webkit-transform: rotate(-7deg);
+  -ms-transform: rotate(-7deg);
   transform: rotate(-7deg);
 }
 #splat {
   position: absolute;
   top: 3.5vw;
-  right: 15.6vw;
+  right: 17.6vw;
   background-image: url(./images/splat.png);
   background-size: 100% 100%;
   width: 27vw;
@@ -113,8 +127,14 @@ body {
   padding-top: 9.8vw;
   background-color: rgba(0, 0, 0, 0);
   background-size: 100% 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
   height: 15vw;
   letter-spacing: 0.8vw;
@@ -122,6 +142,7 @@ body {
 .title h1 {
   margin-left: -7vw;
   -webkit-transform: scale(1.1);
+  -ms-transform: scale(1.1);
   transform: scale(1.1);
 }
 #ampersand {
@@ -129,12 +150,13 @@ body {
   height: 5vw;
   position: absolute;
   top: 12vw;
-  left: 49vw;
+  left: 51vw;
   z-index: -1;
   font-family: amp;
   color: rgb(28, 28, 23);
   font-size: 8vw;
   -webkit-transform: scale(1.1, 1);
+  -ms-transform: scale(1.1, 1);
   transform: scale(1.1, 1);
   text-shadow: 0 0 0.07vw rgb(200 155 35), 0.04vw 0.04vw 0.05vw rgb(190 145 35),
     0.04vw -0.04vw 0.05vw rgb(190 145 35),
@@ -142,9 +164,10 @@ body {
     -0.04vw 0.04vw 0.05vw rgb(190 145 35);
 }
 .title h2 {
-  margin: 0 0 0 14vw;
-  -webkit-transform: scale(1.1, 1.1);
-  transform: scale(1.1, 1.1);
+  margin: 0 0 0 7vw;
+  -webkit-transform: scale(1.1);
+  -ms-transform: scale(1.1);
+  transform: scale(1.1);
 }
 .print {
   font-family: title;
@@ -152,6 +175,7 @@ body {
   font-weight: 100;
   text-align: center;
   text-decoration: none;
+  letter-spacing: 0.9vw;
   margin: 0 auto;
   color: black;
   text-shadow: 0 0 0.1vw rgb(209, 160, 53),
@@ -159,6 +183,9 @@ body {
     0.04vw -0.04vw 0.08vw rgb(199, 150, 53),
     -0.04vw -0.04vw 0.08vw rgb(199, 150, 53),
     -0.04vw 0.04vw 0.08vw rgb(199, 150, 53);
+}
+.alt4 {
+  font-size: 4.9vw;
 }
 #line {
   z-index: -2;
@@ -174,8 +201,14 @@ body {
   top: -2.2vw;
   left: -4vw;
   width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
   font-size: 1.2vw;
   font-family: georgia;
@@ -187,6 +220,7 @@ body {
   padding-left: 0.3vw;
   margin: 1.5vw 5vw;
   -webkit-transform: scale(1.8, 1.15);
+  -ms-transform: scale(1.8, 1.15);
   transform: scale(1.8, 1.15);
 }
 #copy1 {
@@ -197,8 +231,14 @@ body {
 }
 #divider {
   position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
   left: -9.7vw;
   top: -5.8vw;
@@ -240,6 +280,7 @@ body {
   position: sticky;
   top: 4vw;
   margin-top: -20.6vw;
+  /*margin-left: 84%;*/
   z-index: 10;
   font-size: 12pt;
   font-family: type;
@@ -250,6 +291,13 @@ body {
   border-radius: 3.5px;
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
+  border-right: none;
+  background: -o-linear-gradient(
+    97deg,
+    rgb(255, 244, 197),
+    rgb(255, 255, 207) 3%,
+    rgb(255, 255, 227) 80%
+  );
   background: linear-gradient(
     -7deg,
     rgb(255, 244, 197),
@@ -282,7 +330,11 @@ body {
 #form {
   padding: 0;
   margin: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
 }
 #query {
@@ -334,14 +386,14 @@ body {
 }
 #sidebar a:hover {
   text-decoration: none;
-  font-style: normal;
+  font-weight: bold;
 }
 #corner2 {
   height: 2.2vw;
   width: 3vw;
   position: absolute;
   top: -2.43vw;
-  right: -0.32vw;
+  right: 0vw;
   background-image: url('./images/French-Corner-Bottom.png');
   background-size: 100% 100%;
 }
@@ -350,32 +402,40 @@ body {
   width: 3.4vw;
   position: absolute;
   top: 100%;
-  right: -0.4vw;
+  right: 0vw;
   background-image: url('./images/French-Corner-Top.png');
   background-size: 100% 100%;
 }
 #main {
   margin: 0 auto;
   padding: 0;
-  width: 100vw;
+  width: 100%;
 }
 #main section {
   padding-top: 0;
   margin-top: -12vw;
   margin-left: 3vw;
   margin-bottom: 2vw;
-  float: left;
+  /*float: left;*/
   width: 77vw;
 }
 #main .hentry {
   margin: 10px 0 35px 0;
   padding: 7px 30px 20px 27px;
+  background: -o-linear-gradient(
+    72deg,
+    rgb(255, 244, 197),
+    rgb(255, 255, 207) 3%,
+    rgb(255, 255, 227) 80%
+  );
   background: linear-gradient(
     18deg,
     rgb(255, 244, 197),
     rgb(255, 255, 207) 3%,
     rgb(255, 255, 227) 80%
   );
+  -webkit-box-shadow: -0.46px 0.38px 2px rgb(183 161 145),
+    -0.4px 0.4px 4px rgb(181 160 120);
   box-shadow: -0.46px 0.38px 2px rgb(183 161 145),
     -0.4px 0.4px 4px rgb(181 160 120);
   border-left: 1.2px solid rgb(192, 177, 124);
@@ -384,9 +444,13 @@ body {
   border-radius: 3px;
 }
 #main .hentry:nth-child(even) {
+  -webkit-transform: rotate(0.7deg);
+  -ms-transform: rotate(0.7deg);
   transform: rotate(0.7deg);
 }
 #main .hentry:nth-child(odd) {
+  -webkit-transform: rotate(-0.7deg);
+  -ms-transform: rotate(-0.7deg);
   transform: rotate(-0.7deg);
 }
 .post .post-wrap {
@@ -394,10 +458,14 @@ body {
   font-size: 12pt;
 }
 #main .hentry .post-wrap {
+  -webkit-transform: rotate(0.7deg);
+  -ms-transform: rotate(0.7deg);
   transform: rotate(0.7deg);
   margin: 0.4vw 0 0 0;
 }
 #main .hentry:nth-child(even) .post-wrap {
+  -webkit-transform: rotate(-0.7deg);
+  -ms-transform: rotate(-0.7deg);
   transform: rotate(-0.7deg);
   margin: -0.2vw 0 0 0;
 }
@@ -410,7 +478,7 @@ body {
   text-shadow: 0 0 0.1vw rgb(210, 152, 0);
 }
 .tags {
-  margin-left: 4vw;
+  margin: 3vw 0 0 4vw;
   font-size: smaller;
   font-style: italic;
 }
@@ -424,13 +492,18 @@ body {
   text-shadow: 0 0 0.1vw rgb(210, 152, 0);
   text-decoration: none;
 }
+.post-wrap h1 {
+  max-width: 75%;
+}
 .post .post-title {
   font-size: 14pt;
   font-family: type;
   font-weight: 100;
-  -webkit-transform: scale(1.5, 1);
-  transform: scale(1.5, 1);
+  /*-webkit-transform: scale(1.5, 1);
+   transform: scale(1.5, 1);*/
   letter-spacing: 0.2vw;
+  float: left;
+  margin-bottom: 0.5vw;
 }
 #contact h1,
 #browse h1,
@@ -454,21 +527,26 @@ body {
 }
 .post .post-title:hover {
   /*color: rgb(255, 189, 43);
-  text-shadow: 0 0 0.13vw rgb(40, 40, 35), 0 0 0.1vw black, 
-    0 0 0.1vw black, 0 0 0.1vw black, 0 0 0.1vw black, 0 0 0.1vw black;*/
+   text-shadow: 0 0 0.13vw rgb(40, 40, 35), 0 0 0.1vw black, 
+     0 0 0.1vw black, 0 0 0.1vw black, 0 0 0.1vw black, 0 0 0.1vw black;*/
   font-weight: bold;
+}
+.post .date {
+  max-width: 24%;
+  font-size: smaller;
+  font-weight: 100;
+  text-align: right;
+  float: right;
+  margin: 0;
 }
 .post-line {
   width: 30vw;
   margin-right: 21vw;
   border-bottom: 3px dotted grey;
   text-shadow: none;
-}
-.post p {
-  margin-top: 0.5vw;
+  clear: both;
 }
 .post .image-link {
-  height: 20vw;
   width: 25%;
   padding: 2vw 3vw 0.5vw 0;
   vertical-align: top;
@@ -478,6 +556,8 @@ body {
   height: 100%;
   width: 100%;
   border-radius: 9px;
+  -webkit-box-shadow: 0 0 0.5px rgb(55, 55, 55), 0 0 0.5px rgb(115, 115, 115),
+    0 0 1.5px rgb(140, 140, 140);
   box-shadow: 0 0 0.5px rgb(55, 55, 55), 0 0 0.5px rgb(115, 115, 115),
     0 0 1.5px rgb(140, 140, 140);
 }
@@ -492,12 +572,19 @@ body {
   letter-spacing: 0.5px;
 }
 #select {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
   justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
   align-items: center;
 }
 #select a {
   font-family: type;
+  font-size: larger;
 }
 #corner {
   position: relative;
@@ -517,9 +604,7 @@ footer {
   position: relative;
   top: -20px;
   left: 50px;
-  width: 30%;
-}
-footer {
+  width: 33%;
   z-index: -1;
 }
 footer p {
@@ -531,40 +616,42 @@ footer p {
 footer a {
   text-decoration: none;
   color: rgb(205, 0, 0);
-  font-size: 14.5pt;
+  font-size: 17pt;
   font-weight: bold;
   font-family: owner;
-  letter-spacing: 2px;
-  line-height: 2.5vw;
+  letter-spacing: 0.5vw;
+  line-height: 30px;
 }
 footer #line2 {
   border-top: none;
   background-image: url('./images/frame.png');
   background-size: 100% 100%;
   height: 20px;
-  width: 185px;
+  width: 22vw;
   top: 60px;
 }
 footer #angle {
   font-size: 0px;
   line-height: 0%;
   width: 0px;
-  border-top: 11px solid rgba(0, 0, 0, 0);
+  border-top: 18px solid rgba(0, 0, 0, 0);
   border-right: none;
   border-bottom: none;
-  border-left: 128px solid black;
+  border-left: 20vw solid black;
   position: relative;
-  top: 34.3px;
+  top: 32.3px;
 }
 
 /*************************************** TABLET VIEWS *******************************************/
 
 @media screen and (max-width: 860px) {
   #banner {
+    -o-transition: all 0.07s linear 0s;
     transition: all 0.07s linear 0s;
     -webkit-transition: all 0.07s linear 0s;
   }
   .post .image-link {
+    -o-transition: all 0.07s linear 0s;
     transition: all 0.07s linear 0s;
     -webkit-transition: all 0.07s linear 0s;
   }
@@ -576,41 +663,44 @@ footer #angle {
     top: -3.7vw;
   }
   #owner {
-    top: 9.2vw;
-    left: 10.1vw;
-    font-size: 5.3vw;
+    left: 8.1vw;
+    top: 7.5vw;
+    font-size: 6.3vw;
     letter-spacing: 0.1vw;
-    -webkit-transform: rotate(-17.5deg) scale(1.25, 1);
-    transform: rotate(-17.5deg) scale(1.25, 1);
+    -webkit-transform: rotate(-16.5deg) scale(1.3, 1);
+    -ms-transform: rotate(-16.5deg) scale(1.25, 0.9);
+    transform: rotate(-16.5deg) scale(1.2, 0.9);
   }
   .alt1 {
-    left: 0.4vw;
-    top: 0.1vw;
+    font-size: 8vw;
+    top: 2vw;
+    left: 0.5vw;
   }
   .alt2 {
-    font-size: 4.9vw;
-    top: -0.45vw;
-    left: -0.2vw;
+    left: 0.25vw;
+    top: 0.15vw;
+    font-size: 5.8vw;
   }
   #streak {
     position: absolute;
-    top: 11.7vw;
-    left: 7.7vw;
+    top: 12.5vw;
+    left: 6.7vw;
     background-image: url(./images/line.png);
     background-size: 100% 100%;
     width: 33vw;
-    height: 4vw;
+    height: 3.5vw;
     -webkit-transform: rotate(-17.5deg);
+    -ms-transform: rotate(-17.5deg);
     transform: rotate(-17.5deg);
   }
   #splat {
     position: absolute;
-    top: 7.2vw;
-    right: 19.3vw;
+    top: 2.6vw;
+    right: 19vw;
     background-image: url(./images/splat.png);
     background-size: 100% 100%;
-    width: 26vw;
-    height: 29.5vw;
+    width: 25vw;
+    height: 28.5vw;
   }
   .title {
     height: 30vw;
@@ -619,20 +709,22 @@ footer #angle {
   }
   .title h1 {
     -webkit-transform: scale(1.3);
+    -ms-transform: scale(1.3);
     transform: scale(1.3);
-    width: 80vw;
-    margin-left: 5.7vw;
+    width: 70vw;
+    margin-left: 2.3vw;
   }
   .title h1 a {
     position: absolute;
-    bottom: 1.3vw;
-    left: 24.5vw;
+    bottom: 0.5vw;
+    left: 20.5vw;
   }
   #ampersand {
     left: 36.3vw;
     top: 18vw;
     font-size: 7.4vw;
     -webkit-transform: scale(1.15, 1.17);
+    -ms-transform: scale(1.15, 1.17);
     transform: scale(1.15, 1.17);
   }
   #line {
@@ -643,10 +735,11 @@ footer #angle {
   }
   .title h2 {
     -webkit-transform: scale(1.3);
+    -ms-transform: scale(1.3);
     transform: scale(1.3);
     margin: 0 auto;
     position: absolute;
-    left: 46vw;
+    left: 43.5vw;
     top: 20vw;
   }
   .print {
@@ -658,27 +751,33 @@ footer #angle {
   }
   .subtitle {
     position: relative;
-    top: -14.7vw;
-    left: 11.5vw;
-    width: 25vw;
+    top: -15vw;
+    left: 13vw;
+    width: 27vw;
+    -webkit-box-pack: left;
+    -ms-flex-pack: left;
     justify-content: left;
+    -webkit-box-align: start;
+    -ms-flex-align: start;
     align-items: flex-start;
-    font-size: 1.5vw;
+    font-size: 1.7vw;
+    font-weight: bold;
     letter-spacing: 0.3vw;
   }
   .subtitle span {
     margin: 0 auto;
     -webkit-transform: scale(1.2, 1);
+    -ms-transform: scale(1.2, 1);
     transform: scale(1.2, 1);
   }
   #copy1 {
     position: relative;
-    top: 2.8vw;
+    top: 3.2vw;
     word-spacing: initial;
   }
   #copy2 {
     position: relative;
-    left: -10.2vw;
+    left: -12.5vw;
     padding-left: 0;
   }
   .subtitle a:hover {
@@ -699,6 +798,7 @@ footer #angle {
   }
   #sidebar {
     margin-top: -27vw;
+    /*margin-left: 80%;*/
     font-size: 2vw;
     padding: 0 2.3vw;
     width: 14vw;
@@ -713,7 +813,7 @@ footer #angle {
     font-size: 1.9vw;
   }
   #main section {
-    margin-top: -18.3vw;
+    margin-top: -19vw;
     margin-bottom: 0vw;
     width: 71vw;
   }
@@ -723,8 +823,11 @@ footer #angle {
   .post .image-link {
     padding: 2.8vw 3vw 0.4vw 0;
   }
+  #main .hentry:nth-child(even) .post-wrap h1 {
+    margin: 1.5vw 0 1.2vw 0;
+  }
   #main .hentry:nth-child(odd) .post-wrap h1 {
-    margin: 1.8vw 0 1.2vw 0;
+    margin: 2.4vw 0 1.2vw 0;
   }
   .post-line {
     margin-right: 14vw;
@@ -748,30 +851,35 @@ footer #angle {
   #corner {
     height: 50vw;
     width: 50vw;
-    margin: -50vw 0 0 47vw;
+    margin: -50vw 0 0 45vw;
   }
   footer {
     top: -10px;
     left: 45px;
     width: 40%;
+  }
+  footer a {
     font-size: 13pt;
+    line-height: 20px;
   }
   footer #line2 {
     top: 63px;
     width: 175px;
   }
   footer #angle {
-    border-top: 9px solid rgba(0, 0, 0, 0);
+    border-top: 13px solid rgba(0, 0, 0, 0);
     border-left: 120.5px solid black;
     top: 39px;
   }
 }
 @media screen and (max-width: 840px) {
   #banner {
+    -o-transition: none;
     transition: none;
     -webkit-transition: none;
   }
   .post .image-link {
+    -o-transition: none;
     transition: none;
     -webkit-transition: none;
   }
@@ -781,13 +889,11 @@ footer #angle {
     height: 3vw;
     width: 4.5vw;
     top: -3.3vw;
-    right: -0.5vw;
   }
   #corner3 {
     height: 10vw;
     width: 6vw;
     top: 100.3%;
-    right: -0.6vw;
   }
   #main section {
     margin-bottom: -4vw;
@@ -807,12 +913,15 @@ footer #angle {
   footer {
     font-size: 12pt;
   }
+  footer a {
+    line-height: 16px;
+  }
   footer #line2 {
     top: 66px;
     width: 160px;
   }
   footer #angle {
-    border-top: 9px solid rgba(0, 0, 0, 0);
+    border-top: 13px solid rgba(0, 0, 0, 0);
     border-left: 113px solid black;
     top: 42.5px;
   }
@@ -830,7 +939,9 @@ footer #angle {
       -0.3px 0.5px 0.7px rgb(47, 27, 0);
   }
   #sidebar {
+    /*margin-left: 79%;*/
     border: 2.9px outset rgb(176, 169, 132);
+    border-right: none;
     font-size: 2vw;
     font-weight: 100;
   }
@@ -839,6 +950,9 @@ footer #angle {
   }
   #main section {
     margin-bottom: -5vw;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
     flex-direction: column;
   }
   .post .post-text {
@@ -869,7 +983,7 @@ footer #angle {
     width: 138px;
   }
   footer #angle {
-    border-top: 8px solid rgba(0, 0, 0, 0);
+    border-top: 12px solid rgba(0, 0, 0, 0);
     border-left: 99.5px solid black;
     top: 50.5px;
   }
@@ -882,34 +996,42 @@ footer #angle {
   #line {
     left: -1.5vw;
   }
+  #divider {
+    width: 74vw;
+  }
   #menu {
-    left: 10.5vw;
+    left: 12.5vw;
     font-size: 1.9vw;
+    width: 100%;
   }
   #menu a {
-    font-family: monospace;
+    font-family: sans-serif;
     text-shadow: 0.5px -0.5px 0 black, -0.5px 0.5px 0 black,
-      -0.5px -0.5px 0 black, -0.5px 0 0 black, 0 -0.5px 0 black, 0 0.5px 0 black,
-      0.5px 0 0 black, 0.5px 0.5px 0 black, 0 0 2px black, 0 0 2px black,
-      0 0 3px black, 0 0 3px black, 0 0 3px black, 0 0 3px black;
-    color: rgb(255, 220, 80);
-    margin-left: 6.5vw;
+      -0.5px -0.5px 0 black, 0.5px 0.5px 0 black, -0.5px 0 0 black,
+      0 -0.5px 0 black, 0 0.5px 0 black, 0.5px 0 0 black, 0 0 3px black,
+      0 0 3px black, 0 0 3px black;
+    color: rgb(255, 225, 100);
+    margin-left: 3.5vw;
+  }
+  #sidebar {
+    width: 18vw;
   }
   #corner2 {
-    top: -3.8vw;
-    right: -0.6vw;
+    top: -3.55vw;
   }
   #corner3 {
-    top: 101.5%;
-    right: -0.7vw;
+    top: 100.5%;
   }
   #main section {
-    margin-bottom: 6vw;
+    margin-bottom: 9vw;
   }
   #main .hentry {
     font-size: 3.5vw;
     padding: 0vw 6vw 2.5vw 5.5vw;
     margin: 10px 0 20px 0;
+  }
+  .post .post-wrap {
+    font-size: 7pt;
   }
   .post .image-link {
     padding: 5vw 4vw 3vw 0;
@@ -932,7 +1054,7 @@ footer #angle {
     border-top: none;
   }
   footer a {
-    font-size: 3vw;
+    font-size: 3.3vw;
   }
   footer #line2 {
     top: -2vw;
@@ -940,9 +1062,12 @@ footer #angle {
     height: 3.5vw;
   }
   footer #angle {
-    border-top: 5px solid rgba(0, 0, 0, 0);
+    border-top: 11px solid rgba(0, 0, 0, 0);
     border-left: 92px solid black;
     top: -26.5px;
+  }
+  #select {
+    font-size: small;
   }
 }
 @media screen and (max-width: 350px) {
