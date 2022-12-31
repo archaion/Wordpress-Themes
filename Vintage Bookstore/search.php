@@ -13,7 +13,7 @@ get_header(); ?>
                   <p class='date'><?php the_date(); ?></p>
                   <p class='post-line'></p>
                   <?php the_content('Read More..'); ?>
-                  <div class='tags'><?php the_tags(); ?></div>
+                  <div class='tags'><?php the_tags('Labels: '); ?></div>
                </div>
                <div class='image-link'>
                   <a href='<?php echo wp_get_attachment_image_url(get_post_thumbnail_id(), 'large'); ?>' target='_blank'>

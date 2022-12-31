@@ -9,19 +9,23 @@ Author URI: http://github.com/archaion
   src: url('./Showboat.ttf') format('truetype');
 }
 @font-face {
-  font-family: 'amp';
-  src: url('./Clutter Street.ttf') format('truetype');
+  font-family: 'type';
+  src: url('./CCSpellcaster.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'brush';
+  src: url('./CCSpellcaster.ttf') format('truetype');
 }
 @font-face {
   font-family: 'owner';
   src: url('./AnnBrush.ttf') format('truetype');
 }
 @font-face {
-  font-family: 'type';
-  src: url('./Avojaloin.ttf') format('truetype');
+  font-family: 'amp';
+  src: url('./Gabriola.ttf') format('truetype');
 }
 body {
-  font-family: georgia, serif;
+  font-family: 'amp';
   font-size: 17px;
   background: -o-linear-gradient(
       205deg,
@@ -41,6 +45,7 @@ body {
   width: 100%;
   padding: 0;
   margin: 0;
+  color: rgb(28, 28, 23);
 }
 #overlay {
   background-image: url('./images/overlay2.png');
@@ -115,16 +120,16 @@ body {
 }
 #splat {
   position: absolute;
-  top: 3.5vw;
+  top: 4.5vw;
   right: 17.6vw;
   background-image: url(./images/splat.png);
   background-size: 100% 100%;
-  width: 27vw;
+  width: 31vw;
   height: 27vw;
 }
 .title {
   margin-bottom: -2.4vw;
-  padding-top: 9.8vw;
+  padding-top: 10.8vw;
   background-color: rgba(0, 0, 0, 0);
   background-size: 100% 100%;
   display: -webkit-box;
@@ -177,7 +182,7 @@ body {
   text-decoration: none;
   letter-spacing: 0.9vw;
   margin: 0 auto;
-  color: black;
+  color: rgb(28, 28, 23);
   text-shadow: 0 0 0.1vw rgb(209, 160, 53),
     0.04vw 0.04vw 0.08vw rgb(199, 150, 53),
     0.04vw -0.04vw 0.08vw rgb(199, 150, 53),
@@ -211,9 +216,9 @@ body {
   -ms-flex-align: center;
   align-items: center;
   font-size: 1.2vw;
-  font-family: georgia;
+  font-family: georgia, serif;
   letter-spacing: 0.45vw;
-  color: black;
+  color: rgb(28, 28, 23);
   text-shadow: 0 0 0.1vw rgb(205, 147, 0);
 }
 .subtitle span {
@@ -248,6 +253,7 @@ body {
   background-size: 100% 100%;
 }
 #menu {
+  font-family: sans-serif;
   position: relative;
   top: -0.5vw;
   left: 13.5vw;
@@ -282,8 +288,10 @@ body {
   margin-top: -20.6vw;
   /*margin-left: 84%;*/
   z-index: 10;
-  font-size: 12pt;
+  font-size: 13pt;
   font-family: type;
+  font-style: italic;
+  color: rgb(28, 28, 23);
   text-align: right;
   letter-spacing: 0.5vw;
   border: 3.5px outset rgb(185, 175, 135);
@@ -315,6 +323,7 @@ body {
   padding: 1.4vw 0.5vw 1.6vw 0.5vw;
   border-bottom: 1px solid black;
   text-align: center;
+  font-weight: bold;
 }
 #sidebar li:last-child {
   border-bottom: none;
@@ -322,7 +331,6 @@ body {
   margin-bottom: 0;
 }
 #sidebar span {
-  text-decoration: underline;
   margin-bottom: 1.4vw;
   display: block;
   text-shadow: 0 0 0.1vw rgb(210, 152, 0);
@@ -363,26 +371,27 @@ body {
 }
 #archives {
   text-align: left;
-  font-size: 10pt;
+  line-height: 95%;
+  font-size: 14pt;
   letter-spacing: 0.1vw;
 }
 .break {
   height: 1px;
-  padding: 0.3vw 0.5vw;
+  padding: 0.2vw 0.5vw;
   border-bottom: 1px solid black;
   margin-bottom: 1vw;
 }
 #sidebar a {
-  color: black;
-  font-family: serif;
-  font-style: italic;
+  color: rgb(28, 28, 23);
+  font-family: amp;
+  font-style: normal;
+  font-weight: normal;
   text-decoration: none;
   text-shadow: 0 0 0.1vw rgb(210, 152, 0);
 }
 #sidebar a#top {
   font-family: type;
-  font-style: normal;
-  text-decoration: underline;
+  font-weight: bold;
 }
 #sidebar a:hover {
   text-decoration: none;
@@ -455,13 +464,16 @@ body {
 }
 .post .post-wrap {
   display: inline-block;
-  font-size: 12pt;
+  font-size: 14.5pt;
+  line-height: 98%;
+  letter-spacing: 0.08vw;
 }
 #main .hentry .post-wrap {
   -webkit-transform: rotate(0.7deg);
   -ms-transform: rotate(0.7deg);
   transform: rotate(0.7deg);
   margin: 0.4vw 0 0 0;
+  width: 100%;
 }
 #main .hentry:nth-child(even) .post-wrap {
   -webkit-transform: rotate(-0.7deg);
@@ -482,13 +494,16 @@ body {
   font-size: smaller;
   font-style: italic;
 }
+.tags a {
+  margin-left: 0.2vw;
+}
 .tags a:hover {
   text-decoration: underline;
 }
 .post a,
 #list a,
 #select a {
-  color: black;
+  color: rgb(28, 28, 23);
   text-shadow: 0 0 0.1vw rgb(210, 152, 0);
   text-decoration: none;
 }
@@ -497,11 +512,12 @@ body {
 }
 .post .post-title {
   font-size: 14pt;
-  font-family: type;
-  font-weight: 100;
+  font-style: italic;
+  font-family: brush;
+  font-weight: bold;
   /*-webkit-transform: scale(1.5, 1);
    transform: scale(1.5, 1);*/
-  letter-spacing: 0.2vw;
+  letter-spacing: 0.4vw;
   float: left;
   margin-bottom: 0.5vw;
 }
@@ -515,7 +531,7 @@ body {
   margin: 1.6vw 0 1.2vw 0;
 }
 #list {
-  color: black;
+  color: rgb(28, 28, 23);
   font-size: 11pt;
   letter-spacing: 0.1vw;
   text-shadow: 0 0 0.13vw rgb(210, 152, 0);
@@ -585,6 +601,36 @@ body {
 #select a {
   font-family: type;
   font-size: larger;
+  font-style: italic;
+}
+.comment-title {
+  text-align: center;
+  font-style: italic;
+  font-family: type;
+  font-size: 14pt;
+  font-weight: bold;
+  color: rgb(28, 28, 23);
+  letter-spacing: 0.5vw;
+  margin: 5vw 0 3vw 0;
+  text-shadow: 0 0 0.1vw rgb(210 152 0);
+}
+.comment .post-text {
+  max-width: 100%;
+  width: 100%;
+}
+.comment .tags {
+  width: auto;
+  display: inline;
+  text-align: right;
+  font-size: initial;
+}
+.comment .date {
+  padding-top: 7px;
+  margin-left: 0.5vw;
+  font-size: small;
+  display: inline;
+  font-style: normal;
+  float: none;
 }
 #corner {
   position: relative;

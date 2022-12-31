@@ -121,7 +121,7 @@ function change_excerpt_more($more) {
    return ' . . . <a class="more" href="' . get_the_permalink() . '">READ</a>';
 }
 
-add_filter('the_content', 'smartwp_featured_image_in_rss_feed');
+/*add_filter('the_content', 'smartwp_featured_image_in_rss_feed');
 function smartwp_featured_image_in_rss_feed($content) {
    global $post;
    if (is_feed()) {
@@ -131,7 +131,7 @@ function smartwp_featured_image_in_rss_feed($content) {
       }
    }
    return $content;
-}
+}*/
 add_action('after_setup_theme', 'add_featured_image_support');
 add_action('init', 'create_post_type');
 add_action('widgets_init', 'create_menu_widget');

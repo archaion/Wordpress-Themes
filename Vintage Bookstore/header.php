@@ -28,7 +28,7 @@
       <aside class='subtitle'>
          <!-- links to main pages -->
          <span id='copy1'><em>Perdition Studios</em></span>
-         <span id='copy2'><em>2022</em></span>
+         <span id='copy2'><em>2023</em></span>
       </aside>
       <div id='divider'>
          <div id='menu'>
