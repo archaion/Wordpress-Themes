@@ -1,5 +1,5 @@
 <?php /*
-Template Name: contact
+Template Name: Contact
 */
 get_header(); ?>
 <section>
@@ -10,8 +10,8 @@ get_header(); ?>
                <div class='post-text'>
                   <h1><a class='post-title' href='<?php the_permalink(); ?>'><?php the_title(); ?></a></h1>
                   <p class='post-line'></p>
-                  <?php the_content('Read More..'); ?>
-                  <div class='tags'><?php the_tags('Labels: '); ?></div>
+                  <?php the_content(); ?>
+                  <div class='tags'><?php the_tags('TAGS: '); ?></div>
                </div>
                <div class='image-link'>
                   <a href='<?php echo wp_get_attachment_image_url(get_post_thumbnail_id(), 'large'); ?>' target='_blank'>

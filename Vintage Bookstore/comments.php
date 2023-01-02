@@ -1,4 +1,4 @@
-<div class='comment-title'>Comments</div>
+<div id='comment-box'><p id='comment-title'>Comments</p></div>
 <?php foreach (get_comments(array('post_id' => get_the_ID())) as $comm) : ?>
    <article <?php post_class('comment') ?>>
       <div class='post-wrap'>

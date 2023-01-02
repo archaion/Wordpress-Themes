@@ -111,17 +111,20 @@ function add_featured_image_support() {
    add_image_size('small-thumb', 95, 150, false);
 }
 
-add_filter('excerpt_length', 'custom_excerpt_length', 999);
+/*add_filter('excerpt_length', 'custom_excerpt_length', 999);
 function custom_excerpt_length($length) {
    return 80;
 }
 
 add_filter('excerpt_more', 'change_excerpt_more', 10, 1);
 function change_excerpt_more($more) {
-   return ' . . . <a class="more" href="' . get_the_permalink() . '">READ</a>';
+   return ' . . . <a class="more" href="' . get_the_permalink() . '">Continue</a>';
 }
 
-/*add_filter('the_content', 'smartwp_featured_image_in_rss_feed');
+remove_filter ('the_excerpt', 'wpautop');
+remove_filter('the_excerpt', 'wp_trim_excerpt');
+
+add_filter('the_content', 'smartwp_featured_image_in_rss_feed');
 function smartwp_featured_image_in_rss_feed($content) {
    global $post;
    if (is_feed()) {

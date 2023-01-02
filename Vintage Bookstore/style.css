@@ -22,7 +22,7 @@ Author URI: http://github.com/archaion
 }
 @font-face {
   font-family: 'amp';
-  src: url('./Gabriola.ttf') format('truetype');
+  src: url('./Sister Morphine.ttf') format('truetype');
 }
 body {
   font-family: 'amp';
@@ -264,7 +264,7 @@ body {
 #menu a {
   font-weight: bold;
   letter-spacing: 0.4vw;
-  color: rgb(240, 169, 25);
+  color: rgb(234, 166, 27);
   text-shadow: -0.5px 0px 0.7px rgb(47, 27, 0),
     -0.3px 0.5px 0.7px rgb(47, 27, 0), 0px 0px 1.7px rgb(100, 60, 40);
   text-decoration: none;
@@ -288,7 +288,7 @@ body {
   margin-top: -20.6vw;
   /*margin-left: 84%;*/
   z-index: 10;
-  font-size: 13pt;
+  font-size: 1.5vw;
   font-family: type;
   font-style: italic;
   color: rgb(28, 28, 23);
@@ -302,15 +302,15 @@ body {
   border-right: none;
   background: -o-linear-gradient(
     97deg,
-    rgb(255, 244, 197),
-    rgb(255, 255, 207) 3%,
-    rgb(255, 255, 227) 80%
+    rgb(255, 248, 206),
+    rgb(255, 253, 212) 5%,
+    rgb(255, 253, 232) 80%
   );
   background: linear-gradient(
     -7deg,
-    rgb(255, 244, 197),
-    rgb(255, 255, 207) 3%,
-    rgb(255, 255, 227) 80%
+    rgb(255, 248, 206),
+    rgb(255, 253, 212) 5%,
+    rgb(255, 253, 232) 80%
   );
 }
 #sidebar ul {
@@ -320,7 +320,7 @@ body {
 }
 #sidebar li {
   list-style-type: none;
-  padding: 1.4vw 0.5vw 1.6vw 0.5vw;
+  padding: 1.4vw 0 1.6vw 0;
   border-bottom: 1px solid black;
   text-align: center;
   font-weight: bold;
@@ -363,7 +363,7 @@ body {
   color: rgb(250, 0, 0);
   text-shadow: 0 0 1px black;
   letter-spacing: 0.1vw;
-  font-size: 8.5pt;
+  font-size: 1.1vw;
   border: 1px solid gray;
   border-left: none;
   border-top-right-radius: 5px;
@@ -372,7 +372,7 @@ body {
 #archives {
   text-align: left;
   line-height: 95%;
-  font-size: 14pt;
+  font-size: 1.3vw;
   letter-spacing: 0.1vw;
 }
 .break {
@@ -390,6 +390,7 @@ body {
   text-shadow: 0 0 0.1vw rgb(210, 152, 0);
 }
 #sidebar a#top {
+  font-style: italic;
   font-family: type;
   font-weight: bold;
 }
@@ -428,20 +429,56 @@ body {
   /*float: left;*/
   width: 77vw;
 }
+#latest,
+#comment-box {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+#latest p,
+#comment-title {
+  width: 20vw;
+  text-align: center;
+  padding-bottom: 15px;
+  margin: 15px 0 10px 0;
+  color: rgb(28, 28, 23);
+  text-shadow: 0 0 0.1vw rgb(210, 152, 0);
+  background: url('./images/Divider.png');
+  background-size: 100% 100%;
+  transform: scaleY(0.9);
+  -webkit-transform: scaleY(0.9);
+  -ms-transform: scaleY(0.9);
+  font-family: type;
+  letter-spacing: 0.5vw;
+  vertical-align: bottom;
+  font-size: 1.9vw;
+  font-weight: bold;
+  font-style: italic;
+  text-decoration: none;
+}
+.paged #latest {
+  display: none;
+}
 #main .hentry {
-  margin: 10px 0 35px 0;
-  padding: 7px 30px 20px 27px;
+  margin: 1vw 0 3.5vw 0;
+  padding: 0.7vw 3vw 2vw 2.7vw;
   background: -o-linear-gradient(
     72deg,
-    rgb(255, 244, 197),
-    rgb(255, 255, 207) 3%,
-    rgb(255, 255, 227) 80%
+    rgb(255, 248, 206),
+    rgb(255, 253, 212) 5%,
+    rgb(255, 253, 232) 80%
   );
   background: linear-gradient(
     18deg,
-    rgb(255, 244, 197),
-    rgb(255, 255, 207) 3%,
-    rgb(255, 255, 227) 80%
+    rgb(255, 248, 206),
+    rgb(255, 253, 212) 5%,
+    rgb(255, 253, 232) 80%
   );
   -webkit-box-shadow: -0.46px 0.38px 2px rgb(183 161 145),
     -0.4px 0.4px 4px rgb(181 160 120);
@@ -452,20 +489,20 @@ body {
   border-right: 0.5px solid rgb(226, 211, 155);
   border-radius: 3px;
 }
-#main .hentry:nth-child(even) {
+#main .hentry:nth-child(odd) {
   -webkit-transform: rotate(0.7deg);
   -ms-transform: rotate(0.7deg);
   transform: rotate(0.7deg);
 }
-#main .hentry:nth-child(odd) {
+#main .hentry:nth-child(even) {
   -webkit-transform: rotate(-0.7deg);
   -ms-transform: rotate(-0.7deg);
   transform: rotate(-0.7deg);
 }
 .post .post-wrap {
   display: inline-block;
-  font-size: 14.5pt;
-  line-height: 98%;
+  font-size: 1.4vw;
+  line-height: 125%;
   letter-spacing: 0.08vw;
 }
 #main .hentry .post-wrap {
@@ -475,24 +512,25 @@ body {
   margin: 0.4vw 0 0 0;
   width: 100%;
 }
-#main .hentry:nth-child(even) .post-wrap {
+#main .hentry:nth-child(odd) .post-wrap {
   -webkit-transform: rotate(-0.7deg);
   -ms-transform: rotate(-0.7deg);
   transform: rotate(-0.7deg);
   margin: -0.2vw 0 0 0;
 }
-#main .hentry:nth-child(even) .image-link {
+#main .hentry:nth-child(odd) .image-link {
   padding: 2vw 3vw 1vw 0;
 }
 .post .post-text {
   float: right;
+  font-style: italic;
   max-width: 70%;
   text-shadow: 0 0 0.1vw rgb(210, 152, 0);
 }
 .tags {
   margin: 3vw 0 0 4vw;
   font-size: smaller;
-  font-style: italic;
+  font-style: normal;
 }
 .tags a {
   margin-left: 0.2vw;
@@ -511,10 +549,11 @@ body {
   max-width: 75%;
 }
 .post .post-title {
-  font-size: 14pt;
+  font-size: 2.1vw;
   font-style: italic;
-  font-family: brush;
+  font-family: owner;
   font-weight: bold;
+  color: rgb(205, 0, 0);
   /*-webkit-transform: scale(1.5, 1);
    transform: scale(1.5, 1);*/
   letter-spacing: 0.4vw;
@@ -550,7 +589,7 @@ body {
 .post .date {
   max-width: 24%;
   font-size: smaller;
-  font-weight: 100;
+  font-weight: normal;
   text-align: right;
   float: right;
   margin: 0;
@@ -580,12 +619,12 @@ body {
 .post .more {
   font-style: italic;
   position: relative;
-  top: 2px;
-  font-family: owner;
-  color: rgb(205, 0, 0);
-  font-size: 14pt;
+  top: 0.2vw;
+  font-family: type;
+  font-size: 1.2vw;
   line-height: 0;
-  letter-spacing: 0.5px;
+  letter-spacing: 0.2vw;
+  text-decoration: underline;
 }
 #select {
   display: -webkit-box;
@@ -598,21 +637,27 @@ body {
   -ms-flex-align: center;
   align-items: center;
 }
+#select div {
+  background: url('./images/Divider.png');
+  background-size: 100% 100%;
+  width: 24vw;
+  text-align: center;
+  padding-bottom: 2vw;
+}
 #select a {
   font-family: type;
-  font-size: larger;
-  font-style: italic;
-}
-.comment-title {
-  text-align: center;
-  font-style: italic;
-  font-family: type;
-  font-size: 14pt;
+  font-size: 1.8vw;
   font-weight: bold;
-  color: rgb(28, 28, 23);
+  font-style: italic;
+  text-decoration: none;
   letter-spacing: 0.5vw;
-  margin: 5vw 0 3vw 0;
+  transform: scaleY(0.9);
+  -webkit-transform: scaleY(0.9);
+  -ms-transform: scaleY(0.9);
   text-shadow: 0 0 0.1vw rgb(210 152 0);
+}
+#comment-title {
+  margin-top: 0;
 }
 .comment .post-text {
   max-width: 100%;
@@ -643,49 +688,38 @@ body {
   margin: -46vw 0 0 51vw;
 }
 footer {
-  background: none;
-  clear: both;
-  height: 35px;
-  padding-bottom: 80px;
+  padding: 0 0 5vw 0;
   position: relative;
-  top: -20px;
-  left: 50px;
+  left: 5vw;
   width: 33%;
   z-index: -1;
 }
 footer p {
-  text-align: center;
-  padding-top: 3px;
-  position: absolute;
-  bottom: 20px;
+  margin: 0;
 }
 footer a {
   text-decoration: none;
   color: rgb(205, 0, 0);
-  font-size: 17pt;
+  font-size: 2.1vw;
   font-weight: bold;
   font-family: owner;
   letter-spacing: 0.5vw;
-  line-height: 30px;
 }
 footer #line2 {
   border-top: none;
   background-image: url('./images/frame.png');
   background-size: 100% 100%;
-  height: 20px;
-  width: 22vw;
-  top: 60px;
+  height: 3vw;
+  width: 23vw;
 }
 footer #angle {
   font-size: 0px;
   line-height: 0%;
   width: 0px;
-  border-top: 18px solid rgba(0, 0, 0, 0);
+  border-top: 1.8vw solid rgba(0, 0, 0, 0);
   border-right: none;
   border-bottom: none;
-  border-left: 20vw solid black;
-  position: relative;
-  top: 32.3px;
+  border-left: 23vw solid black;
 }
 
 /*************************************** TABLET VIEWS *******************************************/
@@ -869,10 +903,10 @@ footer #angle {
   .post .image-link {
     padding: 2.8vw 3vw 0.4vw 0;
   }
-  #main .hentry:nth-child(even) .post-wrap h1 {
+  #main .hentry:nth-child(odd) .post-wrap h1 {
     margin: 1.5vw 0 1.2vw 0;
   }
-  #main .hentry:nth-child(odd) .post-wrap h1 {
+  #main .hentry:nth-child(even) .post-wrap h1 {
     margin: 2.4vw 0 1.2vw 0;
   }
   .post-line {
@@ -881,7 +915,7 @@ footer #angle {
   .post .post-wrap {
     font-size: 11pt;
   }
-  #main .hentry:nth-child(even) .post-wrap {
+  #main .hentry:nth-child(odd) .post-wrap {
     margin: 0.5vw 0 0 -0.2vw;
   }
   .post .post-title,
@@ -900,22 +934,9 @@ footer #angle {
     margin: -50vw 0 0 45vw;
   }
   footer {
-    top: -10px;
-    left: 45px;
+    left: 4.5vw;
+    padding: 1vw 0 5vw 0;
     width: 40%;
-  }
-  footer a {
-    font-size: 13pt;
-    line-height: 20px;
-  }
-  footer #line2 {
-    top: 63px;
-    width: 175px;
-  }
-  footer #angle {
-    border-top: 13px solid rgba(0, 0, 0, 0);
-    border-left: 120.5px solid black;
-    top: 39px;
   }
 }
 @media screen and (max-width: 840px) {
@@ -941,9 +962,6 @@ footer #angle {
     width: 6vw;
     top: 100.3%;
   }
-  #main section {
-    margin-bottom: -4vw;
-  }
   .post .post-wrap {
     font-size: 10pt;
   }
@@ -954,22 +972,20 @@ footer #angle {
     font-size: 11pt;
   }
   .post .more {
-    font-size: 12pt;
-  }
-  footer {
-    font-size: 12pt;
+    font-size: 1.8vw;
   }
   footer a {
-    line-height: 16px;
+    font-size: 2.7vw;
+    letter-spacing: 0.2vw;
   }
   footer #line2 {
-    top: 66px;
-    width: 160px;
+    top: 6vw;
+    width: 23vw;
   }
   footer #angle {
-    border-top: 13px solid rgba(0, 0, 0, 0);
-    border-left: 113px solid black;
-    top: 42.5px;
+    border-top: 1.5vw solid rgba(0, 0, 0, 0);
+    border-left: 23.3vw solid black;
+    top: 4.3vw;
   }
 }
 
@@ -994,6 +1010,9 @@ footer #angle {
   #sidebar a {
     font-size: 2.1vw;
   }
+  #latest p {
+     font-size: 10pt;
+  }
   #main section {
     margin-bottom: -5vw;
     -webkit-box-orient: vertical;
@@ -1017,21 +1036,31 @@ footer #angle {
   .post .post-wrap {
     font-size: 9pt;
   }
+  #select{
+   margin: -1.5vw 0 1.5vw 0;
+  }
+  #select div {
+     width: 30vw;
+  }
+  #select a {
+     font-size: 10pt;
+  }
   footer {
     font-size: 10pt;
-    top: -10px;
+    padding-top: 6vw;
   }
   footer a {
     font-size: 3vw;
+    letter-spacing: 0.35vw;
   }
   footer #line2 {
     top: 71px;
     width: 138px;
   }
   footer #angle {
-    border-top: 12px solid rgba(0, 0, 0, 0);
-    border-left: 99.5px solid black;
-    top: 50.5px;
+    border-top: 2.4vw solid rgba(0, 0, 0, 0);
+    border-left: 27.5vw solid black;
+    top: 5vw;
   }
 }
 
@@ -1112,7 +1141,8 @@ footer #angle {
     border-left: 92px solid black;
     top: -26.5px;
   }
-  #select {
+  #select,
+  #latest {
     font-size: small;
   }
 }
