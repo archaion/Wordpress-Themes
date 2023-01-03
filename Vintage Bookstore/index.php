@@ -5,8 +5,7 @@
          <p>Latest</p>
       </div>
       <?php endif;
-   $posts = get_posts();
-   if (have_posts()) : foreach ($posts as $post) : ?>
+   if (have_posts()) : while (have_posts()) : the_post(); ?>
          <article <?php post_class() ?> id='post-<?php the_ID(); ?>'>
             <div class='post-wrap'>
                <div class='post-text'>
@@ -26,17 +25,20 @@
                </div>
             </div>
          </article>
-      <?php endforeach; ?>
-      <div id='select'>
-         <div>
-            <?php previous_posts_link('&laquo; Newer&nbsp;/'); ?>
-            <?php next_posts_link(' &nbsp;Older &raquo;'); ?>
+      <?php endwhile;
+      if (!empty(get_posts_nav_link())) : ?>
+         <div id='select'>
+            <div>
+               <?php previous_posts_link('&laquo; Newer&nbsp; '); ?>
+               <?php next_posts_link(' &nbsp;Older &raquo;'); ?>
+            </div>
          </div>
-      </div>
-   <?php else : ?>
+      <?php endif;
+   else : ?>
       <p>Not Found<br>
          Sorry, there's nothing here.</p>
-   <?php endif; ?>
+   <?php endif;
+   wp_reset_postdata(); ?>
 </section>
 </div>
 <?php get_footer(); ?>

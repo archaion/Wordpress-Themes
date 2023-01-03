@@ -1,12 +1,12 @@
 <?php
 /*
-Template Name: search
+Template Name: Search
 */
 get_header(); ?>
 <section>
    <?php if (have_posts()) : ?>
       <?php while (have_posts()) : the_post(); ?>
-         <article <?php post_class() ?> id='search'>
+         <article <?php post_class('search') ?>>
             <div class='post-wrap'>
                <div class='post-text'>
                   <h1><a class='post-title' href='<?php the_permalink(); ?>'><?php the_title(); ?></a></h1>
@@ -25,15 +25,20 @@ get_header(); ?>
                </div>
             </div>
          </article>
-      <?php endwhile; ?>
-      <div id='select'>
-         <?php previous_posts_link('&laquo; Newer&nbsp;/'); ?>
-         <?php next_posts_link(' &nbsp;Older &raquo;'); ?>
-      </div>
-   <?php else : ?>
+      <?php endwhile;
+      if (!empty(get_posts_nav_link())) : ?>
+         <div id='select'>
+            <div>
+               <?php previous_posts_link('&laquo; Newer&nbsp; '); ?>
+               <?php next_posts_link(' &nbsp;Older &raquo;'); ?>
+            </div>
+         </div>
+      <?php endif;
+   else : ?>
       <p>Not Found<br>
          Sorry, there's nothing here.</p>
-   <?php endif; ?>
+   <?php endif;
+   wp_reset_postdata(); ?>
 </section>
 </div>
 <?php get_footer();

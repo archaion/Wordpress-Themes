@@ -443,13 +443,15 @@ body {
 }
 #latest p,
 #comment-title {
-  width: 20vw;
+  width: 30vw;
+  line-height: 150%;
+  height: 3vw;
   text-align: center;
-  padding-bottom: 15px;
-  margin: 15px 0 10px 0;
+  padding-bottom: 2vw;
+  margin: 2vw 0 1vw 0;
   color: rgb(28, 28, 23);
   text-shadow: 0 0 0.1vw rgb(210, 152, 0);
-  background: url('./images/Divider.png');
+  background: url('./images/Divider.svg');
   background-size: 100% 100%;
   transform: scaleY(0.9);
   -webkit-transform: scaleY(0.9);
@@ -465,7 +467,8 @@ body {
 .paged #latest {
   display: none;
 }
-#main .hentry {
+#main .hentry,
+#login-box {
   margin: 1vw 0 3.5vw 0;
   padding: 0.7vw 3vw 2vw 2.7vw;
   background: -o-linear-gradient(
@@ -548,7 +551,9 @@ body {
 .post-wrap h1 {
   max-width: 75%;
 }
-.post .post-title {
+.post .post-title,
+#contact h1,
+#browse h1 {
   font-size: 2.1vw;
   font-style: italic;
   font-family: owner;
@@ -559,15 +564,6 @@ body {
   letter-spacing: 0.4vw;
   float: left;
   margin-bottom: 0.5vw;
-}
-#contact h1,
-#browse h1,
-#search h1 {
-  font-size: 14pt;
-  font-family: type;
-  font-weight: 100;
-  letter-spacing: 0.2vw;
-  margin: 1.6vw 0 1.2vw 0;
 }
 #list {
   color: rgb(28, 28, 23);
@@ -587,19 +583,26 @@ body {
   font-weight: bold;
 }
 .post .date {
-  max-width: 24%;
+  max-width: 25%;
   font-size: smaller;
   font-weight: normal;
   text-align: right;
   float: right;
   margin: 0;
+  line-height: 90%;
 }
 .post-line {
   width: 30vw;
   margin-right: 21vw;
   border-bottom: 3px dotted grey;
   text-shadow: none;
-  clear: both;
+  clear: left;
+}
+#browse .post-wrap {
+  display: inline-block;
+}
+#browse .post-line {
+  clear: left;
 }
 .post .image-link {
   width: 25%;
@@ -638,9 +641,11 @@ body {
   align-items: center;
 }
 #select div {
-  background: url('./images/Divider.png');
+  background: url('./images/Divider.svg');
+  line-height: 200%;
+  height: 3vw;
   background-size: 100% 100%;
-  width: 24vw;
+  width: 30vw;
   text-align: center;
   padding-bottom: 2vw;
 }
@@ -677,6 +682,40 @@ body {
   font-style: normal;
   float: none;
 }
+#login-box {
+  max-width: 60%;
+  margin: 0 auto;
+  padding: 2vw 1vw 0.5vw 1vw;
+  font-size: 1.5vw;
+  text-align: center;
+  color: rgb(28, 28, 23);
+  text-shadow: 0 0 0.1vw rgb(205, 147, 0);
+}
+#login-box li {
+  list-style: none;
+  display: inline;
+}
+#login-box li a {
+  color: rgb(28, 28, 23);
+  font-weight: bold;
+  font-family: type;
+  font-style: italic;
+  margin: 0 8px 0 5px;
+  letter-spacing: 0.2vw;
+}
+.login-username,
+.login-password {
+  width: auto;
+  display: inline-block;
+  margin: 15px 0 0 0;
+}
+.login-username {
+  margin-right: 1vw;
+}
+#wp-submit {
+   border: 1px solid grey;
+   border-radius: 5px;
+}
 #corner {
   position: relative;
   z-index: -10;
@@ -688,7 +727,7 @@ body {
   margin: -46vw 0 0 51vw;
 }
 footer {
-  padding: 0 0 5vw 0;
+  padding: 0 0 4vw 0;
   position: relative;
   left: 5vw;
   width: 33%;
@@ -912,7 +951,8 @@ footer #angle {
   .post-line {
     margin-right: 14vw;
   }
-  .post .post-wrap {
+  .post .post-wrap,
+  #login-box {
     font-size: 11pt;
   }
   #main .hentry:nth-child(odd) .post-wrap {
@@ -920,8 +960,7 @@ footer #angle {
   }
   .post .post-title,
   #contact h1,
-  #browse h1,
-  #search h1 {
+  #browse h1 {
     font-size: 12pt;
   }
   #list {
@@ -933,9 +972,12 @@ footer #angle {
     width: 50vw;
     margin: -50vw 0 0 45vw;
   }
+  #select div {
+    line-height: 100%;
+  }
   footer {
     left: 4.5vw;
-    padding: 1vw 0 5vw 0;
+    padding: 1.5vw 0 4.5vw 0;
     width: 40%;
   }
 }
@@ -962,13 +1004,13 @@ footer #angle {
     width: 6vw;
     top: 100.3%;
   }
-  .post .post-wrap {
+  .post .post-wrap,
+  #login-box {
     font-size: 10pt;
   }
   .post .post-title,
   #contact h1,
-  #browse h1,
-  #search h1 {
+  #browse h1 {
     font-size: 11pt;
   }
   .post .more {
@@ -1010,8 +1052,11 @@ footer #angle {
   #sidebar a {
     font-size: 2.1vw;
   }
-  #latest p {
-     font-size: 10pt;
+  #latest p, 
+  #comment-title {
+    height: 6vw;
+    font-size: 10pt;
+    margin: 2vw 0 0 0;
   }
   #main section {
     margin-bottom: -5vw;
@@ -1033,17 +1078,22 @@ footer #angle {
     width: 60%;
     margin-right: 0vw;
   }
-  .post .post-wrap {
+  .post .post-wrap,
+  #login-box {
     font-size: 9pt;
   }
-  #select{
-   margin: -1.5vw 0 1.5vw 0;
-  }
-  #select div {
-     width: 30vw;
+  #select {
+    margin: -1.5vw 0 1.5vw 0;
   }
   #select a {
-     font-size: 10pt;
+    font-size: 10pt;
+  }
+  .comment .tags,
+  .comment .date {
+   font-size: 8pt;
+  }
+  #login-box {
+    max-width: 100%;
   }
   footer {
     font-size: 10pt;
@@ -1091,45 +1141,56 @@ footer #angle {
   #sidebar {
     width: 18vw;
   }
+  #sidebar a,
+  #sidebar span {
+    font-size: 2.6vw;
+  }
+  #submit {
+    font-size: 2.2vw;
+  }
+  #archives {
+    line-height: 250%;
+  }
   #corner2 {
     top: -3.55vw;
   }
   #corner3 {
     top: 100.5%;
   }
+  #latest p {
+    margin: 3vw 0 0 0;
+    font-size: 8pt;
+  }
   #main section {
-    margin-bottom: 9vw;
+    margin-bottom: 3vw;
   }
   #main .hentry {
     font-size: 3.5vw;
     padding: 0vw 6vw 2.5vw 5.5vw;
     margin: 10px 0 20px 0;
   }
-  .post .post-wrap {
-    font-size: 7pt;
+  .post .post-wrap,
+  #login-box {
+    font-size: 3vw;
   }
   .post .image-link {
     padding: 5vw 4vw 3vw 0;
   }
   .post .post-title,
   #contact h1,
-  #browse h1,
-  #search h1 {
+  #browse h1 {
     font-size: 4vw;
+  }
+  #login-box {
+    font-size: 3.5vw;
+    padding: 4vw 3vw 0 3vw;
   }
   footer {
-    padding-bottom: 0vw;
+    padding-top: 0vw;
     top: 0vw;
-    left: 7vw;
-  }
-  footer p {
-    padding-top: 0.7vw;
-    font-size: 4vw;
-    top: -8vw;
-    border-top: none;
   }
   footer a {
-    font-size: 3.3vw;
+    font-size: 3.8vw;
   }
   footer #line2 {
     top: -2vw;
@@ -1137,9 +1198,19 @@ footer #angle {
     height: 3.5vw;
   }
   footer #angle {
-    border-top: 11px solid rgba(0, 0, 0, 0);
-    border-left: 92px solid black;
-    top: -26.5px;
+    border-top: 2vw solid rgba(0, 0, 0, 0);
+    border-left: 32vw solid black;
+  }
+  #select {
+    margin: initial;
+  }
+  #select a {
+    font-size: 8pt;
+  }
+  #select div,
+  #latest p {
+    width: 40vw;
+    height: 6vw;
   }
   #select,
   #latest {
@@ -1150,8 +1221,8 @@ footer #angle {
   footer #line2 {
     top: -2vw;
   }
-  footer #angle {
-    top: -24.5px;
-    border-left: 77px solid black;
+  footer a {
+    position: relative;
+    top: -0.7vw;
   }
 }

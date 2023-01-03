@@ -20,17 +20,19 @@
          </article>
       <?php endwhile;
       if (get_comments(array('post_id' => get_the_ID()))) comments_template();
-      if (is_user_logged_in()) {
+      if (is_user_logged_in()) :
          comment_form();
-      } else {
-         echo "Must be logged in to comment.";
-         wp_login_form();
-         wp_register();
-      }
+      else : ?>
+         <div id='login-box'>
+            Log in or <?php wp_register(); ?> to comment:
+            <?php wp_login_form(array('label_username' => 'Username ', 'remember' => false)); ?>
+         </div>
+      <?php endif;
    else : ?>
       <p>Not Found<br>
          Sorry, there's nothing here.</p>
-   <?php endif; ?>
+   <?php endif;
+   wp_reset_postdata(); ?>
 </section>
 </div>
 <?php get_footer(); ?>

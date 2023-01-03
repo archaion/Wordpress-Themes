@@ -9,7 +9,6 @@ get_header(); ?>
             <div class='post-wrap'>
                <div class='post-text'>
                   <h1><a class='post-title' href='<?php the_permalink(); ?>'><?php the_title(); ?></a></h1>
-                  <p class='date'><?php the_date(); ?></p>
                   <p class='post-line'></p>
                   <?php the_content(); ?>
                   <div class='tags'><?php the_tags('TAGS: '); ?></div>
@@ -21,17 +20,13 @@ get_header(); ?>
                </div>
             </div>
          </article>
-      <?php endforeach; ?>
-      <div id='select'>
-         <div>
-            <?php previous_posts_link('&laquo; Newer&nbsp;/'); ?>
-            <?php next_posts_link(' &nbsp;Older &raquo;'); ?>
-         </div>
-      </div>
-   <?php else : ?>
+         <br><br><br>
+      <?php endforeach;
+   else : ?>
       <p>Not Found<br>
          Sorry, there's nothing here.</p>
-   <?php endif; ?>
+   <?php endif;
+   wp_reset_postdata(); ?>
 </section>
 </div>
 <?php get_footer(); ?>

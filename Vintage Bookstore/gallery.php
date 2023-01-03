@@ -3,8 +3,17 @@ Template Name: Gallery
 */
 get_header(); ?>
 <section>
-   <?php $posts = get_posts('category_name=gallery');
-   if (have_posts()) : foreach ($posts as $post) : ?>
+   <?php global $post;
+   $posts = new WP_Query(array(
+      'category_name' => 'gallery',
+      'paged' => get_query_var('paged') ? get_query_var('paged') : 1,
+      'posts_per_page' => 7
+   ));
+   $save = $wp_query;
+   $wp_query = null;
+   $wp_query = $posts;
+   if ($posts->have_posts()) :
+      while ($posts->have_posts()) : $posts->the_post() ?>
          <article <?php post_class() ?> id='gallery'>
             <div class='post-wrap'>
                <div class='post-text'>
@@ -24,17 +33,22 @@ get_header(); ?>
                </div>
             </div>
          </article>
-      <?php endforeach; ?>
-      <div id='select'>
-         <div>
-            <?php previous_posts_link('&laquo; Newer&nbsp;/'); ?>
-            <?php next_posts_link(' &nbsp;Older &raquo;'); ?>
+      <?php endwhile;
+      if (get_query_var('paged')) : ?>
+         <div id='select'>
+            <div>
+               <?php previous_posts_link('&laquo; Newer&nbsp; '); ?>
+               <?php next_posts_link(' &nbsp;Older &raquo;'); ?>
+            </div>
          </div>
-      </div>
-   <?php else : ?>
+      <?php endif;
+   else : ?>
       <p>Not Found<br>
          Sorry, there's nothing here.</p>
-   <?php endif; ?>
+   <?php endif;
+   $wp_query = null;
+   $wp_query = $save;
+   wp_reset_postdata(); ?>
 </section>
 </div>
 <?php get_footer();

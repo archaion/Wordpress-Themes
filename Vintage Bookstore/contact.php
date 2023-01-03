@@ -20,11 +20,13 @@ get_header(); ?>
                </div>
             </div>
          </article>
-      <?php endforeach; ?>
-   <?php else : ?>
+         <br><br><br>
+      <?php endforeach;
+   else : ?>
       <p>Not Found<br>
          Sorry, there's nothing here.</p>
-   <?php endif; ?>
+   <?php endif;
+   wp_reset_postdata(); ?>
 </section>
 </div>
 <?php get_footer(); ?>
