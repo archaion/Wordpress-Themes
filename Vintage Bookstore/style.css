@@ -639,6 +639,7 @@ body {
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
+  margin-top: -10px;
 }
 #select div {
   background: url('./images/Divider.svg');
@@ -973,7 +974,8 @@ footer #angle {
     margin: -50vw 0 0 45vw;
   }
   #select div {
-    line-height: 100%;
+    line-height: 150%;
+    height: 6vw;
   }
   footer {
     left: 4.5vw;
@@ -1210,7 +1212,6 @@ footer #angle {
   #select div,
   #latest p {
     width: 40vw;
-    height: 6vw;
   }
   #select,
   #latest {
